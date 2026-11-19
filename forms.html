@@ -42,72 +42,103 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:#fff}
 .note a{color:inherit}
 fieldset{border:0;padding:0;min-width:0}
 
-/* фото */
 .ph{position:relative;overflow:hidden;background:#111}
 .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-/* 1 */
-.a1{position:relative;display:grid;place-items:center;min-height:min(84vh,760px);padding:clamp(48px,7vw,96px) 20px}
-.a1 .ph{position:absolute;inset:0}.a1 .ph::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.62)}
-.a{position:relative;width:100%;max-width:520px;text-align:center}
-.a .lead{margin-left:auto;margin-right:auto;color:rgba(255,255,255,.8)}
-.a form{display:grid;gap:28px;margin-top:44px;text-align:left}
-.a label{color:rgba(255,255,255,.8)}.a input{border-color:rgba(255,255,255,.5)}
-.a .btn{width:100%}.a .note{text-align:center;color:rgba(255,255,255,.75)}
-/* 2 */
-.sp{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border:1px solid var(--line)}
-.sp .ph{min-height:680px}
-.sp__f{padding:clamp(28px,4.5vw,72px);align-self:center}
-.sp form{margin-top:40px}.sp .btn{width:100%;margin-top:36px}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:28px clamp(20px,3vw,40px)}
-.two .full{grid-column:1/-1}
-/* 3 */
-.hd{display:flex;flex-wrap:wrap;gap:16px 48px;align-items:flex-end;justify-content:space-between}
-.hd .lead{margin:0 0 8px;max-width:34ch}
-.tiles{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-top:40px}
-.tiles label{position:relative;display:block;aspect-ratio:3/4;overflow:hidden;color:#fff;cursor:pointer;background:#111}
-.tiles input{position:absolute;inset:0;width:100%;height:100%;min-height:0;padding:0;border:0;opacity:0;cursor:pointer;z-index:2}
-.tiles img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.55);transition:filter .3s ease,transform .6s cubic-bezier(.16,1,.3,1)}
-.tiles label:hover img{filter:brightness(.8)}
-.tiles input:checked~img{filter:none;transform:scale(1.04)}
-.tiles b{position:absolute;left:0;right:0;bottom:0;padding:48px 16px 16px;background:linear-gradient(transparent,rgba(0,0,0,.85));font:500 13px/1.3 var(--sans);letter-spacing:.08em}
-.tiles b i{display:block;margin-top:4px;font:400 13px/1.3 var(--sans);letter-spacing:0;text-transform:none;color:rgba(255,255,255,.75)}
-.tiles label::after{content:"";position:absolute;inset:0;border:1px solid transparent;pointer-events:none;transition:border-color .2s ease}
-.tiles label:has(input:checked)::after{border-color:#fff}
-.tiles label:has(input:focus-visible)::after{border:2px solid #fff}
-.b__row{display:grid;grid-template-columns:.8fr 1fr 1.25fr auto;margin-top:10px;border:1px solid var(--line)}
-.b__row.b5{grid-template-columns:1.25fr .8fr 1fr 1.25fr auto}
+.b__row{display:grid;grid-template-columns:1fr 1.25fr auto;border:1px solid var(--line);background:rgba(0,0,0,.5);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
 .b__row>div{padding:16px 20px 8px;border-right:1px solid var(--line)}
 .b__row input,.b__row select{border:0;min-height:44px;padding:6px 0}
-.b__row select{padding-right:24px}
 .b__row .btn{min-height:100%;border:0}
-/* 4 */
+.hint{margin-top:14px;font:500 13px/1.3 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+/* 1 свет */
+.sl{position:relative;overflow:hidden;display:grid;place-items:center;min-height:min(84vh,760px);padding:clamp(48px,7vw,96px) 20px;background:#000;cursor:crosshair}
+.sl>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sl__d{position:absolute;inset:0;background:radial-gradient(circle min(46vw,420px) at var(--x,50%) var(--y,42%),rgba(0,0,0,.1) 0,rgba(0,0,0,.5) 45%,rgba(0,0,0,.94) 100%)}
+.a{position:relative;width:100%;max-width:500px;text-align:center;text-shadow:0 1px 18px rgba(0,0,0,.7)}
+.a .lead{margin-left:auto;margin-right:auto;color:rgba(255,255,255,.85)}
+.a form{display:grid;gap:28px;margin-top:44px;text-align:left}
+.a label{color:rgba(255,255,255,.85)}.a input{border-color:rgba(255,255,255,.55)}
+.a .btn{width:100%;text-shadow:none}.a .note{text-align:center;color:rgba(255,255,255,.75)}
+/* 2 событие меняет зал */
+.ch{position:relative;overflow:hidden;min-height:min(86vh,780px);display:flex;flex-direction:column;justify-content:space-between;gap:48px;padding:clamp(24px,4vw,56px);background:#000}
+.ch__bg{position:absolute;inset:0}
+.ch__bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.14);transition:opacity 1.1s ease,transform 7s cubic-bezier(.16,1,.3,1)}
+.ch__bg img.on{opacity:1;transform:none}
+.ch__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.85),rgba(0,0,0,.3) 62%,rgba(0,0,0,.5))}
+.ch>div:not(.ch__bg),.ch>form{position:relative}
+.evl{display:grid;gap:2px;margin-top:28px;border:0}
+.evl label{position:relative;display:flex;align-items:baseline;gap:18px;width:max-content;max-width:100%;font:300 clamp(1.9rem,3.8vw,3.4rem)/1.2 var(--serif);letter-spacing:-.01em;text-transform:none;color:#fff;opacity:.5;cursor:pointer;transition:opacity .3s ease,transform .6s cubic-bezier(.16,1,.3,1)}
+.evl label:hover{opacity:.9}
+.evl label:has(input:checked){opacity:1;font-style:italic;transform:translateX(18px)}
+.evl label:has(input:focus-visible){outline:2px solid #fff;outline-offset:4px}
+.evl input{position:absolute;opacity:0;width:1px;height:1px;min-height:0;padding:0}
+.evl i{font:500 13px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;font-style:normal;opacity:0;transition:opacity .4s ease}
+.evl label:has(input:checked) i{opacity:.85}
+/* 3 занавес */
+.cu{position:relative;overflow:hidden;display:grid;place-items:center;min-height:min(82vh,740px);padding:clamp(48px,6vw,88px) 9%;background:#000}
+.cu>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cu::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.62)}
+.cu__c{position:absolute;top:0;bottom:0;width:51%;z-index:3;background:linear-gradient(180deg,rgba(0,0,0,.6),rgba(0,0,0,0) 20%,rgba(0,0,0,0) 72%,rgba(0,0,0,.65)),repeating-linear-gradient(90deg,#2c0004 0,#7d0712 20px,#b01020 33px,#74050f 54px,#3a0006 70px,#2c0004 84px);transition:transform 2.4s cubic-bezier(.76,0,.24,1)}
+.cu__c.l{left:0;box-shadow:12px 0 40px rgba(0,0,0,.6)}.cu__c.r{right:0;box-shadow:-12px 0 40px rgba(0,0,0,.6)}
+.cu.open .cu__c.l{transform:translateX(-90%)}.cu.open .cu__c.r{transform:translateX(90%)}
+.cu__f{position:relative;z-index:2;width:100%;max-width:640px;text-align:center;opacity:0;transform:translateY(24px) scale(.97);transition:opacity 1.2s ease 1s,transform 1.6s cubic-bezier(.16,1,.3,1) 1s}
+.cu.open .cu__f{opacity:1;transform:none}
+.cu__f form{margin-top:36px;text-align:left}
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;border:0}
+.chips label{position:relative;color:#fff;letter-spacing:.06em}
+.chips input{position:absolute;inset:0;width:100%;height:100%;min-height:0;padding:0;opacity:0;cursor:pointer}
+.chips span{display:flex;align-items:center;min-height:48px;padding:0 18px;border:1px solid rgba(255,255,255,.5);background:rgba(0,0,0,.35);transition:background-color .2s ease,color .2s ease}
+.chips input:hover+span{border-color:#fff}
+.chips input:checked+span{background:#fff;color:#000;border-color:#fff}
+.chips input:focus-visible+span{outline:2px solid #fff;outline-offset:3px}
+.cu .b__row{grid-template-columns:1fr auto;margin-top:24px}
+.re{margin-top:18px;background:none;border:0;border-bottom:1px solid var(--line);padding:6px 0;color:var(--muted);font:500 13px/1.3 var(--sans);letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.re:hover{color:#fff;border-color:#fff}
+/* 4 фраза */
 .d{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(32px,6vw,96px);align-items:center}
-.d p.s{margin-top:40px;font:300 clamp(1.7rem,3vw,2.75rem)/1.6 var(--serif)}
-.d .s label{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
-.d .s input,.d .s select{display:inline-block;width:auto;min-height:0;padding:0 2px 2px;font:italic 300 1em/1.2 var(--serif);vertical-align:baseline}
-.d .s select{padding-right:22px;background-position:right 2px center}
-.d .s .w4{width:3.2ch;text-align:center}.d .s .w10{width:7.4em}.d .s .w12{width:9.4em}.d .s .wd{width:7.6em}
-.d .btn{margin-top:40px}
-.col{position:relative;padding:0 0 12% 18%}
-.col .ph{aspect-ratio:4/5}
-.col .ph+.ph{position:absolute;left:0;bottom:0;width:46%;aspect-ratio:3/4;border:8px solid #000}
-/* 5 */
-.bn{position:relative;aspect-ratio:1600/553;min-height:300px;width:100%}
-.bn::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.72),rgba(0,0,0,.1) 70%)}
-.bn__t{position:absolute;z-index:1;left:clamp(20px,3.4vw,48px);bottom:clamp(20px,3.4vw,44px);right:20px}
-.bn__t .lead{color:rgba(255,255,255,.82)}
-.e .b__row{margin-top:0;border-top:0}
+.d p.s{margin-top:36px;font:300 clamp(2rem,4.2vw,3.9rem)/1.32 var(--serif);letter-spacing:-.01em}
+.roll{display:inline-block;overflow:hidden;vertical-align:bottom;padding:0 6px 2px;background:none;border:0;border-bottom:1px solid rgba(255,255,255,.55);color:#fff;font:italic 300 1em/1.2 var(--serif);cursor:pointer;transition:border-color .2s ease}
+.roll:hover{border-color:#ff2936}
+.roll span{display:inline-block;transition:transform .3s cubic-bezier(.5,0,.2,1),opacity .3s ease}
+.roll.out span{transform:translateY(-75%);opacity:0}
+.roll.pre span{transform:translateY(75%);opacity:0;transition:none}
+.ln{display:flex;gap:20px;align-items:flex-end;margin-top:44px;max-width:640px}
+.ln>div{flex:1}
+.sw{position:relative;aspect-ratio:4/5;overflow:hidden;background:#111}
+.sw img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.12);transition:opacity .9s ease,transform 5s cubic-bezier(.16,1,.3,1)}
+.sw img.on{opacity:1;transform:none}
+/* 5 карты */
+#v5{position:relative;overflow:hidden}
+.am{position:absolute;inset:-12% -6%;filter:blur(80px) saturate(1.3);opacity:.3;pointer-events:none}
+.am img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease}
+.am img.on{opacity:1}
+#v5 .wrap{position:relative}
+.hd{display:flex;flex-wrap:wrap;gap:16px 48px;align-items:flex-end;justify-content:space-between}
+.hd .lead{margin:0 0 8px;max-width:34ch}
+.cards{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin:56px 0 28px;perspective:1300px;border:0}
+.cards label{position:relative;display:block;aspect-ratio:3/4;color:#fff;cursor:pointer}
+.cards input{position:absolute;inset:0;width:100%;height:100%;min-height:0;padding:0;border:0;opacity:0;cursor:pointer;z-index:2}
+.card{position:absolute;inset:0;overflow:hidden;background:#111;filter:brightness(.55);transform:translateY(var(--ty,0)) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .6s cubic-bezier(.16,1,.3,1),filter .4s ease,box-shadow .5s ease}
+.cards label:hover .card{filter:brightness(.92)}
+.cards label.tilt .card{transition:transform .09s linear,filter .4s ease,box-shadow .5s ease}
+.cards label:has(input:checked) .card{--ty:-18px;filter:none;box-shadow:0 34px 70px -24px rgba(255,41,54,.55),0 0 0 1px #fff}
+.cards label:has(input:focus-visible) .card{box-shadow:0 0 0 2px #fff}
+.card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.card::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at var(--gx,50%) var(--gy,0%),rgba(255,255,255,.3),rgba(255,255,255,0) 55%);opacity:0;transition:opacity .3s ease}
+.cards label.tilt .card::after{opacity:1}
+.card b{position:absolute;left:0;right:0;bottom:0;padding:48px 16px 16px;background:linear-gradient(transparent,rgba(0,0,0,.88));font:500 13px/1.3 var(--sans);letter-spacing:.08em;text-transform:uppercase}
+.card b i{display:block;margin-top:4px;font:400 13px/1.3 var(--sans);letter-spacing:0;text-transform:none;font-style:normal;color:rgba(255,255,255,.75)}
 
 @media (max-width:900px){
-  .a1{min-height:0}
-  .sp{grid-template-columns:minmax(0,1fr)}.sp .ph{min-height:0;aspect-ratio:4/3}
-  .two{grid-template-columns:1fr}
-  .tiles{grid-template-columns:1fr 1fr}.tiles label{aspect-ratio:1/1}.tiles label:last-child{grid-column:1/-1;aspect-ratio:2.4/1}
-  .b__row,.b__row.b5{grid-template-columns:1fr}.b__row>div{border-right:0;border-bottom:1px solid var(--line)}.b__row .btn{min-height:60px}
-  .d{grid-template-columns:minmax(0,1fr)}.d p.s{line-height:1.75}.col{order:-1;padding:0 0 10% 14%}.col .ph{aspect-ratio:4/3}.col .ph+.ph{width:40%;aspect-ratio:1/1;border-width:6px}
-  .bn{aspect-ratio:auto;min-height:360px}.bn::after{background:linear-gradient(0deg,rgba(0,0,0,.85),rgba(0,0,0,.15) 75%)}
+  .sl{min-height:0;cursor:default}
+  .b__row,.cu .b__row{grid-template-columns:1fr}.b__row>div{border-right:0;border-bottom:1px solid var(--line)}.b__row .btn{min-height:60px}
+  .ch{min-height:0}.ch__bg::after{background:rgba(0,0,0,.6)}.evl label:has(input:checked){transform:translateX(10px)}.evl i{display:none}
+  .cu{min-height:0;padding-left:11%;padding-right:11%}.cu__c.l{box-shadow:6px 0 14px rgba(0,0,0,.6)}.cu__c.r{box-shadow:-6px 0 14px rgba(0,0,0,.6)}.cu.open .cu__c.l{transform:translateX(-93%)}.cu.open .cu__c.r{transform:translateX(93%)}
+  .d{grid-template-columns:minmax(0,1fr)}.sw{order:-1;aspect-ratio:4/3}.ln{flex-direction:column;align-items:stretch}
+  .cards{grid-template-columns:1fr 1fr;margin-top:36px}.cards label{aspect-ratio:1/1}.cards label:last-child{grid-column:1/-1;aspect-ratio:2.4/1}
+  .cards label:has(input:checked) .card{--ty:-8px}
   .btn{width:100%}
 }
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms!important;animation:none!important}}
 </style>
 </head>
 <body>
@@ -122,9 +153,10 @@ fieldset{border:0;padding:0;min-width:0}
 </div></div>
 
 <section class="v" id="v1"><div class="wrap">
-  <p class="tag">Вариант 1. Афиша<span>Форма поверх фотографии зала. Два поля: имя и телефон, остальное менеджер уточняет по звонку.</span></p>
-  <div class="a1">
-    <div class="ph"><img src="hero.webp" alt="" width="1680" height="1120"></div>
+  <p class="tag">Вариант 1. Свет рампы<span>Зал в темноте, луч света идёт за курсором и высвечивает его. На телефоне луч плавает сам. В форме два поля.</span></p>
+  <div class="sl" id="sl">
+    <img src="hero.webp" alt="" width="1680" height="1120">
+    <div class="sl__d"></div>
     <div class="a">
       <h2>Забронируйте <em>дату</em></h2>
       <p class="lead">Оставьте телефон. Менеджер перезвонит, подтвердит дату и предложит рассадку.</p>
@@ -139,92 +171,122 @@ fieldset{border:0;padding:0;min-width:0}
 </div></section>
 
 <section class="v" id="v2"><div class="wrap">
-  <p class="tag">Вариант 2. Фото и анкета<span>Слева большая фотография, справа пять обычных полей. Спокойный журнальный разворот.</span></p>
-  <div class="sp">
-    <div class="ph"><img src="pour.webp" alt="Шампанское наливают в бокалы на банкете в Well Well" width="1200" height="1800" loading="lazy"></div>
-    <div class="sp__f">
+  <p class="tag">Вариант 2. Событие меняет зал<span>Наводите на событие, и весь блок перетекает в его фотографию с медленным наездом. Ниже дата, телефон и кнопка.</span></p>
+  <form class="ch" id="ch">
+    <div class="ch__bg"><img class=on src="hero.webp" alt="" loading="lazy"><img src="f-wide.webp" alt="" loading="lazy"><img src="stage.webp" alt="" loading="lazy"><img src="karaoke2.webp" alt="" loading="lazy"><img src="g-002.webp" alt="" loading="lazy"></div>
+    <div>
       <h2>Забронируйте <em>дату</em></h2>
-      <p class="lead">Менеджер перезвонит, подтвердит дату и предложит рассадку.</p>
-      <form>
-        <div class="two">
-          <div class="full"><label for="s1">Событие</label><select id="s1" name="event"><option>Банкет</option><option>Фуршет</option><option>Музыкальный вечер</option><option>Караоке</option><option>Другое</option></select></div>
-          <div><label for="s2">Дата</label><input id="s2" name="date" type="date"></div>
-          <div><label for="s3">Гостей</label><input id="s3" name="guests" type="number" inputmode="numeric" min="1" max="100" placeholder="40"></div>
-          <div><label for="s4">Имя</label><input id="s4" name="name" autocomplete="name"></div>
-          <div><label for="s5">Телефон</label><input id="s5" name="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00"></div>
-        </div>
-        <button class="btn" type="submit">Забронировать площадку</button>
-        <p class="note">Нажимая кнопку, вы соглашаетесь с <a href="https://testshrift-ilg.tilda.ws/privacy">политикой конфиденциальности</a>.</p>
-      </form>
+      <fieldset class="evl"><legend class="hint">Какое событие планируете</legend>
+        <label><input type="radio" name="ev2" value="Банкет" checked>Банкет<i>до 100 персон</i></label><label><input type="radio" name="ev2" value="Фуршет">Фуршет<i>до 100 персон</i></label><label><input type="radio" name="ev2" value="Музыкальный вечер">Музыкальный вечер<i>до 100 персон</i></label><label><input type="radio" name="ev2" value="Караоке">Караоке<i>до 30 персон</i></label><label><input type="radio" name="ev2" value="Другое">Другое<i>обсудим формат</i></label>
+      </fieldset>
     </div>
-  </div>
+    <div class="b__row">
+      <div><label for="c1">Дата</label><input id="c1" name="date" type="date"></div>
+      <div><label for="c2">Телефон</label><input id="c2" name="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00"></div>
+      <button class="btn" type="submit">Забронировать</button>
+    </div>
+  </form>
+  <p class="note">Менеджер перезвонит, подтвердит дату и предложит рассадку. Нажимая кнопку, вы соглашаетесь с <a href="https://testshrift-ilg.tilda.ws/privacy">политикой конфиденциальности</a>.</p>
 </div></section>
 
 <section class="v" id="v3"><div class="wrap">
-  <p class="tag">Вариант 3. Пять событий<span>Событие выбирается фотографией, под ней одна строка: гости, дата, телефон. Без календаря, ползунка и боковой сводки.</span></p>
-  <div class="hd"><h2>Забронируйте <em>дату</em></h2><p class="lead">Менеджер перезвонит, подтвердит дату и предложит рассадку.</p></div>
-  <form>
-    <div class="tiles" role="radiogroup" aria-label="Событие">
-      <label><input type="radio" name="t-ev" checked><img src="tables.webp" alt="" loading="lazy"><b>Банкет<i>до 100 персон</i></b></label>
-      <label><input type="radio" name="t-ev"><img src="g-031.webp" alt="" loading="lazy"><b>Фуршет<i>до 100 персон</i></b></label>
-      <label><input type="radio" name="t-ev"><img src="stage.webp" alt="" loading="lazy"><b>Музыкальный вечер<i>до 100 персон</i></b></label>
-      <label><input type="radio" name="t-ev"><img src="karaoke2.webp" alt="" loading="lazy"><b>Караоке<i>до 30 персон</i></b></label>
-      <label><input type="radio" name="t-ev"><img src="sign.webp" alt="" loading="lazy"><b>Другое<i>обсудим формат</i></b></label>
+  <p class="tag">Вариант 3. Занавес<span>Когда гость доходит до блока, красный занавес расходится и открывает форму на сцене. Событие выбирается кнопкой, дальше только телефон.</span></p>
+  <div class="cu" id="cu">
+    <img src="stage.webp" alt="" loading="lazy">
+    <div class="cu__c l"></div><div class="cu__c r"></div>
+    <div class="cu__f">
+      <h2>Забронируйте <em>дату</em></h2>
+      <p class="lead" style="margin-left:auto;margin-right:auto;color:rgba(255,255,255,.85)">Менеджер перезвонит, подтвердит дату и предложит рассадку.</p>
+      <form>
+        <fieldset class="chips"><legend style="position:absolute;width:1px;height:1px;overflow:hidden">Событие</legend>
+          <label><input type="radio" name="ev3" checked><span>Банкет</span></label><label><input type="radio" name="ev3"><span>Фуршет</span></label><label><input type="radio" name="ev3"><span>Музыкальный вечер</span></label><label><input type="radio" name="ev3"><span>Караоке</span></label><label><input type="radio" name="ev3"><span>Другое</span></label>
+        </fieldset>
+        <div class="b__row">
+          <div><label for="u1">Телефон</label><input id="u1" name="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00"></div>
+          <button class="btn" type="submit">Забронировать</button>
+        </div>
+      </form>
+      <p class="note" style="color:rgba(255,255,255,.75)">Нажимая кнопку, вы соглашаетесь с <a href="https://testshrift-ilg.tilda.ws/privacy">политикой конфиденциальности</a>.</p>
     </div>
+  </div>
+  <button class="re" type="button" id="re">Показать занавес ещё раз</button>
+</div></section>
+
+<section class="v" id="v4"><div class="wrap">
+  <p class="tag">Вариант 4. Живая фраза<span>Заявка — одно предложение. Нажимаете на подчёркнутое слово, оно прокручивается на следующее, а фотография рядом меняется вместе с ним.</span></p>
+  <div class="d">
+    <form>
+      <h2>Забронируйте <em>дату</em></h2>
+      <p class="s">Планируем <button class="roll" type="button" id="r1" aria-label="Событие, нажмите, чтобы сменить"><span>банкет</span></button> на&nbsp;<button class="roll" type="button" id="r2" aria-label="Число гостей, нажмите, чтобы сменить"><span>40</span></button> гостей.</p>
+      <p class="hint">Нажмите на подчёркнутое слово</p>
+      <div class="ln">
+        <div><label for="d5">Телефон</label><input id="d5" name="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00"></div>
+        <button class="btn" type="submit">Забронировать</button>
+      </div>
+      <p class="note">Менеджер перезвонит и подтвердит дату. Нажимая кнопку, вы соглашаетесь с <a href="https://testshrift-ilg.tilda.ws/privacy">политикой конфиденциальности</a>.</p>
+    </form>
+    <div class="sw" id="sw"><img class=on src="hero.webp" alt="" loading="lazy"><img src="f-wide.webp" alt="" loading="lazy"><img src="stage.webp" alt="" loading="lazy"><img src="karaoke2.webp" alt="" loading="lazy"><img src="g-002.webp" alt="" loading="lazy"></div>
+  </div>
+</div></section>
+
+<section class="v" id="v5">
+  <div class="am" id="am"><img class=on src="tables.webp" alt="" loading="lazy"><img src="furshet.webp" alt="" loading="lazy"><img src="stage.webp" alt="" loading="lazy"><img src="karaoke2.webp" alt="" loading="lazy"><img src="sign.webp" alt="" loading="lazy"></div>
+  <div class="wrap">
+  <p class="tag">Вариант 5. Карты событий<span>Пять фотокарт наклоняются за курсором, как настоящие, с бликом. Выбранная поднимается, а фон блока окрашивается в её свет.</span></p>
+  <div class="hd"><h2>Забронируйте <em>дату</em></h2><p class="lead">Выберите событие. Менеджер перезвонит, подтвердит дату и предложит рассадку.</p></div>
+  <form>
+    <fieldset class="cards" id="cards"><legend style="position:absolute;width:1px;height:1px;overflow:hidden">Событие</legend>
+      <label><input type="radio" name="ev5" checked><span class="card"><img src="tables.webp" alt="" loading="lazy"><b>Банкет<i>до 100 персон</i></b></span></label><label><input type="radio" name="ev5"><span class="card"><img src="furshet.webp" alt="" loading="lazy"><b>Фуршет<i>до 100 персон</i></b></span></label><label><input type="radio" name="ev5"><span class="card"><img src="stage.webp" alt="" loading="lazy"><b>Музыкальный вечер<i>до 100 персон</i></b></span></label><label><input type="radio" name="ev5"><span class="card"><img src="karaoke2.webp" alt="" loading="lazy"><b>Караоке<i>до 30 персон</i></b></span></label><label><input type="radio" name="ev5"><span class="card"><img src="sign.webp" alt="" loading="lazy"><b>Другое<i>обсудим формат</i></b></span></label>
+    </fieldset>
     <div class="b__row">
-      <div><label for="t1">Гостей</label><input id="t1" name="guests" type="number" inputmode="numeric" min="1" max="100" placeholder="40"></div>
-      <div><label for="t2">Дата</label><input id="t2" name="date" type="date"></div>
-      <div><label for="t3">Телефон</label><input id="t3" name="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00"></div>
+      <div><label for="e3">Дата</label><input id="e3" name="date" type="date"></div>
+      <div><label for="e4">Телефон</label><input id="e4" name="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00"></div>
       <button class="btn" type="submit">Забронировать</button>
     </div>
     <p class="note">Нажимая кнопку, вы соглашаетесь с <a href="https://testshrift-ilg.tilda.ws/privacy">политикой конфиденциальности</a>.</p>
   </form>
-</div></section>
-
-<section class="v" id="v4"><div class="wrap">
-  <p class="tag">Вариант 4. Фраза<span>Заявка читается как предложение, гость меняет в нём подчёркнутые слова. Рядом две фотографии внахлёст.</span></p>
-  <div class="d">
-    <div>
-      <h2>Забронируйте <em>дату</em></h2>
-      <form>
-        <p class="s">Планируем
-          <label for="d1">Событие</label><select id="d1" name="event"><option>банкет</option><option>фуршет</option><option>музыкальный вечер</option><option>караоке</option><option>другое событие</option></select>
-          на <label for="d2">Гостей</label><input class="w4" id="d2" name="guests" inputmode="numeric" value="40"> гостей,
-          дата <label for="d3">Дата</label><input class="wd" id="d3" name="date" type="date">.
-          Меня зовут <label for="d4">Имя</label><input class="w10" id="d4" name="name" autocomplete="name" placeholder="имя">,
-          мой телефон <label for="d5">Телефон</label><input class="w12" id="d5" name="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 900 000-00-00">.</p>
-        <button class="btn" type="submit">Забронировать площадку</button>
-        <p class="note">Менеджер перезвонит и подтвердит дату. Нажимая кнопку, вы соглашаетесь с <a href="https://testshrift-ilg.tilda.ws/privacy">политикой конфиденциальности</a>.</p>
-      </form>
-    </div>
-    <div class="col">
-      <div class="ph"><img src="stage.webp" alt="Сцена Well Well в красном свете" width="1172" height="962" loading="lazy"></div>
-      <div class="ph"><img src="g-029.webp" alt="Коктейли на красной стойке" width="853" height="1280" loading="lazy"></div>
-    </div>
   </div>
-</div></section>
-
-<section class="v" id="v5"><div class="wrap">
-  <p class="tag">Вариант 5. Лента<span>Широкая фотография с заголовком, сразу под ней форма в одну строку. Занимает меньше всего места на странице.</span></p>
-  <div class="e">
-    <div class="ph bn"><img src="vip.webp" alt="VIP-зал Well Well: красные диваны и овальный стол" width="1600" height="553" loading="lazy">
-      <div class="bn__t"><h2>Забронируйте <em>дату</em></h2><p class="lead">Менеджер перезвонит, подтвердит дату и предложит рассадку.</p></div>
-    </div>
-    <form class="b__row b5">
-      <div><label for="e1">Событие</label><select id="e1" name="event"><option>Банкет</option><option>Фуршет</option><option>Музыкальный вечер</option><option>Караоке</option><option>Другое</option></select></div>
-      <div><label for="e2">Гостей</label><input id="e2" name="guests" type="number" inputmode="numeric" min="1" max="100" placeholder="40"></div>
-      <div><label for="e3">Дата</label><input id="e3" name="date" type="date"></div>
-      <div><label for="e4">Телефон</label><input id="e4" name="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00"></div>
-      <button class="btn" type="submit">Забронировать</button>
-    </form>
-    <p class="note">Нажимая кнопку, вы соглашаетесь с <a href="https://testshrift-ilg.tilda.ws/privacy">политикой конфиденциальности</a>.</p>
-  </div>
-</div></section>
+</section>
 
 <script>
-(function(){var b=[].slice.call(document.querySelectorAll('.top button')),v=[].slice.call(document.querySelectorAll('.v'));
-b.forEach(function(x){x.addEventListener('click',function(){var n=+x.getAttribute('data-v');b.forEach(function(y){y.setAttribute('aria-pressed',y===x)});v.forEach(function(s,i){s.hidden=n&&i+1!==n});window.scrollTo(0,0)})});
-[].forEach.call(document.forms,function(f){f.addEventListener('submit',function(e){e.preventDefault()})})})();
+(function(){var D=document,$=function(i){return D.getElementById(i)},all=function(s,r){return [].slice.call((r||D).querySelectorAll(s))};
+var b=all('.top button'),v=all('.v');
+b.forEach(function(x){x.addEventListener('click',function(){var n=+x.getAttribute('data-v');b.forEach(function(y){y.setAttribute('aria-pressed',y===x)});v.forEach(function(s,i){s.hidden=n&&i+1!==n});window.scrollTo(0,0);if(n===3)replay()})});
+all('form').forEach(function(f){f.addEventListener('submit',function(e){e.preventDefault()})});
+function pick(box,i){all('img',box).forEach(function(m,k){m.classList.toggle('on',k===i)})}
+
+// 1. Луч света: идёт за курсором, без курсора плавает сам
+var sl=$('sl'),tx=.5,ty=.42,cx=.5,cy=.42,last=-1e9,vis=false;
+sl.addEventListener('pointermove',function(e){var r=sl.getBoundingClientRect();tx=(e.clientX-r.left)/r.width;ty=(e.clientY-r.top)/r.height;last=performance.now()});
+sl.addEventListener('pointerleave',function(){last=-1e9});
+new IntersectionObserver(function(e){vis=e[0].isIntersecting;if(vis)requestAnimationFrame(tick)}).observe(sl);
+function tick(t){if(!vis)return;if(t-last>1800){tx=.5+.34*Math.sin(t/2600);ty=.42+.24*Math.sin(t/1900+1)}cx+=(tx-cx)*.07;cy+=(ty-cy)*.07;sl.style.setProperty('--x',(cx*100).toFixed(2)+'%');sl.style.setProperty('--y',(cy*100).toFixed(2)+'%');requestAnimationFrame(tick)}
+
+// 2. Событие меняет фон
+var ch=$('ch'),cb=ch.querySelector('.ch__bg'),cr=all('.evl input',ch);
+function cur(){for(var i=0;i<cr.length;i++)if(cr[i].checked)return i;return 0}
+cr.forEach(function(r,i){r.addEventListener('change',function(){pick(cb,i)});r.parentNode.addEventListener('mouseenter',function(){pick(cb,i)})});
+ch.querySelector('.evl').addEventListener('mouseleave',function(){pick(cb,cur())});
+
+// 3. Занавес открывается, когда блок на экране
+var cu=$('cu');
+new IntersectionObserver(function(e,o){if(e[0].isIntersecting){o.disconnect();cu.classList.add('open')}},{threshold:.45}).observe(cu);
+function replay(){cu.classList.remove('open');setTimeout(function(){cu.classList.add('open')},1300)}
+$('re').addEventListener('click',replay);
+
+// 4. Слова прокручиваются по нажатию
+function roll(btn,opts,cb2){var i=0,s=btn.firstChild,busy=false;btn.addEventListener('click',function(){if(busy)return;busy=true;i=(i+1)%opts.length;btn.classList.add('out');setTimeout(function(){s.textContent=opts[i];btn.classList.remove('out');btn.classList.add('pre');s.offsetWidth;btn.classList.remove('pre');busy=false;if(cb2)cb2(i)},260)})}
+roll($('r1'),['банкет','фуршет','музыкальный вечер','караоке','своё событие'],function(i){pick($('sw'),i)});
+roll($('r2'),['40','60','80','100','12','30']);
+
+// 5. Карты наклоняются за курсором, фон берёт цвет выбранной
+var fine=window.matchMedia('(hover:hover) and (pointer:fine)').matches,cl=all('#cards label');
+cl.forEach(function(l,i){var c=l.querySelector('.card');
+  l.querySelector('input').addEventListener('change',function(){pick($('am'),i)});
+  if(!fine)return;
+  l.addEventListener('pointermove',function(e){var r=l.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;l.classList.add('tilt');c.style.setProperty('--ry',((x-.5)*16).toFixed(2)+'deg');c.style.setProperty('--rx',((.5-y)*14).toFixed(2)+'deg');c.style.setProperty('--gx',(x*100).toFixed(1)+'%');c.style.setProperty('--gy',(y*100).toFixed(1)+'%')});
+  l.addEventListener('pointerleave',function(){l.classList.remove('tilt');c.style.setProperty('--ry','0deg');c.style.setProperty('--rx','0deg')})});
+})();
 </script>
 </body>
 </html>

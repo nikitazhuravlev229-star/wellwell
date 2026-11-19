@@ -1,292 +1,306 @@
 <!doctype html>
-<html lang="ru">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex">
-<title>Well Well: 5 вариантов формы заявки</title>
-<link rel="icon" href="logo.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Well Well: 22 варианта формы заявки</title><link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root{--line:rgba(255,255,255,.3);--muted:rgba(255,255,255,.64);--serif:"Cormorant Garamond",Georgia,serif;--sans:"Inter",Arial,Helvetica,sans-serif;color-scheme:dark}
+<style>:root{--line:rgba(255,255,255,.3);--muted:rgba(255,255,255,.66);--red:#ff2936;--serif:"Cormorant Garamond",Georgia,serif;--sans:"Inter",Arial,Helvetica,sans-serif;color-scheme:dark}
 *{box-sizing:border-box;margin:0}
-body{background:#000;color:#fff;font:400 17px/1.5 var(--sans);-webkit-font-smoothing:antialiased}
-.wrap{max-width:1360px;margin:0 auto;padding:0 clamp(20px,2.8vw,40px)}
-.top{position:sticky;top:0;z-index:5;background:#000;border-bottom:1px solid var(--line)}
-.top .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;min-height:64px;padding-top:10px;padding-bottom:10px}
-.top b{font:500 13px/1.3 var(--sans);letter-spacing:.08em;text-transform:uppercase;margin-right:auto}
-.top button{min-width:44px;min-height:44px;padding:0 14px;background:none;border:1px solid var(--line);color:#fff;font:500 13px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
-.top button[aria-pressed="true"]{background:#fff;color:#000;border-color:#fff}
-.v{padding:clamp(48px,7vw,104px) 0;border-bottom:1px solid var(--line)}
-.v[hidden]{display:none}
-.tag{display:block;margin-bottom:clamp(28px,4vw,56px);font:500 13px/1.4 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:#ff2936}
-.tag span{display:block;margin-top:6px;color:var(--muted);letter-spacing:0;text-transform:none;font:400 15px/1.45 var(--sans);max-width:64ch}
+html,body{background:#000}
+body{color:#fff;font:400 17px/1.5 var(--sans);-webkit-font-smoothing:antialiased;font-variant-numeric:lining-nums}
+[hidden]{display:none!important}
+img{display:block}
 h2{font:italic 300 clamp(2.4rem,5vw,4.5rem)/1.02 var(--serif);letter-spacing:-.015em}
 h2 em{font-style:normal}
-.lead{margin-top:16px;color:var(--muted);max-width:46ch}
-label,legend{display:block;padding:0;font:500 13px/1.3 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-input,select,textarea{display:block;width:100%;min-height:52px;padding:12px 0;background:none;border:0;border-bottom:1px solid var(--line);border-radius:0;color:#fff;font:400 20px/1.2 var(--sans);appearance:none;-webkit-appearance:none}
-select{padding-right:28px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23fff' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat right 4px center}
-select option{background:#000;color:#fff}
-textarea{min-height:96px;resize:vertical}
-input::placeholder,textarea::placeholder{color:rgba(255,255,255,.4)}
-input:hover,select:hover,textarea:hover{border-color:rgba(255,255,255,.6)}
-input:focus,select:focus,textarea:focus{outline:0;border-color:#fff}
+.lead{margin-top:14px;color:rgba(255,255,255,.82)}
+label,legend,.hint{display:block;padding:0;font:500 13px/1.3 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.hint{margin-top:14px}
+legend{margin-bottom:12px}
+input,select{display:block;width:100%;min-height:52px;padding:12px 0;background:none;border:0;border-bottom:1px solid rgba(255,255,255,.5);border-radius:0;color:#fff;font:400 20px/1.2 var(--sans);appearance:none;-webkit-appearance:none}
+input::placeholder{color:rgba(255,255,255,.42)}
+input:focus{outline:0;border-color:#fff}
 :focus-visible{outline:2px solid #fff;outline-offset:3px}
+button{font:inherit;color:inherit}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 30px;background:#fff;border:1px solid #fff;color:#000;font:500 13px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;cursor:pointer;transition:background-color .2s ease,color .2s ease}
-.btn:hover{background:transparent;color:#fff}
-.btn:active{transform:translateY(1px)}
-.note{margin-top:16px;font-size:14px;color:var(--muted)}
-.note a{color:inherit}
-fieldset{border:0;padding:0;min-width:0}
-
-.ph{position:relative;overflow:hidden;background:#111}
-.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-.b__row{display:grid;grid-template-columns:1fr 1.25fr auto;border:1px solid var(--line);background:rgba(0,0,0,.5);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
-.b__row>div{padding:16px 20px 8px;border-right:1px solid var(--line)}
-.b__row input,.b__row select{border:0;min-height:44px;padding:6px 0}
-.b__row .btn{min-height:100%;border:0}
-.hint{margin-top:14px;font:500 13px/1.3 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-/* 1 свет */
-.sl{position:relative;overflow:hidden;display:grid;place-items:center;min-height:min(84vh,760px);padding:clamp(48px,7vw,96px) 20px;background:#000;cursor:crosshair}
-.sl>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.btn:hover{background:transparent;color:#fff}.btn:active{transform:translateY(1px)}
+.note{margin-top:18px;font-size:13px;line-height:1.45;color:var(--muted);max-width:60ch}.note a{color:inherit}
+.ctr .note{margin-left:auto;margin-right:auto}
+.box{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.w{position:relative;width:100%;max-width:1360px;margin:0 auto;padding:clamp(28px,5vw,64px) clamp(20px,2.8vw,40px)}
+.sp2{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(28px,5vw,80px);align-items:center}
+.ctr{text-align:center}.ctr .row{text-align:left}
+.row{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-end;margin-top:36px}.row .fl{flex:1 1 200px}
+.nar{max-width:640px;margin-left:auto;margin-right:auto}.nar.l{margin-left:0}
+.col{display:grid;gap:24px;margin-top:36px;text-align:left}
+.gap{display:grid;gap:30px;margin-top:36px}
+.bg{position:absolute;inset:0}.bg img{width:100%;height:100%;object-fit:cover}
+.bg::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,var(--ov,.6))}
+.st{position:relative}
+.st img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.1);transition:opacity .9s ease,transform 5s cubic-bezier(.16,1,.3,1)}
+.st img.on{opacity:1;transform:none}
+.ph{position:relative;aspect-ratio:4/5;overflow:hidden;background:#111}.ph>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.chips{display:flex;flex-wrap:wrap;gap:10px}.chips.c{justify-content:center}
+.chips label{position:relative;color:#fff;letter-spacing:.06em}
+.chips input{position:absolute;inset:0;width:100%;height:100%;min-height:0;padding:0;border:0;opacity:0;cursor:pointer}
+.chips span{display:flex;align-items:center;min-height:48px;padding:0 18px;border:1px solid rgba(255,255,255,.5);background:rgba(0,0,0,.35);transition:background-color .2s ease,color .2s ease}
+.chips input:hover+span{border-color:#fff}.chips input:checked+span{background:#fff;color:#000;border-color:#fff}
+.chips input:focus-visible+span{outline:2px solid #fff;outline-offset:3px}
+@keyframes qin{from{opacity:0;transform:translateY(18px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* 1 */
+.s{margin-top:32px;font:300 clamp(2rem,4vw,3.7rem)/1.32 var(--serif);letter-spacing:-.01em}
+.roll{display:inline-block;overflow:hidden;vertical-align:bottom;padding:0 6px 2px;background:none;border:0;border-bottom:1px solid rgba(255,255,255,.55);color:#fff;font:italic 300 1em/1.2 var(--serif);cursor:pointer}
+.roll:hover{border-color:var(--red)}
+.roll span{display:inline-block;transition:transform .3s cubic-bezier(.5,0,.2,1),opacity .3s ease}
+.roll.out span{transform:translateY(-75%);opacity:0}.roll.pre span{transform:translateY(75%);opacity:0;transition:none}
+/* 2 */
+.tkw{display:grid;gap:26px;justify-items:start}
+.tk{display:flex;width:100%;max-width:540px;color:#000;filter:drop-shadow(0 30px 44px rgba(255,41,54,.3))}
+.tk__m{flex:1;padding:26px 28px;background:#fff;border-right:2px dashed #000}
+.tk small{font:500 11px/1.3 var(--sans);letter-spacing:.08em;text-transform:uppercase}
+.tk b{display:block;margin:16px 0 20px;font:italic 300 clamp(2rem,3.4vw,3rem)/1 var(--serif)}
+.tk dl{display:flex;gap:30px}.tk dt{font:500 11px/1.3 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:#555}.tk dd{font-size:18px}
+.tk__s{width:124px;padding:26px 16px;background:#fff;display:flex;flex-direction:column;justify-content:space-between;transform-origin:left bottom;transition:transform .9s cubic-bezier(.5,0,.2,1)}
+.tk__s i{font:italic 300 20px/1.15 var(--serif)}
+.tk.torn .tk__s{transform:translate(40px,34px) rotate(13deg)}
+.pop{animation:pop .45s ease}@keyframes pop{from{opacity:.2;transform:translateY(8px)}}
+/* 3, 16 */
+.lu__d{position:absolute;inset:0;background:radial-gradient(circle var(--r,34vmin) at 50% 52%,rgba(0,0,0,.08),rgba(0,0,0,.6) 60%,rgba(0,0,0,.96) 100%)}
+.big{margin-top:18px;font:300 clamp(2.4rem,5vw,4.6rem)/1 var(--serif)}.big b{font-style:italic;font-weight:300}
+.rng{width:min(560px,100%);min-height:44px;margin:14px auto 0;padding:0;border:0;background:transparent;cursor:pointer}
+.rng::-webkit-slider-runnable-track{height:1px;background:#fff}.rng::-moz-range-track{height:1px;background:#fff}
+.rng::-webkit-slider-thumb{-webkit-appearance:none;width:28px;height:28px;margin-top:-14px;border-radius:50%;background:#fff;border:0}
+.rng::-moz-range-thumb{width:28px;height:28px;border-radius:50%;background:#fff;border:0}
+.eq{display:flex;align-items:flex-end;justify-content:center;gap:5px;height:150px;max-width:560px;margin:22px auto 0}
+.eq i{flex:1;max-width:14px;height:var(--h,8%);background:#fff;transform-origin:bottom;animation:eqa .9s ease-in-out infinite alternate;animation-delay:var(--d,0s);transition:height .25s ease,background-color .25s ease}
+.eq i.hot{background:var(--red)}@keyframes eqa{to{transform:scaleY(.7)}}
+/* 4 */
+.pln{display:block;width:100%;max-width:620px;margin-top:26px}
+.ln{fill:none;stroke:rgba(255,255,255,.4);stroke-width:1.5}
+.rm{cursor:pointer;outline:0}.rm rect{fill:rgba(255,41,54,0);stroke:#fff;stroke-width:1.5;transition:fill .4s ease}
+.rm:hover rect,.rm:focus-visible rect{fill:rgba(255,41,54,.2)}
+.rm.on rect{fill:rgba(255,41,54,.6);filter:drop-shadow(0 0 16px rgba(255,41,54,.9))}
+.tx{fill:#fff;font:500 13px var(--sans);letter-spacing:.08em;text-transform:uppercase;text-anchor:middle;pointer-events:none}.tx.s{font-size:10px;fill:rgba(255,255,255,.6)}
+.cap{margin-top:16px}.cap b{display:block;font:italic 300 2rem/1.1 var(--serif)}.cap span{color:var(--muted);font-size:15px}
+/* 5 */
+.dts{display:flex;gap:10px;margin-top:34px;padding-bottom:8px;overflow-x:auto;scroll-snap-type:x proximity}
+.dts label{position:relative;flex:0 0 136px;scroll-snap-align:start;color:#fff}
+.dts input{position:absolute;inset:0;width:100%;height:100%;min-height:0;opacity:0;cursor:pointer}
+.dts span{display:grid;align-content:space-between;gap:6px;min-height:156px;padding:16px;border:1px solid var(--line);background:rgba(0,0,0,.45);transition:background-color .25s ease,color .25s ease}
+.dts b{font:italic 300 3.6rem/1 var(--serif)}.dts input:hover+span{border-color:#fff}
+.dts input:checked+span{background:#fff;color:#000;border-color:#fff}.dts input:focus-visible+span{outline:2px solid #fff;outline-offset:3px}
+/* 6 */
+.cu__c{position:absolute;top:0;bottom:0;width:51%;z-index:3;background:linear-gradient(180deg,rgba(0,0,0,.6),rgba(0,0,0,0) 20%,rgba(0,0,0,0) 72%,rgba(0,0,0,.65)),repeating-linear-gradient(90deg,#2c0004 0,#7d0712 20px,#b01020 33px,#74050f 54px,#3a0006 70px,#2c0004 84px);transition:transform 2.4s cubic-bezier(.76,0,.24,1)}
+.cu__c.l{left:0;box-shadow:8px 0 24px rgba(0,0,0,.6)}.cu__c.r{right:0;box-shadow:-8px 0 24px rgba(0,0,0,.6)}
+.cu.open .cu__c.l{transform:translateX(-91%)}.cu.open .cu__c.r{transform:translateX(91%)}
+.cu .bg{--ov:.66}
+.cu__f{z-index:2;padding-left:11%;padding-right:11%;opacity:0;transform:scale(.97);transition:opacity 1.2s ease 1s,transform 1.6s cubic-bezier(.16,1,.3,1) 1s}
+.cu.open .cu__f{opacity:1;transform:none}
+.q{display:none}.q.on{display:block;animation:qin .8s both}
+.q .chips{margin-top:32px}
+.lnk{margin-top:22px;background:none;border:0;border-bottom:1px solid var(--line);padding:6px 0;color:var(--muted);font:500 13px/1.3 var(--sans);letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+/* 7 */
+.sl7{margin:28px 0 30px;border-top:1px solid var(--line)}
+.ln7{display:grid;grid-template-columns:130px minmax(0,1fr);gap:16px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.ln7 b{position:relative;justify-self:start;font:italic 300 1.8rem/1 var(--serif);transition:color .4s ease}
+.ln7 b::after{content:"";position:absolute;left:-4px;right:-4px;top:56%;height:2px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.5,0,.2,1)}
+.ln7.ok b{color:var(--muted)}.ln7.ok b::after{transform:scaleX(1)}
+.ln7 input[type=date],.ln7 input[type=tel]{border:0;min-height:44px;padding:6px 0}
+.ln7 .chips{gap:6px}.ln7 .chips span{min-height:40px;padding:0 12px}
+/* 8 */
+.sl{cursor:crosshair}.sl .bg::after{content:none}
 .sl__d{position:absolute;inset:0;background:radial-gradient(circle min(46vw,420px) at var(--x,50%) var(--y,42%),rgba(0,0,0,.1) 0,rgba(0,0,0,.5) 45%,rgba(0,0,0,.94) 100%)}
-.a{position:relative;width:100%;max-width:500px;text-align:center;text-shadow:0 1px 18px rgba(0,0,0,.7)}
-.a .lead{margin-left:auto;margin-right:auto;color:rgba(255,255,255,.85)}
-.a form{display:grid;gap:28px;margin-top:44px;text-align:left}
-.a label{color:rgba(255,255,255,.85)}.a input{border-color:rgba(255,255,255,.55)}
-.a .btn{width:100%;text-shadow:none}.a .note{text-align:center;color:rgba(255,255,255,.75)}
-/* 2 событие меняет зал */
-.ch{position:relative;overflow:hidden;min-height:min(86vh,780px);display:flex;flex-direction:column;justify-content:space-between;gap:48px;padding:clamp(24px,4vw,56px);background:#000}
-.ch__bg{position:absolute;inset:0}
-.ch__bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.14);transition:opacity 1.1s ease,transform 7s cubic-bezier(.16,1,.3,1)}
-.ch__bg img.on{opacity:1;transform:none}
-.ch__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.85),rgba(0,0,0,.3) 62%,rgba(0,0,0,.5))}
-.ch>div:not(.ch__bg),.ch>form{position:relative}
-.evl{display:grid;gap:2px;margin-top:28px;border:0}
+.sl .w{text-shadow:0 1px 18px rgba(0,0,0,.7)}.sl .col{max-width:480px}.sl .btn{text-shadow:none}
+/* 9, 19 */
+.bgs{position:absolute;inset:0}.bgs::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.86),rgba(0,0,0,.3) 62%,rgba(0,0,0,.5))}
+.evl{display:grid;gap:2px;margin:26px 0 8px}
 .evl label{position:relative;display:flex;align-items:baseline;gap:18px;width:max-content;max-width:100%;font:300 clamp(1.9rem,3.8vw,3.4rem)/1.2 var(--serif);letter-spacing:-.01em;text-transform:none;color:#fff;opacity:.5;cursor:pointer;transition:opacity .3s ease,transform .6s cubic-bezier(.16,1,.3,1)}
-.evl label:hover{opacity:.9}
-.evl label:has(input:checked){opacity:1;font-style:italic;transform:translateX(18px)}
+.evl.sm label{font-size:clamp(1.7rem,2.8vw,2.6rem)}
+.evl label:hover{opacity:.9}.evl label:has(input:checked){opacity:1;font-style:italic;transform:translateX(18px)}
 .evl label:has(input:focus-visible){outline:2px solid #fff;outline-offset:4px}
 .evl input{position:absolute;opacity:0;width:1px;height:1px;min-height:0;padding:0}
-.evl i{font:500 13px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;font-style:normal;opacity:0;transition:opacity .4s ease}
-.evl label:has(input:checked) i{opacity:.85}
-/* 3 занавес */
-.cu{position:relative;overflow:hidden;display:grid;place-items:center;min-height:min(82vh,740px);padding:clamp(48px,6vw,88px) 9%;background:#000}
-.cu>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.cu::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.62)}
-.cu__c{position:absolute;top:0;bottom:0;width:51%;z-index:3;background:linear-gradient(180deg,rgba(0,0,0,.6),rgba(0,0,0,0) 20%,rgba(0,0,0,0) 72%,rgba(0,0,0,.65)),repeating-linear-gradient(90deg,#2c0004 0,#7d0712 20px,#b01020 33px,#74050f 54px,#3a0006 70px,#2c0004 84px);transition:transform 2.4s cubic-bezier(.76,0,.24,1)}
-.cu__c.l{left:0;box-shadow:12px 0 40px rgba(0,0,0,.6)}.cu__c.r{right:0;box-shadow:-12px 0 40px rgba(0,0,0,.6)}
-.cu.open .cu__c.l{transform:translateX(-90%)}.cu.open .cu__c.r{transform:translateX(90%)}
-.cu__f{position:relative;z-index:2;width:100%;max-width:640px;text-align:center;opacity:0;transform:translateY(24px) scale(.97);transition:opacity 1.2s ease 1s,transform 1.6s cubic-bezier(.16,1,.3,1) 1s}
-.cu.open .cu__f{opacity:1;transform:none}
-.cu__f form{margin-top:36px;text-align:left}
-.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;border:0}
-.chips label{position:relative;color:#fff;letter-spacing:.06em}
-.chips input{position:absolute;inset:0;width:100%;height:100%;min-height:0;padding:0;opacity:0;cursor:pointer}
-.chips span{display:flex;align-items:center;min-height:48px;padding:0 18px;border:1px solid rgba(255,255,255,.5);background:rgba(0,0,0,.35);transition:background-color .2s ease,color .2s ease}
-.chips input:hover+span{border-color:#fff}
-.chips input:checked+span{background:#fff;color:#000;border-color:#fff}
-.chips input:focus-visible+span{outline:2px solid #fff;outline-offset:3px}
-.cu .b__row{grid-template-columns:1fr auto;margin-top:24px}
-.re{margin-top:18px;background:none;border:0;border-bottom:1px solid var(--line);padding:6px 0;color:var(--muted);font:500 13px/1.3 var(--sans);letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
-.re:hover{color:#fff;border-color:#fff}
-/* 4 фраза */
-.d{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(32px,6vw,96px);align-items:center}
-.d p.s{margin-top:36px;font:300 clamp(2rem,4.2vw,3.9rem)/1.32 var(--serif);letter-spacing:-.01em}
-.roll{display:inline-block;overflow:hidden;vertical-align:bottom;padding:0 6px 2px;background:none;border:0;border-bottom:1px solid rgba(255,255,255,.55);color:#fff;font:italic 300 1em/1.2 var(--serif);cursor:pointer;transition:border-color .2s ease}
-.roll:hover{border-color:#ff2936}
-.roll span{display:inline-block;transition:transform .3s cubic-bezier(.5,0,.2,1),opacity .3s ease}
-.roll.out span{transform:translateY(-75%);opacity:0}
-.roll.pre span{transform:translateY(75%);opacity:0;transition:none}
-.ln{display:flex;gap:20px;align-items:flex-end;margin-top:44px;max-width:640px}
-.ln>div{flex:1}
-.sw{position:relative;aspect-ratio:4/5;overflow:hidden;background:#111}
-.sw img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.12);transition:opacity .9s ease,transform 5s cubic-bezier(.16,1,.3,1)}
-.sw img.on{opacity:1;transform:none}
-/* 5 карты */
-#v5{position:relative;overflow:hidden}
-.am{position:absolute;inset:-12% -6%;filter:blur(80px) saturate(1.3);opacity:.3;pointer-events:none}
-.am img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease}
-.am img.on{opacity:1}
-#v5 .wrap{position:relative}
-.hd{display:flex;flex-wrap:wrap;gap:16px 48px;align-items:flex-end;justify-content:space-between}
-.hd .lead{margin:0 0 8px;max-width:34ch}
-.cards{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin:56px 0 28px;perspective:1300px;border:0}
+.evl i{font:500 13px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;font-style:normal;opacity:0;transition:opacity .4s ease}.evl label:has(input:checked) i{opacity:.85}
+/* 10 */
+.am{position:absolute;inset:-12% -6%;filter:blur(80px) saturate(1.3);opacity:.3;pointer-events:none}.am img{transform:none;transition:opacity 1.2s ease}
+.cards{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin:48px 0 0;perspective:1300px}
 .cards label{position:relative;display:block;aspect-ratio:3/4;color:#fff;cursor:pointer}
 .cards input{position:absolute;inset:0;width:100%;height:100%;min-height:0;padding:0;border:0;opacity:0;cursor:pointer;z-index:2}
 .card{position:absolute;inset:0;overflow:hidden;background:#111;filter:brightness(.55);transform:translateY(var(--ty,0)) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .6s cubic-bezier(.16,1,.3,1),filter .4s ease,box-shadow .5s ease}
-.cards label:hover .card{filter:brightness(.92)}
-.cards label.tilt .card{transition:transform .09s linear,filter .4s ease,box-shadow .5s ease}
+.cards label:hover .card{filter:brightness(.92)}.cards label.tilt .card{transition:transform .09s linear,filter .4s ease,box-shadow .5s ease}
 .cards label:has(input:checked) .card{--ty:-18px;filter:none;box-shadow:0 34px 70px -24px rgba(255,41,54,.55),0 0 0 1px #fff}
-.cards label:has(input:focus-visible) .card{box-shadow:0 0 0 2px #fff}
 .card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.card::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at var(--gx,50%) var(--gy,0%),rgba(255,255,255,.3),rgba(255,255,255,0) 55%);opacity:0;transition:opacity .3s ease}
-.cards label.tilt .card::after{opacity:1}
+.card::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at var(--gx,50%) var(--gy,0%),rgba(255,255,255,.3),rgba(255,255,255,0) 55%);opacity:0;transition:opacity .3s ease}.cards label.tilt .card::after{opacity:1}
 .card b{position:absolute;left:0;right:0;bottom:0;padding:48px 16px 16px;background:linear-gradient(transparent,rgba(0,0,0,.88));font:500 13px/1.3 var(--sans);letter-spacing:.08em;text-transform:uppercase}
 .card b i{display:block;margin-top:4px;font:400 13px/1.3 var(--sans);letter-spacing:0;text-transform:none;font-style:normal;color:rgba(255,255,255,.75)}
-
+/* 11 */
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;max-width:520px;margin-top:12px}
+.cal i{padding:6px 0;text-align:center;font:500 12px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;font-style:normal;color:var(--muted)}
+.cal button{aspect-ratio:1.25;background:none;border:1px solid transparent;font:300 1.6rem/1 var(--serif);cursor:pointer;transition:background-color .2s ease,color .2s ease}
+.cal button:hover{border-color:var(--line)}.cal button.on{background:#fff;color:#000;font-style:italic}
+.cal button:disabled{color:rgba(255,255,255,.22);cursor:default;border-color:transparent}
+/* 12 */
+.hl{display:flex;gap:10px;height:min(58vh,540px);margin-top:34px}
+.hc{position:relative;flex:1;min-width:0;overflow:hidden;cursor:pointer;transition:flex .8s cubic-bezier(.16,1,.3,1)}
+.hc.on{flex:2.8;cursor:default}
+.hc>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.45);transition:filter .6s ease,transform 1.2s cubic-bezier(.16,1,.3,1)}
+.hc:hover>img{filter:brightness(.7)}.hc.on>img{filter:brightness(.85);transform:scale(1.04)}
+.hc__t{position:absolute;left:0;right:0;bottom:0;padding:70px 22px 22px;background:linear-gradient(transparent,rgba(0,0,0,.92))}
+.hc__t b{display:block;font:italic 300 clamp(1.5rem,2.4vw,2.3rem)/1.1 var(--serif)}.hc__t>span{font-size:14px;color:rgba(255,255,255,.75)}
+.hc__f{display:none;margin-top:18px}.hc.on .hc__f{display:flex;animation:qin .7s .3s both}
+/* 13 */
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:0 24px;margin-top:34px;border-top:1px solid var(--line)}
+.nums div{padding-top:18px}.nums b{display:block;font:italic 300 clamp(4rem,10vw,9rem)/.9 var(--serif);font-variant-numeric:tabular-nums}
+.nums span{font:500 13px/1.3 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+/* 14 */
+.chat{display:grid;gap:10px;max-width:560px;margin-top:26px}
+.bb{justify-self:start;max-width:88%;padding:12px 18px;border:1px solid var(--line);font:300 1.5rem/1.25 var(--serif);animation:qin .5s both}
+.bb.u{justify-self:end;padding:14px 16px;background:#fff;border-color:#fff;color:#000;font:500 13px/1.3 var(--sans);letter-spacing:.08em;text-transform:uppercase}
+.bb.t i{display:inline-block;width:6px;height:6px;margin:0 3px;border-radius:50%;background:#fff;animation:dt 1s infinite}.bb.t i:nth-child(2){animation-delay:.15s}.bb.t i:nth-child(3){animation-delay:.3s}
+@keyframes dt{0%,60%,100%{opacity:.25}30%{opacity:1}}
+.chat .chips,.chat .row{animation:qin .5s both;margin-top:4px}
+/* 15 */
+.vin{position:relative;width:100%;max-width:520px;aspect-ratio:1;justify-self:center}
+.disc{position:absolute;inset:0;border-radius:50%;background:repeating-radial-gradient(circle,#070707 0 2px,#1b1b1b 2px 4px);box-shadow:0 0 0 1px rgba(255,255,255,.22),0 40px 90px rgba(255,41,54,.3);animation:spin 9s linear infinite}
+.disc::after{content:"";position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 20deg,transparent 0 12%,rgba(255,255,255,.13) 18%,transparent 26% 62%,rgba(255,255,255,.1) 70%,transparent 78%)}
+.lab{position:absolute;inset:31%;border-radius:50%;overflow:hidden}.lab::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:12px;margin:-6px;border-radius:50%;background:#000}
+.arm{position:absolute;right:3%;top:-3%;width:2px;height:54%;background:#fff;transform-origin:top;transform:rotate(var(--a,16deg));transition:transform .9s cubic-bezier(.16,1,.3,1)}
+.arm::after{content:"";position:absolute;left:-7px;bottom:-8px;width:16px;height:28px;background:#fff}
+.trk{margin-top:24px;border-top:1px solid var(--line)}
+.trk label{position:relative;display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:11px 0;border-bottom:1px solid var(--line);color:#fff;text-transform:none;letter-spacing:0;font:300 clamp(1.4rem,2.2vw,2rem)/1.2 var(--serif);cursor:pointer;opacity:.55;transition:opacity .3s ease,padding .5s cubic-bezier(.16,1,.3,1)}
+.trk label:hover{opacity:.9}.trk label:has(input:checked){opacity:1;font-style:italic;padding-left:18px}
+.trk label:has(input:checked)::before{content:"";position:absolute;left:0;top:50%;width:8px;height:8px;margin-top:-4px;border-radius:50%;background:var(--red)}
+.trk input{position:absolute;opacity:0;width:1px;height:1px;min-height:0;padding:0}
+.trk i{font:500 12px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;font-style:normal;white-space:nowrap}
+/* 17 */
+.neon{margin:14px 0 32px;font:italic 300 clamp(3rem,9vw,8rem)/1.05 var(--serif);text-shadow:0 0 6px #fff,0 0 22px var(--red),0 0 60px var(--red),0 0 110px rgba(255,41,54,.7)}
+.neon.fk{animation:nf 1s steps(1) both}@keyframes nf{0%{opacity:.1}8%{opacity:1}14%{opacity:.2}22%{opacity:1}30%{opacity:.4}38%,100%{opacity:1}}
+/* 18 */
+.ba{position:relative;height:min(54vh,500px);margin-top:32px;overflow:hidden;--p:62%;background:#111}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ba__r{position:absolute;inset:0;clip-path:inset(0 0 0 var(--p))}
+.ba::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 50%,rgba(0,0,0,.75));pointer-events:none}
+.ba__h{position:absolute;z-index:2;top:0;bottom:0;left:var(--p);width:2px;margin-left:-1px;background:#fff}
+.ba__h::after{content:"‹ ›";position:absolute;top:50%;left:50%;width:48px;height:48px;margin:-24px;border-radius:50%;background:#fff;color:#000;font:500 18px/48px var(--sans);text-align:center;font-style:normal}
+.ba__l{position:absolute;z-index:2;left:22px;bottom:18px;font:italic 300 clamp(1.6rem,3vw,2.7rem)/1.1 var(--serif);opacity:.4;transition:opacity .3s ease}
+.ba__l.r{left:auto;right:22px;text-align:right}.ba__l.on{opacity:1}
+.ba__l i{display:block;margin-top:6px;font:500 12px/1.2 var(--sans);letter-spacing:.08em;text-transform:uppercase;font-style:normal}
+.ba input{position:absolute;z-index:3;inset:0;width:100%;height:100%;min-height:0;margin:0;padding:0;border:0;opacity:0;cursor:ew-resize}
+/* 19 */
+.stp{display:grid;grid-template-columns:1fr 1fr}
+.pr{position:absolute;z-index:3;top:0;left:0;width:33.4%;height:3px;background:var(--red);transition:width .7s cubic-bezier(.16,1,.3,1)}
+.stp__p{position:relative;background:#111}.stp__p .st{position:absolute;inset:0}
+.stp__q{display:flex;flex-direction:column;justify-content:center;padding:clamp(28px,5vw,80px)}
+/* 20 */
+.hold{position:relative;display:grid;place-items:center;width:196px;height:196px;margin-top:34px;border-radius:50%;border:1px solid #fff;background:none;overflow:hidden;font:500 12px/1.5 var(--sans);letter-spacing:.08em;text-transform:uppercase;cursor:pointer;touch-action:none;-webkit-user-select:none;user-select:none}
+.hold i{position:absolute;left:0;right:0;bottom:0;height:0;background:#c8101f;transition:height .35s ease}
+.hold.h i{height:100%;transition:height 1.3s linear}.hold span{position:relative}
+.hold.ok{background:#fff;color:#000}.hold.ok i{height:0;transition:none}
+/* 21 */
+.scr{position:relative;height:230vh}
+.scr__s{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;align-items:center}
+.scr .bg img{transform:scale(var(--z,1));will-change:transform}
+.scr__f{opacity:var(--o,0);transform:translateY(calc((1 - var(--o,0))*30px))}
+/* 22 */
+.win{margin:10px 0 30px;font:italic 300 clamp(4.5rem,19vw,17rem)/1 var(--serif);letter-spacing:-.03em;background:url(hero.webp) var(--x,50%) var(--y,50%)/150% auto;-webkit-background-clip:text;background-clip:text;color:transparent;filter:saturate(1.3) brightness(1.7)}
+/* просмотр */
+#vw{min-height:100vh;display:flex;flex-direction:column}
+.vh{display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;padding:12px 20px;border-bottom:1px solid var(--line)}
+.vh b{font:500 13px/1.3 var(--sans);letter-spacing:.08em;text-transform:uppercase}
+.vn{display:flex;flex-wrap:wrap;gap:4px}
+.vn button,.vi button{width:38px;height:38px;background:none;border:1px solid var(--line);font:500 12px/1 var(--sans);cursor:pointer}
+.vn button[aria-pressed="true"]{background:#fff;color:#000;border-color:#fff}
+.vi{display:flex;gap:16px;align-items:center;padding:14px 20px}.vi>div{flex:1;min-width:0}
+.vi button{flex:0 0 46px;height:46px;font-size:18px}.vi button:hover,.vn button:hover{border-color:#fff}
+.vi b{margin-right:14px;font:italic 300 1.9rem/1.1 var(--serif)}.vi span{font-size:15px;color:var(--muted)}
+.vf{flex:1;display:flex;gap:24px;align-items:flex-start;justify-content:center;padding:0 20px 24px}
+.fd{flex:1;min-width:0}.fm{flex:0 0 auto}
+.vf i{display:block;margin-bottom:8px;font:500 12px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;font-style:normal;color:var(--muted)}
+.fd__b{position:relative;width:100%;aspect-ratio:1440/900;overflow:hidden;border:1px solid var(--line);background:#000}
+#fd{position:absolute;left:0;top:0;width:1440px;height:900px;border:0;transform-origin:0 0;transform:scale(var(--k,1))}
+.fm__b{width:calc(390px*var(--k,1));height:calc(780px*var(--k,1));overflow:hidden;border:1px solid var(--line);border-radius:calc(34px*var(--k,1));background:#000}
+#fm{display:block;width:390px;height:780px;border:0;transform-origin:0 0;transform:scale(var(--k,1))}
 @media (max-width:900px){
-  .sl{min-height:0;cursor:default}
-  .b__row,.cu .b__row{grid-template-columns:1fr}.b__row>div{border-right:0;border-bottom:1px solid var(--line)}.b__row .btn{min-height:60px}
-  .ch{min-height:0}.ch__bg::after{background:rgba(0,0,0,.6)}.evl label:has(input:checked){transform:translateX(10px)}.evl i{display:none}
-  .cu{min-height:0;padding-left:11%;padding-right:11%}.cu__c.l{box-shadow:6px 0 14px rgba(0,0,0,.6)}.cu__c.r{box-shadow:-6px 0 14px rgba(0,0,0,.6)}.cu.open .cu__c.l{transform:translateX(-93%)}.cu.open .cu__c.r{transform:translateX(93%)}
-  .d{grid-template-columns:minmax(0,1fr)}.sw{order:-1;aspect-ratio:4/3}.ln{flex-direction:column;align-items:stretch}
-  .cards{grid-template-columns:1fr 1fr;margin-top:36px}.cards label{aspect-ratio:1/1}.cards label:last-child{grid-column:1/-1;aspect-ratio:2.4/1}
-  .cards label:has(input:checked) .card{--ty:-8px}
-  .btn{width:100%}
+  .sp2{grid-template-columns:minmax(0,1fr)}.sp2>.ph,.sp2>.pp,.sp2>.vin{order:-1}.ph{aspect-ratio:4/3}.vin{max-width:300px}
+  .btn{width:100%}.row{gap:16px}
+  .tk__s{width:96px}.tkw{justify-items:stretch}
+  .dts label{flex-basis:118px}
+  .cu__f{padding-left:13%;padding-right:13%}
+  .ln7{grid-template-columns:minmax(0,1fr);gap:8px}
+  .sl{cursor:default}
+  .bgs::after{background:rgba(0,0,0,.62)}.evl i{display:none}.evl label:has(input:checked){transform:translateX(10px)}
+  .cards{grid-template-columns:1fr 1fr;margin-top:30px}.cards label{aspect-ratio:1/1}.cards label:last-child{grid-column:1/-1;aspect-ratio:2.4/1}.cards label:has(input:checked) .card{--ty:-8px}
+  .hl{flex-direction:column;height:auto}.hc{flex:none;height:96px}.hc.on{flex:none;height:auto;min-height:340px}
+  .nums{gap:0 12px}.nums span{font-size:11px}
+  .ba{height:300px}
+  .stp{grid-template-columns:minmax(0,1fr);grid-template-rows:34vh 1fr}.stp__q{justify-content:flex-start}
+  .hold{margin-left:auto;margin-right:auto}
+  .vf{flex-direction:column;padding:0}.fd{display:none}.fm{width:100%}.vf i{display:none}
+  .fm__b{width:100%;height:calc(100vh - 170px);border-radius:0;border-width:1px 0 0}#fm{width:100%;height:100%;transform:none}
+  .vi b{display:block;font-size:1.5rem}.vi span{font-size:13px}
 }
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms!important;animation:none!important}}
-</style>
-</head>
-<body>
-<div class="top"><div class="wrap">
-  <b>Форма заявки: 5 вариантов</b>
-  <button type="button" data-v="0" aria-pressed="true">Все</button>
-  <button type="button" data-v="1" aria-pressed="false">1</button>
-  <button type="button" data-v="2" aria-pressed="false">2</button>
-  <button type="button" data-v="3" aria-pressed="false">3</button>
-  <button type="button" data-v="4" aria-pressed="false">4</button>
-  <button type="button" data-v="5" aria-pressed="false">5</button>
-</div></div>
-
-<section class="v" id="v1"><div class="wrap">
-  <p class="tag">Вариант 1. Свет рампы<span>Зал в темноте, луч света идёт за курсором и высвечивает его. На телефоне луч плавает сам. В форме два поля.</span></p>
-  <div class="sl" id="sl">
-    <img src="hero.webp" alt="" width="1680" height="1120">
-    <div class="sl__d"></div>
-    <div class="a">
-      <h2>Забронируйте <em>дату</em></h2>
-      <p class="lead">Оставьте телефон. Менеджер перезвонит, подтвердит дату и предложит рассадку.</p>
-      <form>
-        <div><label for="a1">Имя</label><input id="a1" name="name" autocomplete="name"></div>
-        <div><label for="a2">Телефон</label><input id="a2" name="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00"></div>
-        <button class="btn" type="submit">Забронировать площадку</button>
-      </form>
-      <p class="note">Нажимая кнопку, вы соглашаетесь с <a href="https://testshrift-ilg.tilda.ws/privacy">политикой конфиденциальности</a>.</p>
-    </div>
-  </div>
-</div></section>
-
-<section class="v" id="v2"><div class="wrap">
-  <p class="tag">Вариант 2. Событие меняет зал<span>Наводите на событие, и весь блок перетекает в его фотографию с медленным наездом. Ниже дата, телефон и кнопка.</span></p>
-  <form class="ch" id="ch">
-    <div class="ch__bg"><img class=on src="hero.webp" alt="" loading="lazy"><img src="f-wide.webp" alt="" loading="lazy"><img src="stage.webp" alt="" loading="lazy"><img src="karaoke2.webp" alt="" loading="lazy"><img src="g-002.webp" alt="" loading="lazy"></div>
-    <div>
-      <h2>Забронируйте <em>дату</em></h2>
-      <fieldset class="evl"><legend class="hint">Какое событие планируете</legend>
-        <label><input type="radio" name="ev2" value="Банкет" checked>Банкет<i>до 100 персон</i></label><label><input type="radio" name="ev2" value="Фуршет">Фуршет<i>до 100 персон</i></label><label><input type="radio" name="ev2" value="Музыкальный вечер">Музыкальный вечер<i>до 100 персон</i></label><label><input type="radio" name="ev2" value="Караоке">Караоке<i>до 30 персон</i></label><label><input type="radio" name="ev2" value="Другое">Другое<i>обсудим формат</i></label>
-      </fieldset>
-    </div>
-    <div class="b__row">
-      <div><label for="c1">Дата</label><input id="c1" name="date" type="date"></div>
-      <div><label for="c2">Телефон</label><input id="c2" name="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00"></div>
-      <button class="btn" type="submit">Забронировать</button>
-    </div>
-  </form>
-  <p class="note">Менеджер перезвонит, подтвердит дату и предложит рассадку. Нажимая кнопку, вы соглашаетесь с <a href="https://testshrift-ilg.tilda.ws/privacy">политикой конфиденциальности</a>.</p>
-</div></section>
-
-<section class="v" id="v3"><div class="wrap">
-  <p class="tag">Вариант 3. Занавес<span>Когда гость доходит до блока, красный занавес расходится и открывает форму на сцене. Событие выбирается кнопкой, дальше только телефон.</span></p>
-  <div class="cu" id="cu">
-    <img src="stage.webp" alt="" loading="lazy">
-    <div class="cu__c l"></div><div class="cu__c r"></div>
-    <div class="cu__f">
-      <h2>Забронируйте <em>дату</em></h2>
-      <p class="lead" style="margin-left:auto;margin-right:auto;color:rgba(255,255,255,.85)">Менеджер перезвонит, подтвердит дату и предложит рассадку.</p>
-      <form>
-        <fieldset class="chips"><legend style="position:absolute;width:1px;height:1px;overflow:hidden">Событие</legend>
-          <label><input type="radio" name="ev3" checked><span>Банкет</span></label><label><input type="radio" name="ev3"><span>Фуршет</span></label><label><input type="radio" name="ev3"><span>Музыкальный вечер</span></label><label><input type="radio" name="ev3"><span>Караоке</span></label><label><input type="radio" name="ev3"><span>Другое</span></label>
-        </fieldset>
-        <div class="b__row">
-          <div><label for="u1">Телефон</label><input id="u1" name="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00"></div>
-          <button class="btn" type="submit">Забронировать</button>
-        </div>
-      </form>
-      <p class="note" style="color:rgba(255,255,255,.75)">Нажимая кнопку, вы соглашаетесь с <a href="https://testshrift-ilg.tilda.ws/privacy">политикой конфиденциальности</a>.</p>
-    </div>
-  </div>
-  <button class="re" type="button" id="re">Показать занавес ещё раз</button>
-</div></section>
-
-<section class="v" id="v4"><div class="wrap">
-  <p class="tag">Вариант 4. Живая фраза<span>Заявка — одно предложение. Нажимаете на подчёркнутое слово, оно прокручивается на следующее, а фотография рядом меняется вместе с ним.</span></p>
-  <div class="d">
-    <form>
-      <h2>Забронируйте <em>дату</em></h2>
-      <p class="s">Планируем <button class="roll" type="button" id="r1" aria-label="Событие, нажмите, чтобы сменить"><span>банкет</span></button> на&nbsp;<button class="roll" type="button" id="r2" aria-label="Число гостей, нажмите, чтобы сменить"><span>40</span></button> гостей.</p>
-      <p class="hint">Нажмите на подчёркнутое слово</p>
-      <div class="ln">
-        <div><label for="d5">Телефон</label><input id="d5" name="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00"></div>
-        <button class="btn" type="submit">Забронировать</button>
-      </div>
-      <p class="note">Менеджер перезвонит и подтвердит дату. Нажимая кнопку, вы соглашаетесь с <a href="https://testshrift-ilg.tilda.ws/privacy">политикой конфиденциальности</a>.</p>
-    </form>
-    <div class="sw" id="sw"><img class=on src="hero.webp" alt="" loading="lazy"><img src="f-wide.webp" alt="" loading="lazy"><img src="stage.webp" alt="" loading="lazy"><img src="karaoke2.webp" alt="" loading="lazy"><img src="g-002.webp" alt="" loading="lazy"></div>
-  </div>
-</div></section>
-
-<section class="v" id="v5">
-  <div class="am" id="am"><img class=on src="tables.webp" alt="" loading="lazy"><img src="furshet.webp" alt="" loading="lazy"><img src="stage.webp" alt="" loading="lazy"><img src="karaoke2.webp" alt="" loading="lazy"><img src="sign.webp" alt="" loading="lazy"></div>
-  <div class="wrap">
-  <p class="tag">Вариант 5. Карты событий<span>Пять фотокарт наклоняются за курсором, как настоящие, с бликом. Выбранная поднимается, а фон блока окрашивается в её свет.</span></p>
-  <div class="hd"><h2>Забронируйте <em>дату</em></h2><p class="lead">Выберите событие. Менеджер перезвонит, подтвердит дату и предложит рассадку.</p></div>
-  <form>
-    <fieldset class="cards" id="cards"><legend style="position:absolute;width:1px;height:1px;overflow:hidden">Событие</legend>
-      <label><input type="radio" name="ev5" checked><span class="card"><img src="tables.webp" alt="" loading="lazy"><b>Банкет<i>до 100 персон</i></b></span></label><label><input type="radio" name="ev5"><span class="card"><img src="furshet.webp" alt="" loading="lazy"><b>Фуршет<i>до 100 персон</i></b></span></label><label><input type="radio" name="ev5"><span class="card"><img src="stage.webp" alt="" loading="lazy"><b>Музыкальный вечер<i>до 100 персон</i></b></span></label><label><input type="radio" name="ev5"><span class="card"><img src="karaoke2.webp" alt="" loading="lazy"><b>Караоке<i>до 30 персон</i></b></span></label><label><input type="radio" name="ev5"><span class="card"><img src="sign.webp" alt="" loading="lazy"><b>Другое<i>обсудим формат</i></b></span></label>
-    </fieldset>
-    <div class="b__row">
-      <div><label for="e3">Дата</label><input id="e3" name="date" type="date"></div>
-      <div><label for="e4">Телефон</label><input id="e4" name="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00"></div>
-      <button class="btn" type="submit">Забронировать</button>
-    </div>
-    <p class="note">Нажимая кнопку, вы соглашаетесь с <a href="https://testshrift-ilg.tilda.ws/privacy">политикой конфиденциальности</a>.</p>
-  </form>
-  </div>
-</section>
-
-<script>
-(function(){var D=document,$=function(i){return D.getElementById(i)},all=function(s,r){return [].slice.call((r||D).querySelectorAll(s))};
-var b=all('.top button'),v=all('.v');
-b.forEach(function(x){x.addEventListener('click',function(){var n=+x.getAttribute('data-v');b.forEach(function(y){y.setAttribute('aria-pressed',y===x)});v.forEach(function(s,i){s.hidden=n&&i+1!==n});window.scrollTo(0,0);if(n===3)replay()})});
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}}
+</style></head><body>
+<div id="vw" hidden><header class="vh"><b>Форма заявки · 22 варианта</b><div class="vn" id="vn"></div></header>
+<div class="vi"><button type="button" id="pv" aria-label="Предыдущий">←</button><div><b id="vt"></b><span id="vd"></span></div><button type="button" id="nx" aria-label="Следующий">→</button></div>
+<div class="vf"><div class="fd"><i>Компьютер</i><div class="fd__b"><iframe id="fd" title="Компьютер"></iframe></div></div><div class="fm"><i>Телефон</i><div class="fm__b"><iframe id="fm" title="Телефон"></iframe></div></div></div></div>
+<section class="v" id="v1" hidden><form class="box"><div class="w sp2"><div><h2>Забронируйте <em>дату</em></h2><p class="s">Хочу устроить <button class="roll" type="button" id="r1"><span>банкет</span></button> на&nbsp;<button class="roll" type="button" id="r2"><span>40</span></button> гостей <button class="roll" type="button" id="r3"><span>в пятницу</span></button>.</p><p class="hint">Нажмите на подчёркнутое слово</p><div class="row"><div class="fl"><label for="t1">Перезвоните мне</label><input id="t1" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00"></div><button class="btn " type="submit">Забронировать</button></div><p class="note">Заявка ещё не бронь: менеджер перезвонит и подтвердит дату. Нажимая кнопку, вы соглашаетесь с <a href="https://testshrift-ilg.tilda.ws/privacy">политикой конфиденциальности</a>.</p></div><div class="st ph"><img class="on" src="hero.webp" alt=""><img src="f-wide.webp" alt=""><img src="stage.webp" alt=""><img src="karaoke2.webp" alt=""><img src="g-002.webp" alt=""></div></div></form></section><section class="v" id="v2" hidden><form class="box" id="tkf"><div class="w sp2"><div><h2>Забронируйте <em>дату</em></h2><div class="gap"><div><legend>Событие</legend><div class="chips "><label><input type="radio" name="e2" value="Банкет" checked><span>Банкет</span></label><label><input type="radio" name="e2" value="Фуршет"><span>Фуршет</span></label><label><input type="radio" name="e2" value="Музыкальный вечер"><span>Музыкальный вечер</span></label><label><input type="radio" name="e2" value="Караоке"><span>Караоке</span></label><label><input type="radio" name="e2" value="Другое"><span>Другое</span></label></div></div><div><legend>Гостей</legend><div class="chips "><label><input type="radio" name="g2" value="до 12"><span>до 12</span></label><label><input type="radio" name="g2" value="до 30"><span>до 30</span></label><label><input type="radio" name="g2" value="до 60" checked><span>до 60</span></label><label><input type="radio" name="g2" value="до 100"><span>до 100</span></label></div></div><div class="row"><div class="fl"><label for="d2">Дата</label><input id="d2" type="date"></div><div class="fl"><label for="t2">Телефон</label><input id="t2" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00"></div></div></div></div><div class="tkw"><div class="tk" id="tk"><div class="tk__m"><small>Well Well music bistro · контрамарка</small><b id="tk-e">Банкет</b><dl><div><dt>Гостей</dt><dd id="tk-g">до 60</dd></div><div><dt>Дата</dt><dd id="tk-d">уточним</dd></div></dl></div><div class="tk__s"><small>Корешок</small><i id="tk-s">Славянская пл., 2</i></div></div><button class="btn" type="submit">Оторвать корешок</button></div></div></form></section><section class="v" id="v3" hidden><form class="box" id="lu"><div class="bg"><img src="hero.webp" alt=""></div><div class="lu__d"></div><div class="w ctr"><h2>Забронируйте <em>дату</em></h2><p class="big"><b id="lu-n">40</b> гостей</p><input class="rng" id="lu-r" type="range" min="2" max="100" value="40" aria-label="Число гостей"><p class="hint" id="lu-c">Концертный зал, фуршет с рассадкой</p><div class="row nar"><div class="fl"><label for="t3">Телефон</label><input id="t3" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00"></div><button class="btn " type="submit">Забронировать</button></div><p class="note">Заявка ещё не бронь: менеджер перезвонит и подтвердит дату. Нажимая кнопку, вы соглашаетесь с <a href="https://testshrift-ilg.tilda.ws/privacy">политикой конфиденциальности</a>.</p></div></form></section><section class="v" id="v4" hidden><form class="box"><div class="w sp2"><div><h2>Забронируйте <em>дату</em></h2><svg class="pln" id="pln" viewBox="0 0 600 400" role="group" aria-label="Схема залов"><path class="ln" d="M20 130h380v250H20zM60 380v-0M250 130V95"/><path class="ln" d="M30 150a60 60 0 0 1 0 120" /><text x="42" y="216" class="tx s">сцена</text><g class="rm on" data-i="0" tabindex="0"><rect x="20" y="130" width="380" height="250"/><text x="210" y="262" class="tx">Концертный зал</text></g><g class="rm" data-i="1" tabindex="0"><rect x="420" y="170" width="160" height="210"/><text x="500" y="282" class="tx">Караоке-рум</text></g><g class="rm" data-i="2" tabindex="0"><rect x="170" y="20" width="160" height="90"/><text x="250" y="72" class="tx">VIP-зал</text></g><path class="ln" d="M400 250h20M430 130v-30M440 130v-30M450 130v-30M460 130v-30"/><text x="445" y="92" class="tx s">вход</text></svg><p class="hint">Схема условная</p><div class="row"><div class="fl"><label for="d4">Дата</label><input id="d4" type="date"></div><div class="fl"><label for="t4">Телефон</label><input id="t4" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00"></div><button class="btn " type="submit">Забронировать</button></div></div><div class="pp"><div class="st ph"><img class="on" src="hero.webp" alt=""><img src="karaoke2.webp" alt=""><img src="vip.webp" alt=""></div><p class="cap"><b id="pl-n">Концертный зал</b><span id="pl-c">до 100 гостей · банкет, фуршет, музыкальный вечер</span></p></div></div></form></section><section class="v" id="v5" hidden><form class="box"><div class="bg" style="--ov:0.78"><img src="stage-live.webp" alt=""></div><div class="w"><h2>Забронируйте <em>дату</em></h2><div class="dts" id="dts"></div><div class="gap"><div><legend>Событие</legend><div class="chips "><label><input type="radio" name="e5" value="Банкет" checked><span>Банкет</span></label><label><input type="radio" name="e5" value="Фуршет"><span>Фуршет</span></label><label><input type="radio" name="e5" value="Музыкальный вечер"><span>Музыкальный вечер</span></label><label><input type="radio" name="e5" value="Караоке"><span>Караоке</span></label><label><input type="radio" name="e5" value="Другое"><span>Другое</span></label></div></div><div class="row nar l"><div class="fl"><label for="t5">Телефон</label><input id="t5" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00"></div><button class="btn " type="submit">Забронировать</button></div></div><p class="note">Заявка ещё не бронь: менеджер перезвонит и подтвердит дату. Нажимая кнопку, вы соглашаетесь с <a href="https://testshrift-ilg.tilda.ws/privacy">политикой конфиденциальности</a>.</p></div></form></section><section class="v" id="v6" hidden><form class="box cu" id="cu"><div class="bg"><img src="stage.webp" alt=""></div><div class="cu__c l"></div><div class="cu__c r"></div><div class="w ctr cu__f"><div class="q on"><h2>Что <em>празднуем?</em></h2><div class="chips c"><label><input type="radio" name="e6" value="Банкет"><span>Банкет</span></label><label><input type="radio" name="e6" value="Фуршет"><span>Фуршет</span></label><label><input type="radio" name="e6" value="Музыкальный вечер"><span>Музыкальный вечер</span></label><label><input type="radio" name="e6" value="Караоке"><span>Караоке</span></label><label><input type="radio" name="e6" value="Другое"><span>Другое</span></label></div></div><div class="q"><h2>Когда <em>соберёмся?</em></h2><div class="row nar"><div class="fl"><label for="d6">Дата</label><input id="d6" type="date"></div><button class="btn" type="button" data-nx>Дальше</button></div><button class="lnk" type="button" data-nx>Пока не знаем</button></div><div class="q"><h2>Куда <em>перезвонить?</em></h2><div class="row nar"><div class="fl"><label for="t6">Телефон</label><input id="t6" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00"></div><button class="btn " type="submit">Забронировать</button></div><p class="note">Заявка ещё не бронь: менеджер перезвонит и подтвердит дату. Нажимая кнопку, вы соглашаетесь с <a href="https://testshrift-ilg.tilda.ws/privacy">политикой конфиденциальности</a>.</p></div></div></form></section><section class="v" id="v7" hidden><form class="box"><div class="w sp2"><div><h2>Забронируйте <em>дату</em></h2><div class="sl7" id="sl7"><div class="ln7"><b>Формат</b><div class="chips "><label><input type="radio" name="e7" value="Банкет"><span>Банкет</span></label><label><input type="radio" name="e7" value="Фуршет"><span>Фуршет</span></label><label><input type="radio" name="e7" value="Музыкальный вечер"><span>Музыкальный вечер</span></label><label><input type="radio" name="e7" value="Караоке"><span>Караоке</span></label><label><input type="radio" name="e7" value="Другое"><span>Другое</span></label></div></div><div class="ln7"><b>Гости</b><div class="chips "><label><input type="radio" name="g7" value="до 12"><span>до 12</span></label><label><input type="radio" name="g7" value="до 30"><span>до 30</span></label><label><input type="radio" name="g7" value="до 60"><span>до 60</span></label><label><input type="radio" name="g7" value="до 100"><span>до 100</span></label></div></div><div class="ln7"><b>Дата</b><input type="date" aria-label="Дата"></div><div class="ln7"><b>Телефон</b><input type="tel" inputmode="tel" placeholder="+7 (900) 000-00-00" aria-label="Телефон"></div></div><button class="btn " type="submit">Забронировать площадку</button><p class="note">Заявка ещё не бронь: менеджер перезвонит и подтвердит дату. Нажимая кнопку, вы соглашаетесь с <a href="https://testshrift-ilg.tilda.ws/privacy">политикой конфиденциальности</a>.</p></div><div class="ph"><img src="stage.webp" alt=""></div></div></form></section><section class="v" id="v8" hidden><form class="box sl" id="sl"><div class="bg"><img src="hero.webp" alt=""></div><div class="sl__d"></div><div class="w ctr"><h2>Забронируйте <em>дату</em></h2><p class="lead">Оставьте телефон, остальное обсудим по звонку.</p><div class="col nar"><div class="fl"><label for="n8">Имя</label><input id="n8" autocomplete="name"></div><div class="fl"><label for="t8">Телефон</label><input id="t8" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00"></div><button class="btn " type="submit">Забронировать площадку</button></div><p class="note">Заявка ещё не бронь: менеджер перезвонит и подтвердит дату. Нажимая кнопку, вы соглашаетесь с <a href="https://testshrift-ilg.tilda.ws/privacy">политикой конфиденциальности</a>.</p></div></form></section><section class="v" id="v9" hidden><form class="box ch" id="ch"><div class="st bgs"><img class="on" src="hero.webp" alt=""><img src="f-wide.webp" alt=""><img src="stage.webp" alt=""><img src="karaoke2.webp" alt=""><img src="g-002.webp" alt=""></div><div class="w"><h2>Забронируйте <em>дату</em></h2><div class="evl"><label><input type="radio" name="e9" checked>Банкет<i>до 100 персон</i></label><label><input type="radio" name="e9">Фуршет<i>до 100 персон</i></label><label><input type="radio" name="e9">Музыкальный вечер<i>до 100 персон</i></label><label><input type="radio" name="e9">Караоке<i>до 30 персон</i></label><label><input type="radio" name="e9">Другое<i>обсудим формат</i></label></div><div class="row l"><div class="fl"><label for="d9">Дата</label><input id="d9" type="date"></div><div class="fl"><label for="t9">Телефон</label><input id="t9" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00"></div><button class="btn " type="submit">Забронировать</button></div><p class="note">Заявка ещё не бронь: менеджер перезвонит и подтвердит дату. Нажимая кнопку, вы соглашаетесь с <a href="https://testshrift-ilg.tilda.ws/privacy">политикой конфиденциальности</a>.</p></div></form></section><section class="v" id="v10" hidden><form class="box" id="v10"><div class="st am"><img class="on" src="tables.webp" alt=""><img src="furshet.webp" alt=""><img src="stage.webp" alt=""><img src="karaoke2.webp" alt=""><img src="sign.webp" alt=""></div><div class="w"><h2>Забронируйте <em>дату</em></h2><div class="cards" id="cards"><label><input type="radio" name="e10" checked><span class="card"><img src="tables.webp" alt=""><b>Банкет<i>до 100 персон</i></b></span></label><label><input type="radio" name="e10"><span class="card"><img src="furshet.webp" alt=""><b>Фуршет<i>до 100 персон</i></b></span></label><label><input type="radio" name="e10"><span class="card"><img src="stage.webp" alt=""><b>Музыкальный вечер<i>до 100 персон</i></b></span></label><label><input type="radio" name="e10"><span class="card"><img src="karaoke2.webp" alt=""><b>Караоке<i>до 30 персон</i></b></span></label><label><input type="radio" name="e10"><span class="card"><img src="sign.webp" alt=""><b>Другое<i>обсудим формат</i></b></span></label></div><div class="row"><div class="fl"><label for="d10">Дата</label><input id="d10" type="date"></div><div class="fl"><label for="t10">Телефон</label><input id="t10" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00"></div><button class="btn " type="submit">Забронировать</button></div><p class="note">Заявка ещё не бронь: менеджер перезвонит и подтвердит дату. Нажимая кнопку, вы соглашаетесь с <a href="https://testshrift-ilg.tilda.ws/privacy">политикой конфиденциальности</a>.</p></div></form></section><section class="v" id="v11" hidden><form class="box"><div class="w sp2"><div><h2>Забронируйте <em>дату</em></h2><p class="hint" id="cal-m"></p><div class="cal" id="cal"></div><div class="row"><div class="fl"><label for="t11">Телефон</label><input id="t11" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00"></div><button class="btn " type="submit">Забронировать</button></div><p class="note">Заявка ещё не бронь: менеджер перезвонит и подтвердит дату. Нажимая кнопку, вы соглашаетесь с <a href="https://testshrift-ilg.tilda.ws/privacy">политикой конфиденциальности</a>.</p></div><div class="ph"><img src="pour.webp" alt=""></div></div></form></section><section class="v" id="v12" hidden><form class="box"><div class="w"><h2>Забронируйте <em>дату</em></h2><div class="hl" id="hl"><div class="hc on" tabindex="0"><img src="hero.webp" alt=""><div class="hc__t"><b>Концертный зал</b><span>до 100 гостей · сцена, банкет и фуршет</span><div class="hc__f row"><div class="fl"><label for="t120">Телефон</label><input id="t120" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00"></div><button class="btn " type="submit">Запросить дату</button></div></div></div><div class="hc" tabindex="0"><img src="karaoke2.webp" alt=""><div class="hc__t"><b>Караоке-рум</b><span>до 30 гостей · своя сцена</span><div class="hc__f row"><div class="fl"><label for="t121">Телефон</label><input id="t121" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00"></div><button class="btn " type="submit">Запросить дату</button></div></div></div><div class="hc" tabindex="0"><img src="vip.webp" alt=""><div class="hc__t"><b>VIP-зал</b><span>до 12 гостей · овальный стол</span><div class="hc__f row"><div class="fl"><label for="t122">Телефон</label><input id="t122" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00"></div><button class="btn " type="submit">Запросить дату</button></div></div></div></div><p class="note">Заявка ещё не бронь: менеджер перезвонит и подтвердит дату. Нажимая кнопку, вы соглашаетесь с <a href="https://testshrift-ilg.tilda.ws/privacy">политикой конфиденциальности</a>.</p></div></form></section><section class="v" id="v13" hidden><form class="box"><div class="bg" style="--ov:0.74"><img src="hero.webp" alt=""></div><div class="w"><h2>Забронируйте <em>дату</em></h2><div class="nums" id="nums"><div><b data-n="100">0</b><span>гостей в концертном зале</span></div><div><b data-n="30">0</b><span>в караоке-руме</span></div><div><b data-n="12">0</b><span>в VIP-зале</span></div></div><div class="row"><div class="fl"><label for="n13">Имя</label><input id="n13" autocomplete="name"></div><div class="fl"><label for="t13">Телефон</label><input id="t13" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00"></div><button class="btn " type="submit">Забронировать площадку</button></div><p class="note">Заявка ещё не бронь: менеджер перезвонит и подтвердит дату. Нажимая кнопку, вы соглашаетесь с <a href="https://testshrift-ilg.tilda.ws/privacy">политикой конфиденциальности</a>.</p></div></form></section><section class="v" id="v14" hidden><form class="box"><div class="w sp2"><div><h2>Забронируйте <em>дату</em></h2><div class="chat" id="chat" aria-live="polite"></div></div><div class="ph"><img src="wine.webp" alt=""></div></div></form></section><section class="v" id="v15" hidden><form class="box"><div class="w sp2"><div class="vin"><div class="disc" id="disc"><div class="st lab"><img class="on" src="tables.webp" alt=""><img src="furshet.webp" alt=""><img src="stage.webp" alt=""><img src="karaoke2.webp" alt=""><img src="sign.webp" alt=""></div></div><div class="arm" id="arm"></div></div><div><h2>Забронируйте <em>дату</em></h2><div class="trk" id="trk"><label><input type="radio" name="e15" checked><span>Банкет</span><i>до 100 персон</i></label><label><input type="radio" name="e15"><span>Фуршет</span><i>до 100 персон</i></label><label><input type="radio" name="e15"><span>Музыкальный вечер</span><i>до 100 персон</i></label><label><input type="radio" name="e15"><span>Караоке</span><i>до 30 персон</i></label><label><input type="radio" name="e15"><span>Другое</span><i>обсудим формат</i></label></div><div class="row"><div class="fl"><label for="d15">Дата</label><input id="d15" type="date"></div><div class="fl"><label for="t15">Телефон</label><input id="t15" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00"></div><button class="btn " type="submit">Забронировать</button></div><p class="note">Заявка ещё не бронь: менеджер перезвонит и подтвердит дату. Нажимая кнопку, вы соглашаетесь с <a href="https://testshrift-ilg.tilda.ws/privacy">политикой конфиденциальности</a>.</p></div></div></form></section><section class="v" id="v16" hidden><form class="box"><div class="w ctr"><h2>Забронируйте <em>дату</em></h2><p class="big"><b id="eq-n">40</b> гостей</p><div class="eq" id="eq"></div><input class="rng" id="eq-r" type="range" min="2" max="100" value="40" aria-label="Число гостей"><p class="hint" id="eq-c">Концертный зал, фуршет с рассадкой</p><div class="row nar"><div class="fl"><label for="t16">Телефон</label><input id="t16" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00"></div><button class="btn " type="submit">Забронировать</button></div><p class="note">Заявка ещё не бронь: менеджер перезвонит и подтвердит дату. Нажимая кнопку, вы соглашаетесь с <a href="https://testshrift-ilg.tilda.ws/privacy">политикой конфиденциальности</a>.</p></div></form></section><section class="v" id="v17" hidden><form class="box"><div class="bg" style="--ov:0.72"><img src="sign.webp" alt=""></div><div class="w ctr"><p class="hint">Забронируйте дату</p><h2 class="neon" id="neon">Банкет</h2><div class="chips c"><label><input type="radio" name="e17" value="Банкет" checked><span>Банкет</span></label><label><input type="radio" name="e17" value="Фуршет"><span>Фуршет</span></label><label><input type="radio" name="e17" value="Музыкальный вечер"><span>Музыкальный вечер</span></label><label><input type="radio" name="e17" value="Караоке"><span>Караоке</span></label><label><input type="radio" name="e17" value="Другое"><span>Другое</span></label></div><div class="row nar"><div class="fl"><label for="t17">Телефон</label><input id="t17" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00"></div><button class="btn " type="submit">Забронировать</button></div><p class="note">Заявка ещё не бронь: менеджер перезвонит и подтвердит дату. Нажимая кнопку, вы соглашаетесь с <a href="https://testshrift-ilg.tilda.ws/privacy">политикой конфиденциальности</a>.</p></div></form></section><section class="v" id="v18" hidden><form class="box"><div class="w"><h2>Забронируйте <em>дату</em></h2><div class="ba" id="ba"><img src="hero.webp" alt=""><div class="ba__r"><img src="f-wide.webp" alt=""></div><span class="ba__l on">Банкет<i>рассадка за столами</i></span><span class="ba__l r">Фуршет<i>свободное общение</i></span><i class="ba__h"></i><input type="range" min="8" max="92" value="62" aria-label="Банкет или фуршет"></div><div class="row"><div class="fl"><label for="d18">Дата</label><input id="d18" type="date"></div><div class="fl"><label for="t18">Телефон</label><input id="t18" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00"></div><button class="btn " type="submit">Забронировать</button></div><p class="note">Заявка ещё не бронь: менеджер перезвонит и подтвердит дату. Нажимая кнопку, вы соглашаетесь с <a href="https://testshrift-ilg.tilda.ws/privacy">политикой конфиденциальности</a>.</p></div></form></section><section class="v" id="v19" hidden><form class="box stp" id="stp"><i class="pr"></i><div class="stp__p"><div class="st"><img class="on" src="tables.webp" alt=""><img src="g-160.webp" alt=""><img src="pour.webp" alt=""></div></div><div class="stp__q"><div class="q on"><h2>Что <em>празднуем?</em></h2><div class="evl sm"><label><input type="radio" name="e19">Банкет</label><label><input type="radio" name="e19">Фуршет</label><label><input type="radio" name="e19">Музыкальный вечер</label><label><input type="radio" name="e19">Караоке</label><label><input type="radio" name="e19">Другое</label></div></div><div class="q"><h2>Сколько <em>гостей?</em></h2><div class="chips "><label><input type="radio" name="g19" value="до 12"><span>до 12</span></label><label><input type="radio" name="g19" value="до 30"><span>до 30</span></label><label><input type="radio" name="g19" value="до 60"><span>до 60</span></label><label><input type="radio" name="g19" value="до 100"><span>до 100</span></label></div></div><div class="q"><h2>Куда <em>перезвонить?</em></h2><div class="col"><div class="fl"><label for="t19">Телефон</label><input id="t19" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00"></div><button class="btn " type="submit">Забронировать</button></div><p class="note">Заявка ещё не бронь: менеджер перезвонит и подтвердит дату. Нажимая кнопку, вы соглашаетесь с <a href="https://testshrift-ilg.tilda.ws/privacy">политикой конфиденциальности</a>.</p></div></div></form></section><section class="v" id="v20" hidden><form class="box"><div class="w sp2"><div class="ph"><img src="pour.webp" alt=""></div><div><h2>Забронируйте <em>дату</em></h2><div class="chips "><label><input type="radio" name="e20" value="Банкет" checked><span>Банкет</span></label><label><input type="radio" name="e20" value="Фуршет"><span>Фуршет</span></label><label><input type="radio" name="e20" value="Музыкальный вечер"><span>Музыкальный вечер</span></label><label><input type="radio" name="e20" value="Караоке"><span>Караоке</span></label><label><input type="radio" name="e20" value="Другое"><span>Другое</span></label></div><div class="row"><div class="fl"><label for="t20">Телефон</label><input id="t20" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00"></div></div><button class="hold" type="button" id="hold"><i></i><span>Удерживайте,<br>чтобы забронировать</span></button><p class="note">Заявка ещё не бронь: менеджер перезвонит и подтвердит дату. Нажимая кнопку, вы соглашаетесь с <a href="https://testshrift-ilg.tilda.ws/privacy">политикой конфиденциальности</a>.</p></div></div></form></section><section class="v" id="v21" hidden><form class="scr" id="scr"><div class="scr__s"><div class="bg"><img src="stage.webp" alt=""></div><div class="w ctr"><h2>Забронируйте <em>дату</em></h2><p class="hint scr__h">Листайте вниз</p><div class="scr__f"><div class="row nar"><div class="fl"><label for="d21">Дата</label><input id="d21" type="date"></div><div class="fl"><label for="t21">Телефон</label><input id="t21" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00"></div><button class="btn " type="submit">Забронировать</button></div><p class="note">Заявка ещё не бронь: менеджер перезвонит и подтвердит дату. Нажимая кнопку, вы соглашаетесь с <a href="https://testshrift-ilg.tilda.ws/privacy">политикой конфиденциальности</a>.</p></div></div></div></form></section><section class="v" id="v22" hidden><form class="box"><div class="w ctr"><p class="hint">Забронируйте дату</p><h2 class="win" id="win">Ваш вечер</h2><div class="row nar"><div class="fl"><label for="t22">Телефон</label><input id="t22" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00"></div><button class="btn " type="submit">Забронировать площадку</button></div><p class="note">Заявка ещё не бронь: менеджер перезвонит и подтвердит дату. Нажимая кнопку, вы соглашаетесь с <a href="https://testshrift-ilg.tilda.ws/privacy">политикой конфиденциальности</a>.</p></div></form></section><script>var META=[["Фраза-афиша", "Заявка одной фразой: нажимаете на подчёркнутые слова, они прокручиваются, фото меняется. Остаётся телефон."], ["Билет", "Ответы впечатываются в контрамарку. В конце корешок отрывается по перфорации."], ["Луч считает гостей", "Двигаете ползунок гостей — круг света на зале растёт, и подпись говорит, какой зал подойдёт."], ["План этажа", "Нажимаете на зал на схеме: он загорается красным, рядом его фото и вместимость. Потом дата и телефон."], ["Афиша дат", "Ближайшие пятницы и субботы как гастрольная афиша. Выбираете дату, событие и оставляете телефон."], ["Занавес и три вопроса", "Занавес расходится, за ним по одному вопросу на экран: что празднуем, когда, куда перезвонить."], ["Сет-лист", "Четыре строки, как сет-лист на сцене. Заполненная строка зачёркивается красной линией."], ["Свет рампы", "Зал в темноте, луч света идёт за курсором. На телефоне луч плавает сам. Имя и телефон."], ["Событие меняет зал", "Наводите на событие — весь блок перетекает в его фотографию с медленным наездом."], ["Карты событий", "Пять фотокарт наклоняются за курсором с бликом. Выбранная поднимается, фон берёт её цвет."], ["Сначала дата", "Как у Sexy Fish: первым делом календарь на ближайшие недели, вторым шагом телефон."], ["Карточки залов", "Как у Zuma и Carbone: три зала с фото и вместимостью. Нажатый раскрывается, внутри сразу поле телефона."], ["Три цифры", "Как у Novikov: вместимость крупными цифрами (они набегают при появлении) и короткая форма из двух полей."], ["Переписка", "Форма как чат с менеджером: вопрос, ответ кнопкой, следующий вопрос. Три ответа и телефон."], ["Пластинка", "Музыкальная тема: события идут треклистом, пластинка крутится, на «яблоке» фото выбранного события."], ["Громкость вечера", "Число гостей задаётся как громкость: эквалайзер под цифрой растёт и качается вместе с ползунком."], ["Неон", "Выбранное событие загорается красной неоновой вывеской с миганием, как знак Well Well на входе."], ["Шторка", "Тянете границу между двумя фото: влево — банкет с рассадкой, вправо — фуршет. Что открыли больше, то и выбрано."], ["Три экрана", "Один вопрос на экран: фото слева сменяется шторкой, справа крупный вопрос. Сверху линия прогресса."], ["Удерживайте", "Телефон и одна круглая кнопка: пока держите палец, она наполняется красным, как бокал."], ["Сцена на прокрутке", "Листаете вниз: свет гаснет, камера наезжает на сцену, и из темноты проявляется форма."], ["Буквы-окно", "Огромная надпись, сквозь буквы виден красный зал, и он движется за курсором. В форме только телефон."]];(function(){var D=document,$=function(i){return D.getElementById(i)},all=function(s,r){return [].slice.call((r||D).querySelectorAll(s))};
+var m=location.search.match(/v=(\d+)/),N=META.length;
+if(!m){ // режим просмотра: два окна, компьютер и телефон
+  var vw=$('vw'),vn=$('vn'),cur=+(location.hash.slice(1))||1,fd=$('fd'),fm=$('fm');vw.hidden=false;
+  for(var i=1;i<=N;i++){var b=D.createElement('button');b.type='button';b.textContent=i;b.setAttribute('aria-label','Вариант '+i);(function(n){b.onclick=function(){go(n)}})(i);vn.appendChild(b)}
+  function go(n){cur=(n-1+N)%N+1;all('button',vn).forEach(function(x,k){x.setAttribute('aria-pressed',k+1===cur)});$('vt').textContent=cur+'. '+META[cur-1][0];$('vd').textContent=META[cur-1][1];
+    var u=location.pathname+'?v='+cur;fd.src=u;fm.src=u;history.replaceState(null,'','#'+cur)}
+  function fit(){var bx=fd.parentNode,k=bx.clientWidth/1440;if(!k)return;fd.style.setProperty('--k',k);fm.parentNode.parentNode.style.setProperty('--k',bx.clientHeight/780)}
+  $('pv').onclick=function(){go(cur-1)};$('nx').onclick=function(){go(cur+1)};
+  D.addEventListener('keydown',function(e){if(e.key==='ArrowRight')go(cur+1);if(e.key==='ArrowLeft')go(cur-1)});
+  function fit2(){fit();fit();fit()}window.addEventListener('resize',fit2);window.addEventListener('load',fit2);go(cur);fit2();return}
+var v=Math.min(N,Math.max(1,+m[1])),S=$('v'+v);S.hidden=false;
 all('form').forEach(function(f){f.addEventListener('submit',function(e){e.preventDefault()})});
-function pick(box,i){all('img',box).forEach(function(m,k){m.classList.toggle('on',k===i)})}
-
-// 1. Луч света: идёт за курсором, без курсора плавает сам
-var sl=$('sl'),tx=.5,ty=.42,cx=.5,cy=.42,last=-1e9,vis=false;
-sl.addEventListener('pointermove',function(e){var r=sl.getBoundingClientRect();tx=(e.clientX-r.left)/r.width;ty=(e.clientY-r.top)/r.height;last=performance.now()});
-sl.addEventListener('pointerleave',function(){last=-1e9});
-new IntersectionObserver(function(e){vis=e[0].isIntersecting;if(vis)requestAnimationFrame(tick)}).observe(sl);
-function tick(t){if(!vis)return;if(t-last>1800){tx=.5+.34*Math.sin(t/2600);ty=.42+.24*Math.sin(t/1900+1)}cx+=(tx-cx)*.07;cy+=(ty-cy)*.07;sl.style.setProperty('--x',(cx*100).toFixed(2)+'%');sl.style.setProperty('--y',(cy*100).toFixed(2)+'%');requestAnimationFrame(tick)}
-
-// 2. Событие меняет фон
-var ch=$('ch'),cb=ch.querySelector('.ch__bg'),cr=all('.evl input',ch);
-function cur(){for(var i=0;i<cr.length;i++)if(cr[i].checked)return i;return 0}
-cr.forEach(function(r,i){r.addEventListener('change',function(){pick(cb,i)});r.parentNode.addEventListener('mouseenter',function(){pick(cb,i)})});
-ch.querySelector('.evl').addEventListener('mouseleave',function(){pick(cb,cur())});
-
-// 3. Занавес открывается, когда блок на экране
-var cu=$('cu');
-new IntersectionObserver(function(e,o){if(e[0].isIntersecting){o.disconnect();cu.classList.add('open')}},{threshold:.45}).observe(cu);
-function replay(){cu.classList.remove('open');setTimeout(function(){cu.classList.add('open')},1300)}
-$('re').addEventListener('click',replay);
-
-// 4. Слова прокручиваются по нажатию
-function roll(btn,opts,cb2){var i=0,s=btn.firstChild,busy=false;btn.addEventListener('click',function(){if(busy)return;busy=true;i=(i+1)%opts.length;btn.classList.add('out');setTimeout(function(){s.textContent=opts[i];btn.classList.remove('out');btn.classList.add('pre');s.offsetWidth;btn.classList.remove('pre');busy=false;if(cb2)cb2(i)},260)})}
-roll($('r1'),['банкет','фуршет','музыкальный вечер','караоке','своё событие'],function(i){pick($('sw'),i)});
-roll($('r2'),['40','60','80','100','12','30']);
-
-// 5. Карты наклоняются за курсором, фон берёт цвет выбранной
-var fine=window.matchMedia('(hover:hover) and (pointer:fine)').matches,cl=all('#cards label');
-cl.forEach(function(l,i){var c=l.querySelector('.card');
-  l.querySelector('input').addEventListener('change',function(){pick($('am'),i)});
-  if(!fine)return;
+function pick(box,i){all('img',box).forEach(function(x,k){x.classList.toggle('on',k===i)})}
+function radios(n,fn){all('input[name="'+n+'"]').forEach(function(r,i){r.addEventListener('change',function(){fn(i,r.value)})})}
+function roll(btn,o,cb){var i=0,s=btn.firstChild,busy=0;btn.addEventListener('click',function(){if(busy)return;busy=1;i=(i+1)%o.length;btn.classList.add('out');setTimeout(function(){s.textContent=o[i];btn.classList.remove('out');btn.classList.add('pre');s.offsetWidth;btn.classList.remove('pre');busy=0;if(cb)cb(i)},260)})}
+function hall(n){return n<=12?'Подойдёт VIP-зал':n<=30?'Караоке-рум или VIP-зал':n<=60?'Концертный зал, фуршет с рассадкой':'Весь концертный зал'}
+function pop(e,t){e.textContent=t;e.classList.remove('pop');e.offsetWidth;e.classList.add('pop')}
+var MO=['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'],WD=['воскресенье','понедельник','вторник','среда','четверг','пятница','суббота'];
+function drift(el,fn){var tx=.5,ty=.42,cx=.5,cy=.42,last=-1e9;el.addEventListener('pointermove',function(e){var r=el.getBoundingClientRect();tx=(e.clientX-r.left)/r.width;ty=(e.clientY-r.top)/r.height;last=performance.now()});el.addEventListener('pointerleave',function(){last=-1e9});
+  (function tick(t){if(t-last>1800){tx=.5+.34*Math.sin(t/2600);ty=.45+.25*Math.sin(t/1900+1)}cx+=(tx-cx)*.07;cy+=(ty-cy)*.07;fn(cx,cy);requestAnimationFrame(tick)})(0)}
+function steps(root,after){var q=all('.q',root),i=0;function to(n){i=n;q.forEach(function(x,k){x.classList.toggle('on',k===n)});if(after)after(n)}return {next:function(){if(i<q.length-1)to(i+1)},to:to}}
+var I={
+1:function(){roll($('r1'),['банкет','фуршет','музыкальный вечер','караоке','свой праздник'],function(i){pick(S.querySelector('.st'),i)});roll($('r2'),['40','60','80','100','12','30']);roll($('r3'),['в пятницу','в субботу','в будний день','в этом месяце'])},
+2:function(){radios('e2',function(i,t){pop($('tk-e'),t)});radios('g2',function(i,t){pop($('tk-g'),t)});$('d2').addEventListener('change',function(){var d=this.valueAsDate;if(d)pop($('tk-d'),d.getUTCDate()+' '+MO[d.getUTCMonth()])});
+  $('tkf').addEventListener('submit',function(){$('tk').classList.add('torn');$('tk-s').textContent='Заявка собрана'})},
+3:function(){var r=$('lu-r');function u(){var n=+r.value;$('lu-n').textContent=n;$('lu-c').textContent=hall(n);$('lu').style.setProperty('--r',(14+n*.62)+'vmin')}r.addEventListener('input',u);u()},
+4:function(){var R=[['Концертный зал','до 100 гостей · банкет, фуршет, музыкальный вечер'],['Караоке-рум','до 30 гостей · своя сцена и караоке'],['VIP-зал','до 12 гостей · овальный стол']],g=all('.rm');
+  function on(i){g.forEach(function(x,k){x.classList.toggle('on',k===i)});pick(S.querySelector('.st'),i);pop($('pl-n'),R[i][0]);$('pl-c').textContent=R[i][1]}
+  g.forEach(function(x,i){x.addEventListener('click',function(){on(i)});x.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();on(i)}})})},
+5:function(){var d=new Date(),h='',c=0;d.setDate(d.getDate()+1);while(c<8){var w=d.getDay();if(w===5||w===6){h+='<label><input type="radio" name="dt5"'+(c?'':' checked')+'><span><small>'+WD[w]+'</small><b>'+d.getDate()+'</b><small>'+MO[d.getMonth()]+'</small></span></label>';c++}d.setDate(d.getDate()+1)}
+  $('dts').innerHTML=h+'<label><input type="radio" name="dt5"><span><small>нужен</small><b>…</b><small>другой день</small></span></label>'},
+6:function(){var cu=$('cu'),s=steps(cu);setTimeout(function(){cu.classList.add('open')},500);radios('e6',function(){setTimeout(s.next,350)});all('[data-nx]',cu).forEach(function(b){b.addEventListener('click',s.next)})},
+7:function(){all('.ln7').forEach(function(l){function ok(){l.classList.add('ok')}l.addEventListener('change',ok);all('input[type=tel]',l).forEach(function(x){x.addEventListener('input',function(){l.classList.toggle('ok',x.value.replace(/\D/g,'').length>=10)})})})},
+8:function(){var sl=$('sl');drift(sl,function(x,y){sl.style.setProperty('--x',(x*100).toFixed(2)+'%');sl.style.setProperty('--y',(y*100).toFixed(2)+'%')})},
+9:function(){var b=S.querySelector('.bgs'),r=all('.evl input',S);function cur(){for(var i=0;i<r.length;i++)if(r[i].checked)return i;return 0}
+  r.forEach(function(x,i){x.addEventListener('change',function(){pick(b,i)});x.parentNode.addEventListener('mouseenter',function(){pick(b,i)})});S.querySelector('.evl').addEventListener('mouseleave',function(){pick(b,cur())})},
+10:function(){var fine=matchMedia('(hover:hover) and (pointer:fine)').matches,am=S.querySelector('.am');all('#cards label').forEach(function(l,i){var c=l.querySelector('.card');l.querySelector('input').addEventListener('change',function(){pick(am,i)});if(!fine)return;
   l.addEventListener('pointermove',function(e){var r=l.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;l.classList.add('tilt');c.style.setProperty('--ry',((x-.5)*16).toFixed(2)+'deg');c.style.setProperty('--rx',((.5-y)*14).toFixed(2)+'deg');c.style.setProperty('--gx',(x*100).toFixed(1)+'%');c.style.setProperty('--gy',(y*100).toFixed(1)+'%')});
-  l.addEventListener('pointerleave',function(){l.classList.remove('tilt');c.style.setProperty('--ry','0deg');c.style.setProperty('--rx','0deg')})});
-})();
-</script>
-</body>
-</html>
+  l.addEventListener('pointerleave',function(){l.classList.remove('tilt');c.style.setProperty('--ry','0deg');c.style.setProperty('--rx','0deg')})})},
+11:function(){var t=new Date();t.setHours(0,0,0,0);var d=new Date(t),c=$('cal'),h='';d.setDate(d.getDate()-(d.getDay()+6)%7);['пн','вт','ср','чт','пт','сб','вс'].forEach(function(x){h+='<i>'+x+'</i>'});
+  var e=new Date(d);e.setDate(e.getDate()+34);$('cal-m').textContent=MO[d.getMonth()]===MO[e.getMonth()]?'Выберите день · '+['январь','февраль','март','апрель','май','июнь','июль','август','сентябрь','октябрь','ноябрь','декабрь'][d.getMonth()]:'Выберите день · с '+d.getDate()+' '+MO[d.getMonth()]+' по '+e.getDate()+' '+MO[e.getMonth()];
+  for(var i=0;i<35;i++){h+='<button type="button"'+(d<=t?' disabled':'')+' aria-label="'+d.getDate()+' '+MO[d.getMonth()]+'">'+d.getDate()+'</button>';d.setDate(d.getDate()+1)}c.innerHTML=h;
+  c.addEventListener('click',function(ev){var b=ev.target.closest('button');if(!b||b.disabled)return;all('button',c).forEach(function(x){x.classList.toggle('on',x===b)})})},
+12:function(){var h=all('.hc');h.forEach(function(x){function on(){h.forEach(function(y){y.classList.toggle('on',y===x)})}x.addEventListener('click',on);x.addEventListener('keydown',function(e){if(e.key==='Enter'&&e.target===x)on()})})},
+13:function(){var t0=performance.now()+300;(function f(t){var p=Math.min(1,Math.max(0,(t-t0)/1500)),e=1-Math.pow(1-p,3);all('#nums b').forEach(function(b){b.textContent=Math.round(e*+b.getAttribute('data-n'))});if(p<1)requestAnimationFrame(f)})(t0)},
+14:function(){var c=$('chat'),Q=[['Что празднуем?',['Банкет','Фуршет','Музыкальный вечер','Караоке','Другое']],['Сколько будет гостей?',['до 12','до 30','до 60','до 100']],['На какой день смотрите?',['Ближайшая пятница','Ближайшая суббота','Другая дата']]],i=0;
+  function bb(t,k){var e=D.createElement('div');e.className='bb '+(k||'');e.innerHTML=t;c.appendChild(e);e.scrollIntoView({block:'nearest'});return e}
+  function ask(){var t=bb('<i></i><i></i><i></i>','t');setTimeout(function(){t.remove();if(i<Q.length){bb(Q[i][0]);var w=D.createElement('div');w.className='chips';Q[i][1].forEach(function(o){var b=D.createElement('label');b.innerHTML='<input type="radio" name="q'+i+'"><span>'+o+'</span>';b.firstChild.addEventListener('change',function(){w.remove();bb(o,'u');i++;ask()});w.appendChild(b)});c.appendChild(w)}
+    else{bb('Куда перезвонить?');var r=D.createElement('div');r.className='row';r.innerHTML='<div class="fl"><label for="t14">Телефон</label><input id="t14" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00"></div><button class="btn" type="submit">Забронировать</button>';c.appendChild(r);r.scrollIntoView({block:'nearest'})}},650)}ask()},
+15:function(){radios('e15',function(i){pick(S.querySelector('.lab'),i);$('arm').style.setProperty('--a',(16+i*3.5)+'deg')})},
+16:function(){var q=$('eq'),r=$('eq-r'),h='';for(var i=0;i<30;i++)h+='<i style="--d:-'+((i*37)%100)/100+'s"></i>';q.innerHTML=h;var b=all('i',q);
+  function u(){var n=+r.value;$('eq-n').textContent=n;$('eq-c').textContent=hall(n);b.forEach(function(x,k){var a=k/29<=n/100,hh=a?12+n*.88*(.45+.55*Math.abs(Math.sin(k*1.7+1))):5;x.style.setProperty('--h',hh+'%');x.classList.toggle('hot',a&&hh>68)})}r.addEventListener('input',u);u()},
+17:function(){var n=$('neon');radios('e17',function(i,t){n.textContent=t;n.classList.remove('fk');n.offsetWidth;n.classList.add('fk')});n.classList.add('fk')},
+18:function(){var b=$('ba'),r=b.querySelector('input'),l=all('.ba__l',b);function u(){b.style.setProperty('--p',r.value+'%');l[0].classList.toggle('on',+r.value>=50);l[1].classList.toggle('on',+r.value<50)}r.addEventListener('input',u);u()},
+19:function(){var s=steps(S,function(n){pick(S.querySelector('.st'),n);S.querySelector('.pr').style.width=(n+1)*33.4+'%'});radios('e19',function(){setTimeout(s.next,350)});radios('g19',function(){setTimeout(s.next,350)})},
+20:function(){var h=$('hold'),t;function dn(e){if(h.classList.contains('ok'))return;h.classList.add('h');clearTimeout(t);t=setTimeout(function(){h.classList.remove('h');h.classList.add('ok');h.querySelector('span').textContent='Заявка собрана'},1300)}function up(){clearTimeout(t);h.classList.remove('h')}
+  h.addEventListener('pointerdown',dn);h.addEventListener('pointerup',up);h.addEventListener('pointerleave',up);h.addEventListener('keydown',function(e){if((e.key===' '||e.key==='Enter')&&!e.repeat)dn()});h.addEventListener('keyup',up);h.addEventListener('contextmenu',function(e){e.preventDefault()})},
+21:function(){var s=$('scr'),bg=s.querySelector('.bg');function u(){var p=Math.min(1,Math.max(0,window.scrollY/(s.offsetHeight-window.innerHeight)));s.style.setProperty('--z',1+p*.35);bg.style.setProperty('--ov',.3+p*.5);s.style.setProperty('--o',Math.min(1,Math.max(0,(p-.4)/.4)));s.querySelector('.scr__h').style.opacity=1-Math.min(1,p*3)}window.addEventListener('scroll',u,{passive:true});u()},
+22:function(){var w=$('win');drift(S,function(x,y){w.style.setProperty('--x',(20+x*60).toFixed(2)+'%');w.style.setProperty('--y',(20+y*60).toFixed(2)+'%')})}
+};I[v]()})();
+</script></body></html>

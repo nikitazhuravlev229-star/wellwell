@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Well Well — варианты главного экрана</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@300;400&family=Manrope:wght@400;500;600&family=Tenor+Sans&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#1b130f;color:#fff;font-family:Manrope,system-ui,sans-serif}
+a{color:inherit;text-decoration:none}
+.label{position:absolute;z-index:5;bottom:10px;right:10px;font:600 11px/1 Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:7px 12px;border-radius:99px;background:rgba(255,255,255,.85);color:#1b130f}
+.v{position:relative;min-height:100svh;overflow:hidden;display:flex;flex-direction:column}
+.logo{display:block;-webkit-mask:url(logo.svg) left center/contain no-repeat;mask:url(logo.svg) left center/contain no-repeat;background:currentColor}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px clamp(20px,4vw,56px);position:relative;z-index:2}
+.nav ul{display:flex;gap:28px;list-style:none;font-size:14px}
+.nav .tel{font-size:14px;font-variant-numeric:tabular-nums}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 28px;font:500 15px/1 Manrope,sans-serif;border-radius:2px;transition:background .2s,color .2s}
+@media (max-width:860px){.nav ul,.nav .tel{display:none}}
+
+/* ---------- A. Кремовый, антиква ---------- */
+.va{background:#efe6d8;color:#2b1d16}
+.va .logo{width:132px;height:52px;color:#2b1d16}
+.va .nav .btn{min-height:42px;padding:0 18px;border:1px solid #2b1d16;font-size:13px}
+.va .grid{flex:1;display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(24px,4vw,64px);align-items:end;padding:0 clamp(20px,4vw,56px) clamp(28px,5vw,56px)}
+.va h1{font:300 clamp(44px,6.2vw,96px)/1.02 "Noto Serif Display",serif;letter-spacing:-.02em}
+.va .sub{margin-top:24px;max-width:430px;font-size:17px;line-height:1.5;color:#5b4639}
+.va .cta{margin-top:36px;display:flex;gap:12px;flex-wrap:wrap}
+.va .btn--main{background:#2b1d16;color:#efe6d8}.va .btn--main:hover{background:#7a2a1d}
+.va .btn--line{border:1px solid #2b1d16}
+.va .meta{margin-top:40px;display:flex;gap:36px;font-size:13px;color:#7a6253;letter-spacing:.02em}
+.va .meta b{display:block;font:400 30px/1 "Noto Serif Display",serif;color:#2b1d16;margin-bottom:6px}
+.va figure{height:min(74svh,760px);border-radius:2px;overflow:hidden}
+.va figure img{width:100%;height:100%;object-fit:cover}
+@media (max-width:860px){.va .grid{grid-template-columns:1fr;align-items:start}.va figure{height:46svh;order:-1}.va h1{font-size:42px}}
+
+/* ---------- B. Тёмный шоколад, фото на весь экран ---------- */
+.vb{color:#f3e9dc}
+.vb .bg{position:absolute;inset:0}
+.vb .bg img{width:100%;height:100%;object-fit:cover;object-position:60% 50%}
+.vb .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(38,24,17,.55) 0%,rgba(38,24,17,.15) 35%,rgba(38,24,17,.35) 60%,rgba(38,24,17,.92) 100%)}
+.vb .logo{width:150px;height:58px;color:#f3e9dc}
+.vb .nav .btn{min-height:42px;padding:0 18px;background:#f3e9dc;color:#2a1a12;font-size:13px}
+.vb .body{position:relative;z-index:2;margin-top:auto;padding:0 clamp(20px,4vw,56px) clamp(32px,5vw,64px);display:grid;grid-template-columns:1fr auto;gap:32px;align-items:end}
+.vb .kicker{font:400 13px/1 "Tenor Sans",sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#d9b88f;margin-bottom:22px}
+.vb h1{font:400 clamp(40px,5.6vw,84px)/1.06 "Tenor Sans",sans-serif;letter-spacing:.01em;text-transform:uppercase;max-width:15ch}
+.vb .side{max-width:330px;font-size:16px;line-height:1.55;color:#e4d4c2}
+.vb .side .btn{margin-top:22px;width:100%;background:#a8432c;color:#fff}.vb .side .btn:hover{background:#c0553b}
+.vb .side small{display:block;margin-top:14px;font-size:13px;color:#bfa58c}
+@media (max-width:860px){.vb .body{grid-template-columns:1fr}.vb h1{font-size:36px}.vb .bg img{object-position:50% 50%}}
+
+/* ---------- C. Каштан, гротеск + рамка ---------- */
+.vc{background:#3a271d;color:#f1e6d6}
+.vc .logo{width:132px;height:52px;color:#f1e6d6}
+.vc .nav .btn{min-height:42px;padding:0 18px;border:1px solid rgba(241,230,214,.5);font-size:13px}
+.vc .wrap{flex:1;display:flex;flex-direction:column;padding:0 clamp(20px,4vw,56px) clamp(28px,4vw,48px)}
+.vc h1{font:500 clamp(46px,7.4vw,118px)/.98 Onest,sans-serif;letter-spacing:-.045em;margin-top:clamp(12px,3vw,40px)}
+.vc h1 span{color:#d7a978}
+.vc .row{margin-top:auto;display:grid;grid-template-columns:1.6fr 1fr;gap:clamp(16px,3vw,40px);align-items:stretch}
+.vc figure{border-radius:14px;overflow:hidden;min-height:300px;max-height:44svh}
+.vc figure img{width:100%;height:100%;object-fit:cover}
+.vc .card{border-radius:14px;background:#4a3326;padding:28px;display:flex;flex-direction:column;justify-content:space-between;gap:24px}
+.vc .card p{font-size:16px;line-height:1.55;color:#dccab4}
+.vc .card ul{list-style:none;display:grid;gap:10px;font-size:14px}
+.vc .card li{display:flex;justify-content:space-between;border-bottom:1px solid rgba(241,230,214,.14);padding-bottom:10px}
+.vc .card li b{font-weight:500}
+.vc .btn--main{background:#f1e6d6;color:#3a271d}.vc .btn--main:hover{background:#d7a978}
+@media (max-width:860px){.vc .row{grid-template-columns:1fr}.vc h1{font-size:46px}.vc figure{min-height:240px}}
+</style>
+</head>
+<body>
+
+<section class="v va" aria-label="Вариант A">
+  <span class="label">A · Кремовый · Noto Serif Display + Manrope</span>
+  <header class="nav">
+    <span class="logo" role="img" aria-label="Well Well music bistro"></span>
+    <ul><li><a href="#">Форматы</a></li><li><a href="#">Залы</a></li><li><a href="#">Схема</a></li><li><a href="#">Контакты</a></li></ul>
+    <a class="tel" href="tel:+79684789556">+7 (968) 478-95-56</a>
+    <a class="btn" href="#">Забронировать</a>
+  </header>
+  <div class="grid">
+    <div>
+      <h1>Камерная площадка для&nbsp;событий до&nbsp;100&nbsp;гостей</h1>
+      <p class="sub">Банкеты, фуршеты и музыкальные вечера в центре Москвы, у метро «Китай-город». Кухня ресторана «Рыба Моя».</p>
+      <div class="cta"><a class="btn btn--main" href="#">Забронировать дату</a><a class="btn btn--line" href="#">Посмотреть залы</a></div>
+      <div class="meta"><span><b>100</b>гостей на банкете</span><span><b>3</b>зала</span><span><b>2</b>сцены</span></div>
+    </div>
+    <figure><img src="hero-p.webp" alt="Зал Well Well со столами и цветами"></figure>
+  </div>
+</section>
+
+<section class="v vb" aria-label="Вариант B">
+  <span class="label">B · Тёмный шоколад · Tenor Sans + Manrope</span>
+  <div class="bg"><picture><source media="(max-aspect-ratio:1/1)" srcset="hero-p.webp"><img src="hero-hq.webp" alt="Зал Well Well, подготовленный к фуршету"></picture></div>
+  <header class="nav">
+    <span class="logo" role="img" aria-label="Well Well music bistro"></span>
+    <ul><li><a href="#">Форматы</a></li><li><a href="#">Залы</a></li><li><a href="#">Схема</a></li><li><a href="#">Контакты</a></li></ul>
+    <a class="tel" href="tel:+79684789556">+7 (968) 478-95-56</a>
+    <a class="btn" href="#">Забронировать</a>
+  </header>
+  <div class="body">
+    <div><p class="kicker">Music bistro · Китай-город</p><h1>Площадка для вечеров до 100 гостей</h1></div>
+    <div class="side">Банкет, фуршет, концерт или караоке. Три зала, своя сцена и кухня «Рыбы Моей» этажом выше.<a class="btn" href="#">Забронировать дату</a><small>Ответим в течение дня</small></div>
+  </div>
+</section>
+
+<section class="v vc" aria-label="Вариант C">
+  <span class="label">C · Каштан · Onest</span>
+  <header class="nav">
+    <span class="logo" role="img" aria-label="Well Well music bistro"></span>
+    <ul><li><a href="#">Форматы</a></li><li><a href="#">Залы</a></li><li><a href="#">Схема</a></li><li><a href="#">Контакты</a></li></ul>
+    <a class="tel" href="tel:+79684789556">+7 (968) 478-95-56</a>
+    <a class="btn" href="#">Забронировать</a>
+  </header>
+  <div class="wrap">
+    <h1>Ваш вечер<br>на <span>100 гостей</span></h1>
+    <div class="row">
+      <figure><img src="hero-hq.webp" alt="Зал Well Well с люстрой и баром"></figure>
+      <div class="card">
+        <p>Камерная площадка у метро «Китай-город»: банкеты, фуршеты и музыкальные вечера.</p>
+        <ul><li>Банкет<b>до 100</b></li><li>Фуршет<b>до 100</b></li><li>Караоке-рум<b>до 30</b></li><li>VIP-зал<b>до 12</b></li></ul>
+        <a class="btn btn--main" href="#">Забронировать дату</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

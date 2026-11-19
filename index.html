@@ -129,28 +129,6 @@
   </div>
 </section>
 
-<section class="book" id="book">
-  <div class="wrap">
-    <h2 data-rv>Забронируйте <em>дату</em></h2>
-    <form class="form bk" id="form" novalidate>
-      <div class="bk__main">
-        <div class="dts" id="dts" role="radiogroup" aria-label="Дата мероприятия"></div>
-        <div class="dto" id="dto" hidden><label class="lab" for="f-date-m">Какой день нужен</label><input type="date" id="f-date-m"></div>
-        <div class="bk2">
-          <fieldset><legend class="lab">Событие</legend><div class="chp"><label><input type="radio" name="event" value="Банкет" checked><span>Банкет</span></label><label><input type="radio" name="event" value="Фуршет"><span>Фуршет</span></label><label><input type="radio" name="event" value="Музыкальный вечер"><span>Музыкальный вечер</span></label><label><input type="radio" name="event" value="Караоке"><span>Караоке</span></label><label><input type="radio" name="event" value="Другое"><span>Другое</span></label></div></fieldset>
-          <div><span class="lab" id="g-lab">Гостей</span><p class="gn"><output id="g-out" for="f-guests">40</output> <span id="g-word">гостей</span></p><input class="rg" type="range" id="f-guests" name="guests" min="2" max="100" value="40" aria-labelledby="g-lab"><p class="gh" id="g-hall"></p></div>
-        </div>
-        <div class="bk3">
-          <div class="field"><label for="f-tel">Телефон</label><input id="f-tel" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00" required><span class="err" id="e-tel">Проверьте номер: нужно 11 цифр.</span></div>
-          <button class="btn" type="submit" id="bk-send">Забронировать</button>
-        </div>
-        <p class="form__note">Заявка ещё не бронь: менеджер перезвонит и подтвердит дату. Нажимая кнопку, вы соглашаетесь с <a class="tlink" href="https://testshrift-ilg.tilda.ws/privacy" target="_blank" rel="noopener">политикой конфиденциальности</a>.</p>
-      </div>
-      <div class="bk__done" id="status" role="status" hidden></div>
-    </form>
-  </div>
-</section>
-
 <section class="gal" id="gallery">
   <div class="wrap">
     <h2 data-rv>Галерея <em>площадки</em></h2>
@@ -213,6 +191,28 @@
       <a class="btn btn--ghost" href="https://yandex.ru/maps/org/well_well/160057691769/" target="_blank" rel="noopener">Построить маршрут</a>
     </div>
     <div class="map" id="ymap" role="application" aria-label="Карта: Well Well, Славянская площадь, 2"></div>
+  </div>
+</section>
+
+<section class="book" id="book">
+  <div class="wrap">
+    <h2 data-rv>Забронируйте <em>дату</em></h2>
+    <form class="form bk" id="form" novalidate>
+      <div class="bk__main">
+        <div class="dts" id="dts" role="radiogroup" aria-label="Дата мероприятия"></div>
+        <div class="dto" id="dto" hidden><label class="lab" for="f-date-m">Какой день нужен</label><input type="date" id="f-date-m"></div>
+        <div class="bk2">
+          <fieldset><legend class="lab">Событие</legend><div class="chp"><label><input type="radio" name="event" value="Банкет" checked><span>Банкет</span></label><label><input type="radio" name="event" value="Фуршет"><span>Фуршет</span></label><label><input type="radio" name="event" value="Музыкальный вечер"><span>Музыкальный вечер</span></label><label><input type="radio" name="event" value="Караоке"><span>Караоке</span></label><label><input type="radio" name="event" value="Другое"><span>Другое</span></label></div></fieldset>
+          <div><span class="lab" id="g-lab">Гостей</span><p class="gn"><output id="g-out" for="f-guests">40</output> <span id="g-word">гостей</span></p><input class="rg" type="range" id="f-guests" name="guests" min="2" max="100" value="40" aria-labelledby="g-lab"><p class="gh" id="g-hall"></p></div>
+        </div>
+        <div class="bk3">
+          <div class="field"><label for="f-tel">Телефон</label><input id="f-tel" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00" required><span class="err" id="e-tel">Проверьте номер: нужно 11 цифр.</span></div>
+          <button class="btn" type="submit" id="bk-send">Забронировать</button>
+        </div>
+        <p class="form__note">Заявка ещё не бронь: менеджер перезвонит и подтвердит дату. Нажимая кнопку, вы соглашаетесь с <a class="tlink" href="https://testshrift-ilg.tilda.ws/privacy" target="_blank" rel="noopener">политикой конфиденциальности</a>.</p>
+      </div>
+      <div class="bk__done" id="status" role="status" hidden></div>
+    </form>
   </div>
 </section>
 

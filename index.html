@@ -152,6 +152,11 @@ h3{font-family:var(--sans);font-style:normal}
 }
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 @media (max-width:900px){#halls .hall__txt h3{font-size:13px!important;letter-spacing:.12em!important}#halls .hall__more{font-size:10px!important;letter-spacing:.12em!important;padding-bottom:2px!important}}
+@media (max-width:900px){
+ .hero.ho .ho__cta{position:absolute;left:0;right:0;bottom:calc(36px + env(safe-area-inset-bottom,0px));flex-direction:row!important;justify-content:center;gap:28px!important;width:auto!important;max-width:none!important;margin:0!important}
+ .hero.ho .ho__cta .btn{width:auto!important;min-height:0!important;padding:0 0 5px!important;border:0!important;border-bottom:1px solid rgba(241,230,214,.85)!important;background:none!important;font-size:11px!important;letter-spacing:.16em!important}
+ .hero.ho .ho__cta .btn:hover,.hero.ho .ho__cta .btn:focus-visible{background:none!important;color:#fff!important;border-bottom-color:#fff!important}
+}
 /* === Минимализм: весь сайт бежевый, без коричневого/чёрного фона и красных элементов === */
 :root{--bg:#e8dccb;--surface:#f1e9dd;--text:#2b1d16;--fgr:43,29,22;--bgr:232,220,203;--line:rgba(43,29,22,.22);--muted:rgba(43,29,22,.66);--red:#2b1d16;--focus:#2b1d16}
 html,body{background:#e8dccb;color:#2b1d16}

@@ -13,7 +13,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="robots" content="noindex">
 <link rel="icon" href="logo.svg" type="image/svg+xml">
-<link rel="preload" as="image" href="hero-p.webp" media="(max-aspect-ratio:1/1)"><link rel="preload" as="image" href="hero-hq.webp" imagesrcset="hero-m.webp 1200w, hero-hq.webp 2400w" imagesizes="100vw" media="(min-aspect-ratio:1001/1000)">
+<link rel="preload" as="image" href="hero-p.webp" media="(max-aspect-ratio:1/1)"><link rel="preload" as="image" href="hero-hq.webp" imagesrcset="hero-m.webp 1280w, hero-hq.webp 2560w" imagesizes="100vw" media="(min-aspect-ratio:1001/1000)">
 <meta name="theme-color" content="#e8dccb">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"EventVenue","name":"Well Well Music Bistro","description":"Камерная площадка для банкетов, фуршетов и музыкальных вечеров до 100 гостей.","telephone":"+79684789556","maximumAttendeeCapacity":100,"address":{"@type":"PostalAddress","streetAddress":"Славянская площадь, 2","addressLocality":"Москва","addressCountry":"RU"}}</script>
@@ -47,6 +47,31 @@ h3{font-family:var(--sans);font-style:normal}
 .hall.is-link:hover img{transform:scale(1.03)!important}
 .pl__ph{display:none!important}
 .ap-on .halls__grid [data-rv] img,.halls__grid [data-rv] img{clip-path:none!important}
+/* === Открытие сайта: фото раскрывается из окна в центре, затем логотип и кнопки === */
+.hero.ho{position:relative;display:flex;align-items:center;justify-content:center;min-height:100svh;padding:0;text-align:center;overflow:hidden;isolation:isolate;background:var(--bg)}
+.ho__img{position:absolute;inset:0;z-index:-2;overflow:hidden}
+.ho__img img{width:100%;height:100%;object-fit:cover;object-position:56% 50%;display:block}
+.ho::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at 50% 50%,rgba(20,12,8,.42),rgba(20,12,8,.12) 70%)}
+.ho__in{display:flex;flex-direction:column;align-items:center;padding:96px var(--pad) 72px;color:#f1e6d6}
+.ho__logo{width:min(46vw,480px);height:auto}
+.ho__t{margin:clamp(22px,3vw,36px) 0 0;font:400 clamp(12px,1vw,14px)/1.5 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:#f1e6d6;max-width:40ch}
+.ho__cta{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:clamp(26px,3vw,40px)}
+.ho .btn{color:#f1e6d6!important;border-color:rgba(241,230,214,.75)!important}
+.ho .btn:hover,.ho .btn:focus-visible{background:#f1e6d6!important;color:#2b1d16!important}
+@keyframes hoOpen{0%,20%{clip-path:inset(36% 30% 36% 30%)}100%{clip-path:inset(0)}}
+@keyframes hoZoom{0%,20%{transform:scale(1.14)}100%{transform:none}}
+@keyframes hoFade{from{opacity:0}to{opacity:1}}
+@keyframes hoLogo{from{opacity:0;transform:scale(1.1);filter:blur(14px)}to{opacity:1;transform:none;filter:blur(0)}}
+@keyframes hoUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.ho-wait .ho__img,.ho-wait .ho::before,.ho-wait .ho__in>*{opacity:0}
+.ho-go .ho__img{animation:hoOpen 2.3s cubic-bezier(.76,0,.24,1) both}
+.ho-go .ho__img img{animation:hoZoom 2.6s cubic-bezier(.76,0,.24,1) both}
+.ho-go .ho::before{animation:hoFade .9s 1.5s ease both}
+.ho-go .ho__logo{animation:hoLogo 1.6s 1.5s cubic-bezier(.16,1,.3,1) both}
+.ho-go .ho__t{animation:hoUp 1s 2.2s ease both}
+.ho-go .ho__cta{animation:hoUp 1s 2.4s ease both}
+@media (max-width:700px){.ho__logo{width:min(72vw,340px)}.ho__cta{flex-direction:column;width:100%;max-width:320px}.ho__cta .btn{width:100%}}
+@media (prefers-reduced-motion:reduce){.ho-go .ho__img,.ho-go .ho__img img,.ho-go .ho::before,.ho-go .ho__in>*{animation:none}}
 /* === Минимализм: весь сайт бежевый, без коричневого/чёрного фона и красных элементов === */
 :root{--bg:#e8dccb;--surface:#f1e9dd;--text:#2b1d16;--fgr:43,29,22;--bgr:232,220,203;--line:rgba(43,29,22,.22);--muted:rgba(43,29,22,.66);--red:#2b1d16;--focus:#2b1d16}
 html,body{background:#e8dccb;color:#2b1d16}
@@ -115,16 +140,16 @@ h2{font-size:clamp(1.5rem,2.6vw,2.3rem)!important;letter-spacing:.08em!important
 
 <main id="main">
 
-<section class="hero hx" id="top">
-  <img class="hx__logo" src="logo-dark.svg" alt="Well Well music bistro" width="140" height="53">
-  <div class="hx__txt">
-    <p class="hx__eb">Music bistro · Китай-город</p>
-    <h1>Камерная площадка<br>для событий<br>до 100 гостей</h1>
-    <p class="hx__sub">Банкеты, фуршеты и музыкальные вечера. Три зала, своя сцена и кухня «Рыбы Моей».</p>
-    <a class="btn" href="#book">Забронировать дату</a>
+<section class="hero ho" id="top">
+  <div class="ho__img"><picture><source media="(max-aspect-ratio:1/1)" srcset="hero-p.webp"><img src="hero-hq.webp" srcset="hero-m.webp 1280w, hero-hq.webp 2560w" sizes="100vw" alt="Зал Well Well перед фуршетом: столы в скатертях, горка бокалов, люстра из светящихся шаров и бар" width="2560" height="1707" fetchpriority="high"></picture></div>
+  <div class="ho__in">
+    <img class="ho__logo" src="logo.svg" alt="Well Well music bistro" width="400" height="155">
+    <h1 class="ho__t">Камерная площадка для событий до 100 гостей · Китай-город</h1>
+    <div class="ho__cta"><a class="btn" href="#book">Забронировать дату</a><a class="btn" href="#halls">Смотреть залы</a></div>
   </div>
-  <div class="hx__img"><picture><source media="(max-width:900px)" srcset="hero-m.webp"><img src="hero-hq.webp" alt="Зал Well Well перед фуршетом: столы в скатертях, горка бокалов и люстра из светящихся шаров" width="2400" height="1600" fetchpriority="high"></picture></div>
 </section>
+<script>(function(){var d=document.documentElement;d.classList.add('ho-wait');var im=document.querySelector('.ho__img img');var go=function(){if(d.classList.contains('ho-go'))return;d.classList.remove('ho-wait');d.classList.add('ho-go')};if(!im)return go();if(im.complete&&im.naturalWidth)return go();im.addEventListener('load',go);im.addEventListener('error',go);setTimeout(go,3000)})();</script>
+
 
 <section class="nums" id="formats" aria-label="Вместимость">
   <div class="wrap">
@@ -294,7 +319,7 @@ h2{font-size:clamp(1.5rem,2.6vw,2.3rem)!important;letter-spacing:.08em!important
   try{
   // Фишки шаблонов: слайдер первого экрана с миниатюрами, лента залов, бегущая строка, переключатель темы.
   // Всё собирается из текста и фото, которые уже есть на странице; в каком варианте что видно, решают стили.
-  var hbox=D.querySelector('.hero__img')||D.querySelector('.hx__img'),bgs=[];
+  var hbox=D.querySelector('.hero__img')||D.querySelector('.hx__img')||D.querySelector('.ho__img'),bgs=[];
   function addBg(src){var im=D.createElement('img');im.className='hs__bg';im.alt='';im.setAttribute('data-src',src);hbox.appendChild(im);bgs.push(im);return bgs.length-1}
   function showBg(i){bgs.forEach(function(im,k){if(k===i&&!im.getAttribute('src'))im.src=im.getAttribute('data-src');im.classList.toggle('on',k===i)})}
   function srcOf(k){var im=D.querySelector('main img[src*="'+k+'"]');return im?im.getAttribute('src'):''}
@@ -305,7 +330,7 @@ h2{font-size:clamp(1.5rem,2.6vw,2.3rem)!important;letter-spacing:.08em!important
     [].forEach.call(th.children,function(b,k){b.classList.toggle('on',k===i);b.setAttribute('aria-pressed',k===i)});
     clearTimeout(stimer);if(!calm)stimer=setTimeout(next,5200)}
   function next(){if(getComputedStyle(ui).display!=='none'&&window.pageYOffset<window.innerHeight*.8&&!D.hidden)slide((si+1)%SL.length);else stimer=setTimeout(next,1500)}
-  SL.forEach(function(s,i){var src=s[0]?srcOf(s[0]):(D.querySelector('.hero__img img')||D.querySelector('.hx__img img')).getAttribute('src');s[2]=s[0]?addBg(src):-1;
+  SL.forEach(function(s,i){var src=s[0]?srcOf(s[0]):(D.querySelector('.hero__img img')||D.querySelector('.hx__img img')||D.querySelector('.ho__img img')).getAttribute('src');s[2]=s[0]?addBg(src):-1;
     var b=D.createElement('button');b.type='button';b.setAttribute('aria-label',s[1]);b.innerHTML='<img alt="" loading="lazy" src="'+src+'"><i></i>';
     b.addEventListener('click',function(){slide(i)});th.appendChild(b)});
   slide(0);

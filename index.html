@@ -38,6 +38,7 @@ h3{font-family:var(--sans);font-style:normal}
 .hdr__logo img,.ftr img{filter:none!important}
 .hero.hx{position:relative}.hx__logo{position:absolute;z-index:2;top:clamp(24px,4vw,48px);left:clamp(24px,5vw,80px);width:clamp(110px,10vw,150px);height:auto}
 @media (max-width:900px){.hero.hx{display:flex!important;flex-direction:column}.hx__logo{position:static;order:-2;margin:20px var(--pad) 16px;width:112px}.hx__img{margin-top:0!important}.hx__txt{padding-top:32px!important}}
+.nums__h{margin-bottom:clamp(24px,3vw,40px)!important}.pl__ph.none img{opacity:1!important}
 /* === Минимализм: весь сайт бежевый, без коричневого/чёрного фона и красных элементов === */
 :root{--bg:#e8dccb;--surface:#f1e9dd;--text:#2b1d16;--fgr:43,29,22;--bgr:232,220,203;--line:rgba(43,29,22,.22);--muted:rgba(43,29,22,.66);--red:#2b1d16;--focus:#2b1d16}
 html,body{background:#e8dccb;color:#2b1d16}
@@ -119,11 +120,12 @@ h2{font-size:clamp(1.5rem,2.6vw,2.3rem)!important;letter-spacing:.08em!important
 
 <section class="nums" id="formats" aria-label="Вместимость">
   <div class="wrap">
+    <h2 class="nums__h">Вместимость</h2>
     <ul class="nums__l">
-      <li><b>100</b><span>банкет</span></li>
-      <li><b>100</b><span>фуршет</span></li>
-      <li><b>30</b><span>караоке</span></li>
-      <li><b>12</b><span>VIP-зал</span></li>
+      <li><b>100</b><span>гостей на банкете</span></li>
+      <li><b>100</b><span>гостей на фуршете</span></li>
+      <li><b>30</b><span>гостей в караоке-руме</span></li>
+      <li><b>12</b><span>гостей в VIP-зале</span></li>
     </ul>
     <p class="nums__inc">Сцена и свет · звук Shure · кухня «Рыбы Моей» · программа и декор</p>
   </div>
@@ -423,8 +425,8 @@ h2{font-size:clamp(1.5rem,2.6vw,2.3rem)!important;letter-spacing:.08em!important
   all('.plan').forEach(function(pl){var box=D.createElement('div'),side=D.createElement('div'),lg=D.createElement('ol'),im=pl.querySelector('img');box.className='pl';side.className='pl__side';lg.className='pl__lg';pl.appendChild(box);box.appendChild(im);var ph=D.createElement('figure');ph.className='pl__ph';ph.innerHTML='<img alt="" loading="lazy" src="hall.webp"><figcaption>Нажмите на зону на схеме — покажем, как она выглядит</figcaption>';side.appendChild(ph);side.appendChild(lg);pl.appendChild(side);var phi=ph.firstChild,phc=ph.lastChild,cur=-1;
     PT[pl.id].forEach(function(p,i){var x=p[0]/9.42,b=D.createElement('button'),li=D.createElement('li'),c=D.createElement('button');b.type=c.type='button';b.className='pl__pt'+(x<30?' l':x>70?' r':'');b.style.left=x+'%';b.style.top=(p[1]/7.71)+'%';b.setAttribute('data-i',i);c.setAttribute('data-i',i);b.setAttribute('aria-label',(i+1)+'. '+p[2]);b.innerHTML='<span></span>';b.firstChild.textContent=p[2];c.textContent=p[2];box.appendChild(b);li.appendChild(c);lg.appendChild(li)});
     if(pl.id==='p2'){var nt=D.createElement('p');nt.className='pl__note';nt.textContent='Фуршет до 100 персон возможен при условии задействования караоке и VIP-зала.';side.appendChild(nt)}
-    function pact(i){[].forEach.call(pl.querySelectorAll('[data-i]'),function(q){q.classList.toggle('on',+q.getAttribute('data-i')===i)});var L=PT[pl.id];if(i>=0&&i!==cur&&L[i]){cur=i;var s=L[i][3];ph.classList.toggle('none',!s);if(s){phi.src=s;phi.alt=L[i][2]}phc.textContent=s?L[i][2]:L[i][2]+' — фото скоро добавим'}}
-    ['mouseover','focusin','click'].forEach(function(ev){pl.addEventListener(ev,function(e){var t=e.target.closest&&e.target.closest('[data-i]');if(t)pact(+t.getAttribute('data-i'))})});pl.addEventListener('click',function(e){if(!(e.target.closest&&e.target.closest('.pl__pt')))return;var r=ph.getBoundingClientRect();if(r.bottom>innerHeight-70)ph.scrollIntoView({block:'center',behavior:calm?'auto':'smooth'})});pl.addEventListener('mouseleave',function(){pact(-1)})});
+    function pact(i,sp){[].forEach.call(pl.querySelectorAll('[data-i]'),function(q){q.classList.toggle('on',+q.getAttribute('data-i')===i)});var L=PT[pl.id];if(sp&&i>=0&&i!==cur&&L[i]&&L[i][3]){cur=i;var s=L[i][3];ph.classList.toggle('none',!s);if(s){phi.src=s;phi.alt=L[i][2]}phc.textContent=s?L[i][2]:L[i][2]+' — фото скоро добавим'}}
+    ['mouseover','focusin','click'].forEach(function(ev){pl.addEventListener(ev,function(e){var t=e.target.closest&&e.target.closest('[data-i]');if(t)pact(+t.getAttribute('data-i'),ev==='click')})});pl.addEventListener('click',function(e){if(!(e.target.closest&&e.target.closest('.pl__pt')))return;var r=ph.getBoundingClientRect();if(r.bottom>innerHeight-70)ph.scrollIntoView({block:'center',behavior:calm?'auto':'smooth'})});pl.addEventListener('mouseleave',function(){pact(-1)})});
   if(IO)new IntersectionObserver(function(e){root.classList.toggle('at-book',e[0].isIntersecting)},{rootMargin:'-25% 0px -25% 0px'}).observe($('book'));
   sync();
 })();

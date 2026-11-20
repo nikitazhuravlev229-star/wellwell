@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 942 771" width="942" height="771">
 <style>
-  .p { stroke: #ffffff; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .p { stroke: #2b1d16; fill: none; stroke-linecap: round; stroke-linejoin: round; }
   .p text { stroke: none; }
-  .mk { fill: #fff; font-family: Inter, "Helvetica Neue", Arial, sans-serif; font-size: 12.5px; font-weight: 600; text-anchor: middle; }
-  .tl { fill: #fff; font-family: "Helvetica Neue", Arial, "DejaVu Sans", sans-serif; font-size: 9.5px; text-anchor: middle; }
+  .mk { fill: #e8dccb; font-family: Inter, "Helvetica Neue", Arial, sans-serif; font-size: 12.5px; font-weight: 600; text-anchor: middle; }
+  .tl { fill: #2b1d16; font-family: "Helvetica Neue", Arial, "DejaVu Sans", sans-serif; font-size: 9.5px; text-anchor: middle; }
 </style>
 <rect width="942" height="771" fill="#e8dccb"/>
 <g class="p">

@@ -157,6 +157,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
  .hero.ho .ho__cta .btn{width:auto!important;min-height:0!important;padding:0 0 5px!important;border:0!important;border-bottom:1px solid rgba(241,230,214,.85)!important;background:none!important;font-size:11px!important;letter-spacing:.16em!important}
  .hero.ho .ho__cta .btn:hover,.hero.ho .ho__cta .btn:focus-visible{background:none!important;color:#fff!important;border-bottom-color:#fff!important}
 }
+.pl{aspect-ratio:2090/1690!important}.pl img{left:0!important;top:0!important;width:100%!important}
 /* === Минимализм: весь сайт бежевый, без коричневого/чёрного фона и красных элементов === */
 :root{--bg:#e8dccb;--surface:#f1e9dd;--text:#2b1d16;--fgr:43,29,22;--bgr:232,220,203;--line:rgba(43,29,22,.22);--muted:rgba(43,29,22,.66);--red:#2b1d16;--focus:#2b1d16}
 html,body{background:#e8dccb;color:#2b1d16}
@@ -249,7 +250,7 @@ if(!im||(im.complete&&im.naturalWidth))finish();else{im.addEventListener('load',
   <div class="wrap">
     <h2 class="nums__h">Вместимость</h2>
     <ul class="nums__l">
-      <li><b>100</b><span>гостей на банкете</span></li>
+      <li><b>60</b><span>гостей на банкете</span></li>
       <li><b>100</b><span>гостей на фуршете</span></li>
       <li><b>30</b><span>гостей в караоке-руме</span></li>
       <li><b>12</b><span>гостей в VIP-зале</span></li>
@@ -288,13 +289,13 @@ if(!im||(im.complete&&im.naturalWidth))finish();else{im.addEventListener('load',
   <div class="wrap">
     <h2 data-rv>Схема зала</h2>
     <div class="tabs" role="tablist" aria-label="Варианты размещения гостей">
-      <button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="true" type="button">Банкет до 100 персон</button>
+      <button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="true" type="button">Банкет до 60 персон</button>
       <button class="tab" role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1" type="button">Фуршет до 100 персон</button>
       <button class="tab" role="tab" id="t3" aria-controls="p3" aria-selected="false" tabindex="-1" type="button">Фуршет с частичной рассадкой до 60 персон</button>
     </div>
-    <div class="plan" role="tabpanel" id="p1" aria-labelledby="t1" tabindex="0"><img src="plan-banquet.svg" alt="Схема площадки для банкета до 100 персон: открытая кухня, барная стойка, главная сцена, VIP-зал, караоке-зал" width="942" height="771" loading="lazy"></div>
-    <div class="plan" role="tabpanel" id="p2" aria-labelledby="t2" hidden><img src="plan-furshet.svg" alt="Схема площадки для фуршета до 100 персон" width="942" height="771" loading="lazy"></div>
-    <div class="plan" role="tabpanel" id="p3" aria-labelledby="t3" hidden><img src="plan-mixed.svg" alt="Схема площадки для фуршета с частичной рассадкой до 60 персон" width="942" height="771" loading="lazy"></div>
+    <div class="plan" role="tabpanel" id="p1" aria-labelledby="t1" tabindex="0"><img src="plan-banquet.webp" alt="Схема площадки для банкета до 60 персон: открытая кухня, барная стойка, главная сцена, VIP-зал, караоке-зал" width="2090" height="1690" loading="lazy"></div>
+    <div class="plan" role="tabpanel" id="p2" aria-labelledby="t2" hidden><img src="plan-furshet.webp" alt="Схема площадки для фуршета до 100 персон" width="2090" height="1690" loading="lazy"></div>
+    <div class="plan" role="tabpanel" id="p3" aria-labelledby="t3" hidden><img src="plan-mixed.webp" alt="Схема площадки для фуршета с частичной рассадкой до 60 персон" width="2090" height="1690" loading="lazy"></div>
   </div>
 </section>
 
@@ -522,7 +523,7 @@ if(!im||(im.complete&&im.naturalWidth))finish();else{im.addEventListener('load',
   function day(){return form.querySelector('input[name=day]:checked')}
   function dstr(){var c=day();if(c&&c.value)return c.getAttribute('data-t');var v=dm.value.split('-');return v.length===3?fmt(new Date(+v[0],+v[1]-1,+v[2])):'Обсудим по телефону'}
   function sync(){var e=evv();gr.max=e==='Караоке'?30:100;var g=+gr.value,h=hall(e,g),c=day();
-    $('g-out').textContent=g;$('g-word').textContent=word(g);$('g-hall').textContent='Подойдёт '+h+(e==='Фуршет'&&g<=60?', возможна частичная рассадка':'');$('dto').hidden=!(c&&!c.value)}
+    $('g-out').textContent=g;$('g-word').textContent=word(g);$('g-hall').textContent='Подойдёт '+h+(e==='Фуршет'&&g<=60?', возможна частичная рассадка':'')+(e==='Банкет'&&g>60?'. Банкет — до 60 гостей, больше — фуршетом':'');$('dto').hidden=!(c&&!c.value)}
   (function(){var x=new Date(today),h='',c=0;x.setDate(x.getDate()+1);
     while(c<8){var w=x.getDay();if(w===5||w===6){h+='<label><input type="radio" name="day" value="'+x.getFullYear()+'-'+two(x.getMonth()+1)+'-'+two(x.getDate())+'" data-t="'+fmt(x)+'"'+(c?'':' checked')+'><span><small>'+DOW[w]+'</small><b>'+x.getDate()+'</b><small>'+MONG[x.getMonth()]+'</small></span></label>';c++}x.setDate(x.getDate()+1)}
     $('dts').innerHTML=h+'<label><input type="radio" name="day" value=""><span><small>нужен</small><b>…</b><small>другой день</small></span></label>';dm.min=today.getFullYear()+'-'+two(today.getMonth()+1)+'-'+two(today.getDate())})();
@@ -549,10 +550,10 @@ if(!im||(im.complete&&im.naturalWidth))finish();else{im.addEventListener('load',
     var dl=st.querySelector('dl'),g=+gr.value;[['Дата',dstr()],['Событие',evv()],['Гости',g+' '+word(g)],['Зал',cap(hall(evv(),g))],['Телефон',p.value]].forEach(function(x){dl.appendChild(line(x[0],x[1]))});
     st.querySelector('button').addEventListener('click',function(){form.classList.remove('is-done');st.hidden=true});
     form.classList.add('is-done');st.hidden=false;st.tabIndex=-1;st.focus({preventScroll:true})});
-  var PA=[[100,460,'Открытая кухня','g-004.webp'],[166,517,'Барная стойка','pour.webp'],[545,424,'Главная сцена','stage.webp'],[553,207,'VIP-зал','vip.webp'],[337,207,'Уборная',''],[208,145,'Лестница, вход в Well Well','stairs.webp'],[787,305,'Караоке-зал','karaoke2.webp'],[736,500,'Сцена караоке',''],[90,690,'Звуковая','']],PT={p1:PA,p3:PA,p2:PA.filter(function(x,i){return i!==3})};
+  var PT={p1:[[87.4,463.5,'Открытая кухня','g-004.webp'],[156.4,522.4,'Барная стойка','pour.webp'],[547.6,426.6,'Главная сцена','stage.webp'],[556.2,198.9,'VIP-зал','vip.webp'],[332.2,198.9,'Уборная',''],[199.7,135.5,'Лестница, вход в Well Well','stairs.webp'],[794.6,302.0,'Караоке-зал','karaoke2.webp'],[742.3,505.9,'Сцена караоке',''],[78.4,703.5,'Звуковая','']],p2:[[87.4,461.7,'Открытая кухня','g-004.webp'],[156.4,520.5,'Барная стойка','pour.webp'],[547.6,424.7,'Главная сцена','stage.webp'],[332.2,197.1,'Уборная',''],[199.7,133.7,'Лестница, вход в Well Well','stairs.webp'],[795.1,300.2,'Караоке-зал','karaoke2.webp'],[742.3,504.1,'Сцена караоке',''],[78.0,701.2,'Звуковая','']],p3:[[87.4,460.8,'Открытая кухня','g-004.webp'],[156.4,519.6,'Барная стойка','pour.webp'],[547.6,424.3,'Главная сцена','stage.webp'],[556.2,196.6,'VIP-зал','vip.webp'],[332.2,196.6,'Уборная',''],[199.7,133.2,'Лестница, вход в Well Well','stairs.webp'],[794.6,299.7,'Караоке-зал','karaoke2.webp'],[742.3,503.2,'Сцена караоке',''],[78.4,701.2,'Звуковая','']]};
   all('.plan').forEach(function(pl){var box=D.createElement('div'),side=D.createElement('div'),lg=D.createElement('ol'),im=pl.querySelector('img');box.className='pl';side.className='pl__side';lg.className='pl__lg';pl.appendChild(box);box.appendChild(im);var ph=D.createElement('figure');ph.className='pl__ph2';ph.innerHTML='<img alt="" src="stage.webp" loading="lazy"><figcaption></figcaption>';var phi=ph.firstChild,phc=ph.lastChild,cur=-1;phc.textContent=matchMedia('(hover:hover)').matches?'Наведите на зону на схеме':'Нажмите на зону на схеме';side.appendChild(ph);side.appendChild(lg);pl.appendChild(side);
     PT[pl.id].forEach(function(p,i){var x=p[0]/9.42,b=D.createElement('button'),li=D.createElement('li'),c=D.createElement('button');b.type=c.type='button';b.className='pl__pt'+(x<30?' l':x>70?' r':'');b.style.left=x+'%';b.style.top=(p[1]/7.71)+'%';b.setAttribute('data-i',i);c.setAttribute('data-i',i);b.setAttribute('aria-label',(i+1)+'. '+p[2]);b.innerHTML='<span></span>';b.firstChild.textContent=p[2];c.textContent=p[2];box.appendChild(b);li.appendChild(c);lg.appendChild(li)});
-    if(pl.id==='p2'){var nt=D.createElement('p');nt.className='pl__note';nt.textContent='Фуршет до 100 персон возможен при условии задействования караоке и VIP-зала.';side.appendChild(nt)}
+    if(pl.id==='p2'){var nt=D.createElement('p');nt.className='pl__note';nt.textContent='Фуршет до 100 персон — при условии задействования караоке и VIP-зала.';side.appendChild(nt)}var nt2=D.createElement('p');nt2.className='pl__note';nt2.textContent='Изменим наполнение площадки под ваш запрос.';side.appendChild(nt2);
     function pact(i,sp){[].forEach.call(pl.querySelectorAll('[data-i]'),function(q){q.classList.toggle('on',+q.getAttribute('data-i')===i)});var L=PT[pl.id];if(i>=0&&i!==cur&&L[i]&&L[i][3]){cur=i;ph.classList.add('sw');setTimeout(function(){phi.src=L[i][3];phi.alt=L[i][2];phc.textContent=L[i][2];ph.classList.remove('sw')},160)}}
     ['mouseover','focusin','click'].forEach(function(ev){pl.addEventListener(ev,function(e){var t=e.target.closest&&e.target.closest('[data-i]');if(t)pact(+t.getAttribute('data-i'),ev==='click')})});pl.addEventListener('mouseleave',function(){pact(-1)})});
   if(IO)new IntersectionObserver(function(e){root.classList.toggle('at-book',e[0].isIntersecting)},{rootMargin:'-25% 0px -25% 0px'}).observe($('book'));

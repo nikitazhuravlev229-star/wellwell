@@ -72,6 +72,42 @@ h3{font-family:var(--sans);font-style:normal}
 .ho-go .ho__cta{animation:hoUp 1s 2.4s ease both}
 @media (max-width:700px){.ho__logo{width:min(72vw,340px)}.ho__cta{flex-direction:column;width:100%;max-width:320px}.ho__cta .btn{width:100%}}
 @media (prefers-reduced-motion:reduce){.ho-go .ho__img,.ho-go .ho__img img,.ho-go .ho::before,.ho-go .ho__in>*{animation:none}}
+/* === Интро: логотип мягко появляется и мягко уходит === */
+.intro{position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;background:#e8dccb;transition:opacity .9s cubic-bezier(.65,0,.35,1) .35s}
+.intro img{width:min(52vw,420px);height:auto;animation:inLogo 1.3s cubic-bezier(.16,1,.3,1) .15s both}
+.intro.out{opacity:0;pointer-events:none}
+.intro.out img{animation:outLogo .8s cubic-bezier(.65,0,.35,1) both}
+@keyframes inLogo{from{opacity:0;transform:scale(1.06);filter:blur(10px)}to{opacity:1;transform:none;filter:blur(0)}}
+@keyframes outLogo{from{opacity:1;transform:none;filter:blur(0)}to{opacity:0;transform:scale(.96);filter:blur(6px)}}
+.ho__logo--d,.ho__eb,.ho__sub{display:none}
+.ho__t br{display:none}
+.ho-go .ho__img{animation-duration:1.9s!important}.ho-go .ho::before{animation-delay:.9s!important}.ho-go .ho__logo{animation-delay:.9s!important}.ho-go .ho__t{animation-delay:1.5s!important}.ho-go .ho__cta{animation-delay:1.7s!important}
+@media (min-width:901px){
+ .hero.ho{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);align-items:stretch;text-align:left;background:#e8dccb;min-height:100vh}
+ .ho::before{display:none}
+ .ho__img{position:relative;inset:auto;grid-column:2;grid-row:1;z-index:0}
+ .ho__img img{position:absolute;inset:0;object-position:58% 50%}
+ .ho__in{grid-column:1;grid-row:1;align-items:flex-start;justify-content:center;color:#2b1d16;padding:120px clamp(32px,5vw,80px) 64px;position:relative}
+ .ho__logo--m{display:none}
+ .ho__logo--d{display:block;position:absolute;top:clamp(28px,4vw,48px);left:clamp(32px,5vw,80px);width:clamp(110px,10vw,150px)}
+ .ho__eb{display:block;font:500 12px/1.3 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:rgba(43,29,22,.66);margin:0 0 24px}
+ .ho__t{margin:0 0 28px;font:300 clamp(2.4rem,4.4vw,4.6rem)/1.06 var(--sans);letter-spacing:.03em;color:#2b1d16;max-width:none}
+ .ho__t br{display:inline}.ho__geo{display:none}
+ .ho__sub{display:block;font:400 clamp(15px,1.15vw,18px)/1.55 var(--sans);color:rgba(43,29,22,.66);max-width:34ch;margin:0 0 40px}
+ .ho__cta{margin-top:0;justify-content:flex-start}.ho__b2{display:none!important}
+ .ho .btn{color:#2b1d16!important;border-color:#2b1d16!important}
+ .ho .btn:hover,.ho .btn:focus-visible{background:#2b1d16!important;color:#e8dccb!important}
+ @keyframes hoSide{from{clip-path:inset(0 0 0 100%)}to{clip-path:inset(0)}}
+ @keyframes hoImg{from{transform:scale(1.1)}to{transform:none}}
+ .ho-wait .ho__in>*{opacity:0}
+ .ho-go .ho__img{animation:hoSide 1.6s cubic-bezier(.76,0,.24,1) both!important}
+ .ho-go .ho__img img{animation:hoImg 2.2s cubic-bezier(.16,1,.3,1) both!important}
+ .ho-go .ho__logo--d{animation:hoUp 1s .2s ease both!important}
+ .ho-go .ho__eb{animation:hoUp 1s .35s ease both}
+ .ho-go .ho__t{animation:hoUp 1.1s .5s ease both!important}
+ .ho-go .ho__sub{animation:hoUp 1s .7s ease both}
+ .ho-go .ho__cta{animation:hoUp 1s .85s ease both!important}
+}
 /* === Минимализм: весь сайт бежевый, без коричневого/чёрного фона и красных элементов === */
 :root{--bg:#e8dccb;--surface:#f1e9dd;--text:#2b1d16;--fgr:43,29,22;--bgr:232,220,203;--line:rgba(43,29,22,.22);--muted:rgba(43,29,22,.66);--red:#2b1d16;--focus:#2b1d16}
 html,body{background:#e8dccb;color:#2b1d16}
@@ -141,14 +177,24 @@ h2{font-size:clamp(1.5rem,2.6vw,2.3rem)!important;letter-spacing:.08em!important
 <main id="main">
 
 <section class="hero ho" id="top">
-  <div class="ho__img"><picture><source media="(max-aspect-ratio:1/1)" srcset="hero-p.webp"><img src="hero-hq.webp" srcset="hero-m.webp 1280w, hero-hq.webp 2560w" sizes="100vw" alt="Зал Well Well перед фуршетом: столы в скатертях, горка бокалов, люстра из светящихся шаров и бар" width="2560" height="1707" fetchpriority="high"></picture></div>
+  <div class="ho__img"><picture><source media="(max-aspect-ratio:1/1)" srcset="hero-p.webp"><img src="hero-hq.webp" srcset="hero-m.webp 1280w, hero-hq.webp 2560w" sizes="(min-width:901px) 55vw, 100vw" alt="Зал Well Well перед фуршетом: столы в скатертях, горка бокалов, люстра из светящихся шаров и бар" width="2560" height="1707" fetchpriority="high"></picture></div>
   <div class="ho__in">
-    <img class="ho__logo" src="logo.svg" alt="Well Well music bistro" width="400" height="155">
-    <h1 class="ho__t">Камерная площадка для событий до 100 гостей · Китай-город</h1>
-    <div class="ho__cta"><a class="btn" href="#book">Забронировать дату</a><a class="btn" href="#halls">Смотреть залы</a></div>
+    <img class="ho__logo ho__logo--m" src="logo.svg" alt="Well Well music bistro" width="400" height="155">
+    <img class="ho__logo ho__logo--d" src="logo-dark.svg" alt="" width="400" height="155">
+    <p class="ho__eb">Music bistro · Китай-город</p>
+    <h1 class="ho__t">Камерная площадка<br> для событий<br> до 100 гостей<span class="ho__geo"> · Китай-город</span></h1>
+    <p class="ho__sub">Банкеты, фуршеты и музыкальные вечера. Три зала, своя сцена и кухня «Рыбы Моей».</p>
+    <div class="ho__cta"><a class="btn" href="#book">Забронировать дату</a><a class="btn ho__b2" href="#halls">Смотреть залы</a></div>
   </div>
 </section>
-<script>(function(){var d=document.documentElement;d.classList.add('ho-wait');var im=document.querySelector('.ho__img img');var go=function(){if(d.classList.contains('ho-go'))return;d.classList.remove('ho-wait');d.classList.add('ho-go')};if(!im)return go();if(im.complete&&im.naturalWidth)return go();im.addEventListener('load',go);im.addEventListener('error',go);setTimeout(go,3000)})();</script>
+<div class="intro" aria-hidden="true"><img src="logo-dark.svg" alt="" width="400" height="155"></div>
+<script>(function(){var d=document.documentElement,it=document.querySelector('.intro'),im=document.querySelector('.ho__img img');
+var R=matchMedia('(prefers-reduced-motion: reduce)').matches;d.classList.add('ho-wait');
+var t0=Date.now(),ready=false,done=false;
+function finish(){if(done)return;done=true;var wait=Math.max(0,1700-(Date.now()-t0));
+ setTimeout(function(){it&&it.classList.add('out');setTimeout(function(){d.classList.remove('ho-wait');d.classList.add('ho-go')},650);setTimeout(function(){it&&it.remove()},1500)},R?0:wait)}
+if(R){it&&it.remove();d.classList.remove('ho-wait');d.classList.add('ho-go');return}
+if(!im||(im.complete&&im.naturalWidth))finish();else{im.addEventListener('load',finish);im.addEventListener('error',finish)}setTimeout(finish,3500)})();</script>
 
 
 <section class="nums" id="formats" aria-label="Вместимость">
@@ -160,7 +206,6 @@ h2{font-size:clamp(1.5rem,2.6vw,2.3rem)!important;letter-spacing:.08em!important
       <li><b>30</b><span>гостей в караоке-руме</span></li>
       <li><b>12</b><span>гостей в VIP-зале</span></li>
     </ul>
-    <p class="nums__inc">Сцена и свет · звук Shure · кухня «Рыбы Моей» · программа и декор</p>
   </div>
 </section>
 

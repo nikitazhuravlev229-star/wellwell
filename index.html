@@ -14,7 +14,7 @@
 <meta name="robots" content="noindex">
 <link rel="icon" href="logo.svg" type="image/svg+xml">
 <link rel="preload" as="image" href="hero-p.webp" media="(max-aspect-ratio:1/1)"><link rel="preload" as="image" href="hero-hq.webp" imagesrcset="hero-m.webp 1200w, hero-hq.webp 2400w" imagesizes="100vw" media="(min-aspect-ratio:1001/1000)">
-<meta name="theme-color" content="#2b1d16">
+<meta name="theme-color" content="#e8dccb">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"EventVenue","name":"Well Well Music Bistro","description":"Камерная площадка для банкетов, фуршетов и музыкальных вечеров до 100 гостей.","telephone":"+79684789556","maximumAttendeeCapacity":100,"address":{"@type":"PostalAddress","streetAddress":"Славянская площадь, 2","addressLocality":"Москва","addressCountry":"RU"}}</script>
 <style>
@@ -32,6 +32,57 @@ html{background:#2b1d16}
 h2,.intro h1,.formats h2{font:300 clamp(2rem,4.4vw,3.7rem)/1.1 var(--serif)!important;letter-spacing:.04em!important;text-transform:uppercase!important;font-style:normal!important;color:var(--text)}
 h2 em,h1 em{font:inherit!important;font-style:normal!important;letter-spacing:inherit!important}
 h3{font-family:var(--sans);font-style:normal}
+
+.book::before{display:none!important}.book{background:var(--surface)!important}
+.hx h1{max-width:none!important}
+.hdr__logo img,.ftr img{filter:none!important}
+.hero.hx{position:relative}.hx__logo{position:absolute;z-index:2;top:clamp(24px,4vw,48px);left:clamp(24px,5vw,80px);width:clamp(110px,10vw,150px);height:auto}
+@media (max-width:900px){.hero.hx{display:flex!important;flex-direction:column}.hx__logo{position:static;order:-2;margin:20px var(--pad) 16px;width:112px}.hx__img{margin-top:0!important}.hx__txt{padding-top:32px!important}}
+/* === Минимализм: весь сайт бежевый, без коричневого/чёрного фона и красных элементов === */
+:root{--bg:#e8dccb;--surface:#f1e9dd;--text:#2b1d16;--fgr:43,29,22;--bgr:232,220,203;--line:rgba(43,29,22,.22);--muted:rgba(43,29,22,.66);--red:#2b1d16;--focus:#2b1d16}
+html,body{background:#e8dccb;color:#2b1d16}
+section,.formats,.halls,.plans,.book,.gal,.faq,.where,.ftr,.hdr.is-solid,.hdr{--bg:#e8dccb;--text:#2b1d16;--fgr:43,29,22;--bgr:232,220,203;--line:rgba(43,29,22,.22);--muted:rgba(43,29,22,.66)}
+section{padding-block:clamp(64px,9vw,128px)}
+h2{font-size:clamp(1.5rem,2.6vw,2.3rem)!important;letter-spacing:.08em!important;margin-bottom:clamp(28px,4vw,48px)}
+.btn{background:transparent!important;color:var(--text)!important;border:1px solid var(--text)!important;font:500 13px/1 var(--sans)!important;letter-spacing:.12em;text-transform:uppercase;padding:18px 28px;min-height:52px;border-radius:0;transition:background-color .25s ease,color .25s ease}
+.btn:hover,.btn:focus-visible{background:var(--text)!important;color:var(--bg)!important}
+.hdr .btn{padding:12px 18px;min-height:40px}
+/* hero как вариант 12 */
+.hero.hx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);min-height:100dvh;padding:0;text-align:left;align-items:stretch}
+.hx__txt{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:120px clamp(24px,5vw,80px) 64px}
+.hx__eb{font:500 12px/1.3 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin:0 0 24px}
+.hx h1{font:300 clamp(2.2rem,4.4vw,4.6rem)/1.06 var(--sans);letter-spacing:.03em;text-transform:uppercase;margin:0 0 28px;max-width:12ch}
+.hx__sub{font:400 clamp(15px,1.15vw,18px)/1.55 var(--sans);color:var(--muted);max-width:34ch;margin:0 0 40px}
+.hx__img{position:relative;overflow:hidden}.hx__img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 50%}
+/* цифры */
+.nums{padding-block:clamp(40px,6vw,80px);border-block:1px solid var(--line)}
+.nums__l{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.nums__l li{display:flex;flex-direction:column;gap:6px}
+.nums__l b{font:300 clamp(2.6rem,6vw,5.4rem)/1 var(--sans);letter-spacing:.01em}
+.nums__l span{font:500 12px/1.3 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.nums__inc{margin:clamp(28px,4vw,44px) 0 0;font:400 14px/1.5 var(--sans);letter-spacing:.06em;color:var(--muted)}
+/* залы: только фото и название */
+.halls__grid{display:grid!important;grid-template-columns:repeat(2,1fr)!important;gap:clamp(12px,1.6vw,24px)!important;grid-template-areas:none!important}
+.halls__grid .hall{grid-area:auto!important;margin:0!important;display:block}
+.halls__grid .hall img{width:100%!important;height:auto!important;aspect-ratio:4/3;object-fit:cover;display:block}
+.hall__txt{display:flex!important;justify-content:space-between;align-items:baseline;gap:12px;padding:14px 0 0!important;position:static!important;background:none!important}
+.hall__txt h3{font:400 clamp(15px,1.3vw,19px)/1.2 var(--sans)!important;letter-spacing:.14em;text-transform:uppercase;margin:0}
+.hall__more{margin:0!important;color:var(--muted);font-size:11px!important}
+/* галерея: больше воздуха */
+.gal__grid img{filter:none!important}
+.ftr{border-top:1px solid var(--line)}
+#ymap [class*="ground-pane"]{filter:grayscale(1) sepia(.25) contrast(.95)!important}
+#ymap [class*="copyrights-pane"]{filter:none!important}
+.map{border:0!important}
+.lb{background:rgba(232,220,203,.97)!important;color:#2b1d16}
+.lb button{color:#2b1d16;border-color:rgba(43,29,22,.3)}
+@media (max-width:900px){
+ .hero.hx{grid-template-columns:1fr;min-height:0}
+ .hx__img{order:-1;aspect-ratio:4/3;margin-top:72px}.hx__txt{padding:36px var(--pad) 48px}
+ .hx h1{font-size:clamp(1.9rem,8.6vw,2.6rem)}
+ .nums__l{grid-template-columns:repeat(2,1fr);row-gap:32px}
+ .halls__grid{grid-template-columns:1fr!important}
+}
 </style>
 </head>
 <body>
@@ -39,16 +90,13 @@ h3{font-family:var(--sans);font-style:normal}
 
 <header class="hdr" id="hdr">
   <div class="wrap hdr__in">
-    <a class="hdr__logo" href="#top" aria-label="Well Well Music Bistro, к началу страницы"><img src="logo.svg" alt="Well Well music bistro" width="121" height="46"></a>
+    <a class="hdr__logo" href="#top" aria-label="Well Well Music Bistro, к началу страницы"><img src="logo-dark.svg" alt="Well Well music bistro" width="121" height="46"></a>
     <span class="hdr__count" id="count" aria-hidden="true"></span>
     <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Меню"><span></span></button>
     <nav class="nav" id="nav" aria-label="Разделы страницы">
-      <a href="#formats">Форматы</a>
       <a href="#halls">Залы</a>
       <a href="#plans">Схема</a>
-      <a href="#book">Бронирование</a>
       <a href="#gallery">Галерея</a>
-      <a href="#faq">Вопросы</a>
       <a href="#where">Контакты</a>
     </nav>
     <a class="hdr__tel" href="tel:+79684789556">+7 (968) 478-95-56</a>
@@ -58,54 +106,50 @@ h3{font-family:var(--sans);font-style:normal}
 
 <main id="main">
 
-<section class="hero" id="top">
-  <div class="hero__img"><picture><source media="(max-aspect-ratio:1/1)" srcset="hero-p.webp"><img src="hero-hq.webp" srcset="hero-m.webp 1200w, hero-hq.webp 2400w" sizes="100vw" alt="Зал Well Well, подготовленный к фуршету: высокие столы в скатертях, горка бокалов, люстра из светящихся шаров и бар" width="2400" height="1600" fetchpriority="high"></picture></div>
-  <div class="wrap hero__in">
-    <h1 class="sr">Well Well Music Bistro: камерная площадка для событий до 100 гостей у метро «Китай-город»</h1>
-    <div class="wm" aria-hidden="true"><img src="logo.svg" alt="" width="400" height="155"></div>
-    <div class="hero__cta">
-      <a class="btn" href="#book">Забронировать площадку</a>
-      <a class="btn btn--ghost" href="#halls">Посмотреть залы</a>
-    </div>
+<section class="hero hx" id="top">
+  <img class="hx__logo" src="logo-dark.svg" alt="Well Well music bistro" width="140" height="53">
+  <div class="hx__txt">
+    <p class="hx__eb">Music bistro · Китай-город</p>
+    <h1>Камерная площадка<br>для событий<br>до 100 гостей</h1>
+    <p class="hx__sub">Банкеты, фуршеты и музыкальные вечера. Три зала, своя сцена и кухня «Рыбы Моей».</p>
+    <a class="btn" href="#book">Забронировать дату</a>
   </div>
+  <div class="hx__img"><picture><source media="(max-width:900px)" srcset="hero-m.webp"><img src="hero-hq.webp" alt="Зал Well Well перед фуршетом: столы в скатертях, горка бокалов и люстра из светящихся шаров" width="2400" height="1600" fetchpriority="high"></picture></div>
 </section>
 
-<section class="formats" id="formats">
+<section class="nums" id="formats" aria-label="Вместимость">
   <div class="wrap">
-    <div class="formats__head">
-      <h2 data-rv>Банкет, фуршет или <em>музыкальный вечер</em></h2>
-    </div>
-    <ul class="fmt">
-      <li data-rv><span class="fmt__t">Банкет</span><span class="fmt__n">до <b>100</b> персон</span></li>
-      <li data-rv><span class="fmt__t">Фуршет</span><span class="fmt__n">до <b>100</b> персон</span></li>
-      <li data-rv><span class="fmt__t">Фуршет с частичной рассадкой</span><span class="fmt__n">до <b>60</b> персон</span></li>
-      <li data-rv><span class="fmt__t">Караоке-рум</span><span class="fmt__n">до <b>30</b> персон</span></li>
-      <li data-rv><span class="fmt__t">VIP-зал</span><span class="fmt__n">до <b>12</b> персон</span></li>
+    <ul class="nums__l">
+      <li><b>100</b><span>банкет</span></li>
+      <li><b>100</b><span>фуршет</span></li>
+      <li><b>30</b><span>караоке</span></li>
+      <li><b>12</b><span>VIP-зал</span></li>
     </ul>
+    <p class="nums__inc">Сцена и свет · звук Shure · кухня «Рыбы Моей» · программа и декор</p>
   </div>
 </section>
 
 <section class="halls" id="halls">
   <div class="wrap">
     <div class="halls__head">
-      <h2 data-rv>Три зала и <em>открытая кухня</em></h2>
+      <h2 data-rv>Залы</h2>
     </div>
     <div class="halls__grid">
       <article class="hall hall--a" data-rv>
         <img src="stage.webp" alt="Главная сцена Well Well в свете прожекторов" width="1172" height="962" loading="lazy">
-        <div class="hall__txt"><h3>Концертный зал</h3><p>Главная сцена, барная стойка и столы для гостей. Здесь проходят банкеты и музыкальные вечера.</p></div>
+        <div class="hall__txt"><h3>Концертный зал</h3></div>
       </article>
       <article class="hall hall--b" data-rv>
         <img src="karaoke2.webp" alt="Караоке-рум с красными диванами" width="700" height="860" loading="lazy">
-        <div class="hall__txt"><h3>Караоке-рум</h3><p>Отдельный зал со своей сценой и бэк-вокалом. Вмещает до 30 гостей.</p></div>
+        <div class="hall__txt"><h3>Караоке-рум</h3></div>
       </article>
       <article class="hall hall--c" data-rv>
         <img src="vip.webp" alt="VIP-зал с овальным столом и красными креслами" width="1600" height="553" loading="lazy">
-        <div class="hall__txt"><h3>VIP-зал</h3><p>Овальный стол для компании до 12 человек.</p></div>
+        <div class="hall__txt"><h3>VIP-зал</h3></div>
       </article>
       <article class="hall hall--d" data-rv>
         <img src="food3.webp" alt="Повар посыпает блюдо на открытой кухне" width="700" height="856" loading="lazy">
-        <div class="hall__txt"><h3>Открытая кухня</h3><p>Повара собирают блюда на глазах у гостей.</p></div>
+        <div class="hall__txt"><h3>Открытая кухня</h3></div>
       </article>
     </div>
   </div>
@@ -113,7 +157,7 @@ h3{font-family:var(--sans);font-style:normal}
 
 <section class="plans" id="plans">
   <div class="wrap">
-    <h2 data-rv>Схема площадки <em>под ваш формат</em></h2>
+    <h2 data-rv>Схема зала</h2>
     <div class="tabs" role="tablist" aria-label="Варианты размещения гостей">
       <button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="true" type="button">Банкет до 100 персон</button>
       <button class="tab" role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1" type="button">Фуршет до 100 персон</button>
@@ -127,7 +171,7 @@ h3{font-family:var(--sans);font-style:normal}
 
 <section class="book" id="book">
   <div class="wrap">
-    <h2 data-rv>Забронируйте <em>дату</em></h2>
+    <h2 data-rv>Забронировать дату</h2>
     <form class="form bk" id="form" novalidate>
       <div class="bk__main">
         <div class="dts" id="dts" role="radiogroup" aria-label="Дата мероприятия"></div>
@@ -149,7 +193,7 @@ h3{font-family:var(--sans);font-style:normal}
 
 <section class="gal" id="gallery">
   <div class="wrap">
-    <h2 data-rv>Галерея <em>площадки</em></h2>
+    <h2 data-rv>Галерея</h2>
     <ul class="gal__grid" id="gal">
       <li class="g-w"><a href="g-002.webp"><img src="g-002.webp" alt="Зал Well Well: сцена, фуршетные столы и люстры" width="1280" height="853" loading="lazy"></a></li>
       <li><a href="wine.webp"><img src="wine.webp" alt="Гостья с бокалом вина на фоне красной подсветки зала" width="1200" height="1800" loading="lazy"></a></li>
@@ -169,41 +213,14 @@ h3{font-family:var(--sans);font-style:normal}
   </div>
 </section>
 
-<section class="faq" id="faq">
-  <div class="wrap faq__grid">
-    <h2 data-rv>Частые <em>вопросы</em></h2>
-    <div>
-      <details open>
-        <summary>Сколько гостей поместится?</summary>
-        <p>Банкет и фуршет рассчитаны на 100 персон, фуршет с частичной рассадкой на 60. Караоке-рум вмещает до 30 гостей, VIP-зал до 12.</p>
-      </details>
-      <details>
-        <summary>Где находится площадка?</summary>
-        <p>Москва, Славянская площадь, дом 2, минус первый этаж ресторана «Рыба моя». Ближайшее метро «Китай-город», до парка «Зарядье» две минуты.</p>
-      </details>
-      <details>
-        <summary>Нужно ли привозить звук и свет?</summary>
-        <p>На площадке есть сцена, цифровой пульт, сценические мониторы, порталы, световые приборы и микрофоны Shure.</p>
-      </details>
-      <details>
-        <summary>Что будет в меню?</summary>
-        <p>Мясная гастрономия, хиты ресторана «Рыба моя», банкетные блюда в стол, фингер-фуд и амюз-буш.</p>
-      </details>
-      <details>
-        <summary>Поможете с программой и оформлением?</summary>
-        <p>Да. По запросу готовим музыкальную программу, флористику и декор, устраиваем chef’s table с приглашёнными шефами.</p>
-      </details>
-    </div>
-  </div>
-</section>
+
 
 <section class="where" id="where">
   <div class="wrap where__grid">
     <div>
-      <h2 data-rv>Как нас <em>найти</em></h2>
+      <h2 data-rv>Контакты</h2>
       <dl class="contacts">
-        <div><dt>Адрес</dt><dd>Москва, Славянская пл., дом 2,<br>минус первый этаж ресторана «Рыба моя»</dd></div>
-        <div><dt>Как добраться</dt><dd>Метро «Китай-город», две минуты от парка «Зарядье».</dd></div>
+        <div><dt>Адрес</dt><dd>Славянская пл., 2, м. «Китай-город»<br>Вход через ресторан «Рыба моя», этаж −1</dd></div>
         <div><dt>Телефон</dt><dd><a class="tlink" href="tel:+79684789556">+7 (968) 478-95-56</a></dd></div>
       </dl>
       <a class="btn btn--ghost" href="https://yandex.ru/maps/org/well_well/160057691769/" target="_blank" rel="noopener">Построить маршрут</a>
@@ -218,7 +235,7 @@ h3{font-family:var(--sans);font-style:normal}
 
 <footer class="ftr">
   <div class="wrap ftr__in">
-    <img src="logo-full.svg" alt="Well Well music bistro" width="175" height="72" loading="lazy">
+    <img src="logo-full-dark.svg" alt="Well Well music bistro" width="175" height="72" loading="lazy">
     <p>ООО «МАСА», ИНН 7714433355, ОГРН 1187746873434. Юридический адрес: г. Москва, Славянская площадь, дом 2/5/4.</p>
     <p><a class="tlink" href="tel:+79684789556">+7 (968) 478-95-56</a><br><a class="tlink" href="https://testshrift-ilg.tilda.ws/privacy" target="_blank" rel="noopener">Политика конфиденциальности</a></p>
   </div>
@@ -264,9 +281,10 @@ h3{font-family:var(--sans);font-style:normal}
     rv.forEach(function(el){ro.observe(el)})}
   else rv.forEach(function(el){el.classList.add('in')});
 
+  try{
   // Фишки шаблонов: слайдер первого экрана с миниатюрами, лента залов, бегущая строка, переключатель темы.
   // Всё собирается из текста и фото, которые уже есть на странице; в каком варианте что видно, решают стили.
-  var hbox=D.querySelector('.hero__img'),bgs=[];
+  var hbox=D.querySelector('.hero__img')||D.querySelector('.hx__img'),bgs=[];
   function addBg(src){var im=D.createElement('img');im.className='hs__bg';im.alt='';im.setAttribute('data-src',src);hbox.appendChild(im);bgs.push(im);return bgs.length-1}
   function showBg(i){bgs.forEach(function(im,k){if(k===i&&!im.getAttribute('src'))im.src=im.getAttribute('data-src');im.classList.toggle('on',k===i)})}
   function srcOf(k){var im=D.querySelector('main img[src*="'+k+'"]');return im?im.getAttribute('src'):''}
@@ -277,7 +295,7 @@ h3{font-family:var(--sans);font-style:normal}
     [].forEach.call(th.children,function(b,k){b.classList.toggle('on',k===i);b.setAttribute('aria-pressed',k===i)});
     clearTimeout(stimer);if(!calm)stimer=setTimeout(next,5200)}
   function next(){if(getComputedStyle(ui).display!=='none'&&window.pageYOffset<window.innerHeight*.8&&!D.hidden)slide((si+1)%SL.length);else stimer=setTimeout(next,1500)}
-  SL.forEach(function(s,i){var src=s[0]?srcOf(s[0]):D.querySelector('.hero__img img').getAttribute('src');s[2]=s[0]?addBg(src):-1;
+  SL.forEach(function(s,i){var src=s[0]?srcOf(s[0]):(D.querySelector('.hero__img img')||D.querySelector('.hx__img img')).getAttribute('src');s[2]=s[0]?addBg(src):-1;
     var b=D.createElement('button');b.type='button';b.setAttribute('aria-label',s[1]);b.innerHTML='<img alt="" loading="lazy" src="'+src+'"><i></i>';
     b.addEventListener('click',function(){slide(i)});th.appendChild(b)});
   slide(0);
@@ -294,6 +312,7 @@ h3{font-family:var(--sans);font-style:normal}
   mq.innerHTML='<div class="mq__t">'+mt+mt+mt+mt+'</div>';var fsec=D.querySelector('.formats');fsec.parentNode.insertBefore(mq,fsec);
   var tg=D.createElement('button');tg.type='button';tg.className='tgl';tg.setAttribute('aria-label','Тёмная тема');tg.setAttribute('aria-pressed','false');
   tg.addEventListener('click',function(){tg.setAttribute('aria-pressed',root.classList.toggle('ww-dark'))});burger.parentNode.insertBefore(tg,burger);
+  }catch(err){}
 
   // Полоса прогресса, параллакс первого экрана, подсветка плиток под курсором
   var prog=D.createElement('i');prog.className='prog';prog.setAttribute('aria-hidden','true');D.body.appendChild(prog);
@@ -357,7 +376,7 @@ h3{font-family:var(--sans);font-style:normal}
 
   // Карта подгружается, когда до неё доскроллили
   var fr=D.getElementById('ymap');
-  if(fr){var go=function(){var s=D.createElement('script');s.src='https://api-maps.yandex.ru/2.1/?lang=ru_RU';s.onload=function(){ymaps.ready(function(){var c=[55.753388,37.633968],m=new ymaps.Map('ymap',{center:c,zoom:16,controls:['zoomControl']},{suppressMapOpenBlock:true,yandexMapDisablePoiInteractivity:true});m.behaviors.disable('scrollZoom');m.geoObjects.add(new ymaps.Placemark(c,{iconCaption:'Well Well'},{preset:'islands#redDotIconWithCaption'}))})};D.head.appendChild(s)};
+  if(fr){var go=function(){var s=D.createElement('script');s.src='https://api-maps.yandex.ru/2.1/?lang=ru_RU';s.onload=function(){ymaps.ready(function(){var c=[55.753388,37.633968],m=new ymaps.Map('ymap',{center:c,zoom:16,controls:['zoomControl']},{suppressMapOpenBlock:true,yandexMapDisablePoiInteractivity:true});m.behaviors.disable('scrollZoom');m.geoObjects.add(new ymaps.Placemark(c,{iconCaption:'Well Well'},{preset:'islands#brownDotIconWithCaption'}))})};D.head.appendChild(s)};
     if(IO){var mo=new IntersectionObserver(function(e){if(e[0].isIntersecting){mo.disconnect();go()}},{rootMargin:'600px 0px'});mo.observe(fr)}else go()}
 
   // Заявка: дата с афиши, событие, гости, телефон. Отправки нет: это макет, приёмник заявок подключается отдельно.

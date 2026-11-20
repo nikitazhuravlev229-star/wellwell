@@ -108,6 +108,23 @@ h3{font-family:var(--sans);font-style:normal}
  .ho-go .ho__sub{animation:hoUp 1s .7s ease both}
  .ho-go .ho__cta{animation:hoUp 1s .85s ease both!important}
 }
+.swipe-hint{display:none}
+/* === Телефон: листаемые залы и галерея, компактная вместимость === */
+@media (max-width:900px){
+ .ho__logo--m{width:min(46vw,200px)!important}
+ #formats .nums__l{grid-template-columns:repeat(2,1fr)!important;gap:22px 16px!important}
+ #formats .nums__l b{font-size:2.5rem!important}
+ #formats .nums__l span{font-size:10px!important;letter-spacing:.14em!important;line-height:1.35!important}
+ #halls .halls__grid,#gallery .gal__grid{display:flex!important;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;gap:12px!important;margin-inline:calc(-1*var(--pad))!important;padding:0 var(--pad) 6px!important;scroll-padding-inline:var(--pad);scrollbar-width:none;-webkit-overflow-scrolling:touch}
+ .halls__grid::-webkit-scrollbar,.gal__grid::-webkit-scrollbar{display:none}
+ #halls .halls__grid .hall{flex:0 0 82%!important;scroll-snap-align:start}
+ #halls .halls__grid .hall img{aspect-ratio:4/5!important}
+ #gallery .gal__grid{list-style:none;margin-top:0!important}
+ #gallery .gal__grid>li{flex:0 0 74%!important;aspect-ratio:4/5!important;scroll-snap-align:start;grid-column:auto!important}
+ .gal__grid li a{clip-path:none!important}.gal__grid li img{scale:1!important}
+ #halls .hall__txt{flex-direction:column!important;align-items:flex-start!important;gap:6px!important}
+ .swipe-hint{display:block;margin:14px 0 0;font:500 11px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+}
 /* === Минимализм: весь сайт бежевый, без коричневого/чёрного фона и красных элементов === */
 :root{--bg:#e8dccb;--surface:#f1e9dd;--text:#2b1d16;--fgr:43,29,22;--bgr:232,220,203;--line:rgba(43,29,22,.22);--muted:rgba(43,29,22,.66);--red:#2b1d16;--focus:#2b1d16}
 html,body{background:#e8dccb;color:#2b1d16}
@@ -181,7 +198,7 @@ h2{font-size:clamp(1.5rem,2.6vw,2.3rem)!important;letter-spacing:.08em!important
   <div class="ho__in">
     <img class="ho__logo ho__logo--m" src="logo.svg" alt="Well Well music bistro" width="400" height="155">
     <img class="ho__logo ho__logo--d" src="logo-dark.svg" alt="" width="400" height="155">
-    <h1 class="ho__t">Камерная площадка<br> для событий<br> до 100 гостей<span class="ho__geo"> · Китай-город</span></h1>
+    <h1 class="ho__t">Камерная площадка<br> для событий<br> до 100 гостей</h1>
     <p class="ho__sub">Банкеты, фуршеты и музыкальные вечера. Три зала, своя сцена и кухня «Рыбы Моей».</p>
     <div class="ho__cta"><a class="btn" href="#book">Забронировать дату</a><a class="btn ho__b2" href="#halls">Смотреть залы</a></div>
   </div>
@@ -231,6 +248,7 @@ if(!im||(im.complete&&im.naturalWidth))finish();else{im.addEventListener('load',
         <div class="hall__txt"><h3>Открытая кухня</h3></div>
       </article>
     </div>
+    <p class="swipe-hint" aria-hidden="true">Листайте →</p>
   </div>
 </section>
 
@@ -289,6 +307,7 @@ if(!im||(im.complete&&im.naturalWidth))finish();else{im.addEventListener('load',
       <li><a href="sign.webp"><img src="sign.webp" alt="Светящаяся вывеска Well Well music bistro" width="1200" height="1800" loading="lazy"></a></li>
       <li class="g-w"><a href="g-160.webp"><img src="g-160.webp" alt="Зал во время вечера: сцена с красной подсветкой и гости" width="1280" height="853" loading="lazy"></a></li>
     </ul>
+    <p class="swipe-hint" aria-hidden="true">Листайте →</p>
   </div>
 </section>
 
@@ -510,7 +529,7 @@ if(!im||(im.complete&&im.naturalWidth))finish();else{im.addEventListener('load',
 </script>
 <script>
 (function(){var D=document,R=matchMedia('(prefers-reduced-motion: reduce)').matches;if(R||!('IntersectionObserver' in window))return;
-var S='.hx__txt>*,.hx__img,.nums__h,.nums__l li,.nums__inc,.halls__grid .hall,.tabs,.pl,.bk__main,.gal__grid>*,.contacts>div,.where .btn,.map';
+var MOB=matchMedia('(max-width:900px)').matches;var S='.nums__h,.nums__l li,'+(MOB?'.halls__grid,.gal__grid':'.halls__grid .hall,.gal__grid>*')+',.tabs,.pl,.bk__main,.contacts>div,.where .btn,.map';
 var els=[].slice.call(D.querySelectorAll(S));
 els.forEach(function(el){var sib=[].slice.call(el.parentNode.children).filter(function(x){return els.indexOf(x)>-1});var k=sib.indexOf(el);el.classList.add('ap');el.style.setProperty('--ad',Math.min(k%4,3)*110+'ms')});
 D.documentElement.classList.add('ap-on');

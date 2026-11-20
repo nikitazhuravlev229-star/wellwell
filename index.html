@@ -193,7 +193,7 @@ h2{font-size:clamp(1.5rem,2.6vw,2.3rem)!important;letter-spacing:.08em!important
 #ymap [class*="ground-pane"]{filter:grayscale(1) sepia(.25) contrast(.95)!important}
 #ymap [class*="copyrights-pane"]{filter:none!important}
 .map{border:0!important}
-.lb{background:rgba(232,220,203,.97)!important;color:#2b1d16}
+.lb{background:#e8dccb!important;color:#2b1d16}
 .lb button{color:#2b1d16;border-color:rgba(43,29,22,.3)}
 @media (max-width:900px){
  .hero.hx{grid-template-columns:1fr;min-height:0}
@@ -264,19 +264,19 @@ if(!im||(im.complete&&im.naturalWidth))finish();else{im.addEventListener('load',
     </div>
     <div class="halls__grid">
       <article class="hall hall--a" data-rv>
-        <img src="stage.webp" alt="Главная сцена Well Well в свете прожекторов" width="1172" height="962" loading="lazy">
+        <img src="stage.webp" alt="Главная сцена Well Well в свете прожекторов" width="2000" height="1642" loading="lazy">
         <div class="hall__txt"><h3>Концертный зал</h3></div>
       </article>
       <article class="hall hall--b" data-rv>
-        <img src="karaoke2.webp" alt="Караоке-рум с красными диванами" width="700" height="860" loading="lazy">
+        <img src="karaoke2.webp" alt="Караоке-рум с красными диванами" width="1615" height="2000" loading="lazy">
         <div class="hall__txt"><h3>Караоке-рум</h3></div>
       </article>
       <article class="hall hall--c" data-rv>
-        <img src="vip.webp" alt="VIP-зал с овальным столом и красными креслами" width="1600" height="553" loading="lazy">
+        <img src="vip.webp" alt="VIP-зал с овальным столом и красными креслами" width="2000" height="673" loading="lazy">
         <div class="hall__txt"><h3>VIP-зал</h3></div>
       </article>
       <article class="hall hall--d" data-rv>
-        <img src="food3.webp" alt="Повар посыпает блюдо на открытой кухне" width="700" height="856" loading="lazy">
+        <img src="food3.webp" alt="Повар посыпает блюдо на открытой кухне" width="1344" height="1656" loading="lazy">
         <div class="hall__txt"><h3>Открытая кухня</h3></div>
       </article>
     </div>
@@ -328,7 +328,7 @@ if(!im||(im.complete&&im.naturalWidth))finish();else{im.addEventListener('load',
       <li><a href="wine.webp"><img src="wine.webp" alt="Гостья с бокалом вина на фоне красной подсветки зала" width="1200" height="1800" loading="lazy"></a></li>
       <li><a href="g-009.webp"><img src="g-009.webp" alt="Цветочная композиция и бокалы с клубникой" width="853" height="1280" loading="lazy"></a></li>
       <li><a href="tables.webp"><img src="tables.webp" alt="Круглые столы с цветочными композициями в зале" width="1400" height="2100" loading="lazy"></a></li>
-      <li class="g-w"><a href="stage-live.webp"><img src="stage-live.webp" alt="Выступление на сцене Well Well, гости в зале" width="1400" height="933" loading="lazy"></a></li>
+      <li class="g-w"><a href="stage-live.webp"><img src="stage-live.webp" alt="Выступление на сцене Well Well, гости в зале" width="2000" height="1333" loading="lazy"></a></li>
       <li><a href="g-029.webp"><img src="g-029.webp" alt="Коктейли в бокалах-креманках на красной стойке" width="853" height="1280" loading="lazy"></a></li>
       <li class="g-w"><a href="g-004.webp"><img src="g-004.webp" alt="Барная стойка с фуршетной линией" width="1280" height="853" loading="lazy"></a></li>
       <li><a href="g-010.webp"><img src="g-010.webp" alt="Шоколадный фонтан" width="853" height="1280" loading="lazy"></a></li>
@@ -492,8 +492,8 @@ if(!im||(im.complete&&im.naturalWidth))finish();else{im.addEventListener('load',
     lb.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50)lbShow(cur+(dx<0?1:-1))})}
   links.forEach(function(a,i){a.addEventListener('click',function(e){e.preventDefault();lbOpen(gset,i,a)})});
   // Залы: по клику открывается галерея этого зала
-  var HG={'Концертный зал':[['stage.webp','Главная сцена в свете прожекторов'],['stage-live.webp','Выступление на главной сцене'],['g-002.webp','Сцена, фуршетные столы и люстры'],['ph-c-00162.webp','Ведущая на главной сцене'],['ph-c-00158.webp','Гости в концертном зале'],['g-130.webp','Вечер в концертном зале'],['ph-c-00105.webp','Зал под светом прожекторов'],['g-160.webp','Гости у главной сцены'],['hall.webp','Зал с круглыми столами и барной стойкой'],['ph-c-00122.webp','Вокалистка на сцене'],['ph-c-00133.webp','Гостья у подсвеченной арки сцены'],['ph-c-00139.webp','Люстры над залом'],['tables.webp','Круглые столы с цветами'],['ph-c-00201.webp','Гости под люстрой'],['kilian1.webp','Сцена с экраном']],
-    'Караоке-рум':[['karaoke2.webp','Караоке-рум с красными диванами'],['ph-k-00203.webp','Гостья поёт в караоке'],['hero.webp','Караоке-рум: столы и диваны'],['ph-k-00206.webp','Гости за столом в караоке-руме'],['ph-k-00208.webp','Стол с цветами у красных диванов'],['ph-k-00104.webp','Компания в караоке-руме'],['ph-k-00117.webp','Гости за круглым столом'],['ph-k-00211.webp','Гостьи на красном диване'],['ph-k-00140.webp','Красные диваны караоке-рума']],
+  var HG={'Концертный зал':[['stage.webp','Главная сцена в свете прожекторов'],['stage-live.webp','Выступление на главной сцене'],['g-002.webp','Сцена, фуршетные столы и люстры'],['ph-c-00162.webp','Ведущая на главной сцене'],['ph-c-00158.webp','Гости в концертном зале'],['g-130.webp','Вечер в концертном зале'],['ph-c-00105.webp','Зал под светом прожекторов'],['g-160.webp','Гости у главной сцены'],['hall.webp','Зал с круглыми столами и барной стойкой'],['ph-c-00122.webp','Вокалистка на сцене'],['ph-c-00133.webp','Гостья у подсвеченной арки сцены'],['ph-c-00139.webp','Люстры над залом'],['tables.webp','Круглые столы с цветами'],['ph-c-00201.webp','Гости под люстрой'],['kilian1.webp','Сцена с экраном'],['hero.webp','Зал: круглые столы в красных скатертях']],
+    'Караоке-рум':[['karaoke2.webp','Караоке-рум с красными диванами'],['ph-k-00203.webp','Гостья поёт в караоке'],['ph-k-00206.webp','Гости за столом в караоке-руме'],['ph-k-00208.webp','Стол с цветами у красных диванов'],['ph-k-00104.webp','Компания в караоке-руме'],['ph-k-00117.webp','Гости за круглым столом'],['ph-k-00211.webp','Гостьи на красном диване'],['ph-k-00140.webp','Красные диваны караоке-рума']],
     'VIP-зал':[['vip.webp','VIP-зал с овальным столом']],
     'Открытая кухня':[['food3.webp','Повар собирает блюдо'],['g-004.webp','Стойка открытой кухни'],['ph-f-00070.webp','Гости у стойки с закусками'],['ph-f-00069.webp','Гостьи выбирают блюда у стойки'],['ph-f-00204.webp','Закуски на стойке кухни'],['ph-f-00103.webp','Гость у стойки открытой кухни'],['ph-f-00178.webp','Напитки и закуски на стойке'],['ph-f-00186.webp','Гостьи у шоколадного фонтана'],['f-wide.webp','Фуршетная линия'],['g-031.webp','Закуски на блюдах-рыбах'],['f-red.webp','Тарталетки с икрой'],['f-black.webp','Закуски на чёрном блюде'],['f-cheese.webp','Сыр и клубника'],['furshet.webp','Фуршетные этажерки'],['g-010.webp','Шоколадный фонтан']]};
   all('.hall').forEach(function(c){var t=c.querySelector('h3').textContent.trim(),s=HG[t];if(!s)return;s.t=t;c.classList.add('is-link');c.tabIndex=0;c.setAttribute('role','button');c.setAttribute('aria-label',t+': открыть фото');
